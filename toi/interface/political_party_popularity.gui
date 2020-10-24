@@ -1,0 +1,33 @@
+guiTypes = {
+	containerWindowType = {
+		name = "political_party_pop_container"
+		position = { x = 100 y = 4 }
+		parent_window_token = politics_tab
+  
+		buttonType ={
+			name ="pol_pop_bg"
+			spriteType = "button_148x34"
+			position = { x=0 y=0 }
+		}
+  
+		iconType = {
+			name ="pol_pop_icon"
+			spriteType = "pol_power_icon"
+			position = { x= 7 y = 6 }
+		}
+  
+		instantTextBoxType = {
+			name ="pol_pop_button_text"
+			position = { x = 50 y = 50 }
+			font = "hoi_18mbs"
+			text = "Party Popularity"
+			format = center
+			maxWidth = 46
+			maxHeight = 24
+			fixedsize = yes
+   
+			pdx_tooltip = "POLITICAL_PARTY_POP_TOOLTIP"
+			pdx_tooltip_delayed = "POLITICAL_PARTY_POP_TOOLTIP_DELAYED"
+		}
+	}
+ }
