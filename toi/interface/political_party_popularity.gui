@@ -1,29 +1,30 @@
 guiTypes = {
 	containerWindowType = {
 		name = "political_party_pop_container"
-		position = { x = 100 y = 4 }
-		parent_window_token = politics_tab
-  
+		position = { x = 400 y = 250 }
+		size = { width=150 height=30 }
+		clipping = yes
+		
 		buttonType ={
 			name ="pol_pop_bg"
-			spriteType = "button_148x34"
-			position = { x=0 y=0 }
+			spriteType = "GFX_button_148x34"
+			position = { x = 0 y = 0 }
 		}
   
 		iconType = {
 			name ="pol_pop_icon"
-			spriteType = "pol_power_icon"
-			position = { x= 7 y = 6 }
+			spriteType = "GFX_pol_power_icon"
+			position = { x = 0 y = 0 }
 		}
   
 		instantTextBoxType = {
 			name ="pol_pop_button_text"
-			position = { x = 50 y = 50 }
+			position = { x = 0 y = 0 }
 			font = "hoi_18mbs"
 			text = "Party Popularity"
-			format = center
-			maxWidth = 46
-			maxHeight = 24
+			format = left
+			maxWidth = 120
+			#maxHeight = 24
 			fixedsize = yes
    
 			pdx_tooltip = "POLITICAL_PARTY_POP_TOOLTIP"

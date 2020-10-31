@@ -1,7 +1,7 @@
 scripted_gui = {
 	political_party_popularity = {
 		window_name = "political_party_pop_container"
-  
+		parent_window_token = politics_tab
 		context_type = player_context
   
 		#visible = {
