@@ -10,6 +10,7 @@
   add_equipment_to_stockpile = { type = uniform_equipment_0 amount = 1000 producer = KNS }
 
   add_ideas = { 
+	#POLITICS 
 	  	hos_is_leader
 	    victorian_era
 	  	law_victorian_army
@@ -17,31 +18,28 @@
 	    non_monarchical_system
 	    presidential_republic
 
-	    civilian_economy
-	    export_focus
-	    two_percent
-	    normal_taxes
-	  	cl_legal
-		unlimited_work_day
+	    #Economic
+	    	civilian_economy
+	    	export_focus
+	    	two_percent
+	    	normal_taxes
+	  		cl_legal
+			unlimited_work_day
 
-	    stagnation_growth
-	    border_control
-	    volunteer_only
-	    racial_laws
-	    universal_male_suffrage
+	    #Population
+	    	stagnation_growth
+	    	border_control
+	    	volunteer_only
+	    	racial_laws
+	    	universal_male_suffrage
 
-	    constitution_adopted
-	    free_elections
+	    	constitution_adopted
+	    	free_elections
 
-	    open_schools
-		secular_state
-		religion_protestant
-
-		hc_no_healthcare
-        law_police_force
-    	inframain_no_subsidies_infrastructure
-    	navinfra_no_naval_infrastructure
-    	sfund_private_ventures_only
+	    #Culture
+	    	open_schools
+			secular_state
+			religion_protestant
 
 	    #NATIONAL SPIRITS
 			NA_B_medium_scale_railways
@@ -49,22 +47,22 @@
     }
 
     set_politics = {
-	  ruling_party = centrism
-    election_frequency = 48
-    elections_allowed = yes
+	  ruling_party = traditional_conservatism
+    	election_frequency = 48
+    	elections_allowed = yes
 }
 
 set_popularities = {
     anarchism = 0
     vanguard_communism = 0
     collectivist_socialism = 0
-    social_egalitarianism = 0
-    centrism = 50
-    traditional_conservatism = 50
+    social_egalitarianism = 30
+    centrism = 34
+    traditional_conservatism = 12
     radical_democracy = 0
     chauvinist_populism = 0
     autocracy = 0
-    fundamentalism = 0
+    fundamentalism = 24
 }
 
   	set_technology = {
@@ -101,6 +99,8 @@ set_popularities = {
     early_artificial_fertilizer = 1
     electrical_engineering = 1
   }
+  
+  set_variable = { KNS_bloody_kansas = 5 }
 
   # POLITICAL LEADERS
 }

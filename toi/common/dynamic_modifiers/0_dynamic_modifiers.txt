@@ -112,7 +112,7 @@ QNG_army_funding_balance = {
 }
 
 USA_Slavery_Debate_Tension_Modifier = {
-	icon = chi_war_of_resistance2
+	icon = "GFX_idea_SWE_Cronyistic_Cabinet"
 
 	enable = { always = yes }
 

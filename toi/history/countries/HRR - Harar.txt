@@ -30,10 +30,10 @@
     tribal_slavery
     absolutism
 
-    no_constitution
+    sharia_constitution
     no_elections
 
-    oral_tradition
+    traditional_uluma
     state_religion
 	religion_sunni
 
@@ -78,9 +78,9 @@ set_popularities = {
     		autonomous_state = autonomy_eyalet
     		freedom_level = 0.1
   	  }
-      else = {
-        puppet = HRR
-      }
+    }
+    else = {
+      puppet = HRR
     }
   }
 
