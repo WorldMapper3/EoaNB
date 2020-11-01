@@ -21,18 +21,5 @@ guiTypes = {
 			position = { x = 115 y = -10` }
 		}
   
-		instantTextBoxType = {
-			name ="pol_pop_button_text"
-			position = { x = 0 y = 0 }
-			font = "hoi_18mbs"
-			text = "Party Popularity"
-			format = left
-			maxWidth = 120
-			#maxHeight = 24
-			fixedsize = yes
-   
-			pdx_tooltip = "POLITICAL_PARTY_POP_TOOLTIP"
-			pdx_tooltip_delayed = "POLITICAL_PARTY_POP_TOOLTIP_DELAYED"
-		}
 	}
  }

@@ -1906,3 +1906,9 @@
  SETTINGS_ACCESSIBILITY_STT_SHORTCUT_INPUT_INFO:0 "Customize the shortcut for toggling §HSpeech to Text§! on or off"
  CHAT_CVAA_MESSAGE:0 "$NAME$ says $MESSAGE$"
  CHAT_CVAA_SYSTEM_NAME:0 "System"
+
+
+
+#### POL POP ###
+POL_POP_BUTTON_LABEL:0 "Political Parties"
+POL_POP_BUTTON_TT:0 "The Political Parties tab gives an in-depth view of the popularity of parties within each ideology. This feature is not activated for each country and/or may not be utilized for each ideology."
