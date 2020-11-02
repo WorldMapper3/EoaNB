@@ -1,13 +1,13 @@
 guiTypes = {
 	containerWindowType = {
 		name = "political_party_pop_container"
-		position = { x = 400 y = 248 }
+		position = { x = 395 y = 245 }
 		size = { width=150 height=30 }
 		clipping = yes
 		
 		buttonType = {
 			name = "pol_pop_button"
-			quadTextureSprite = "GFX_button_261x34"
+			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 0 y = 0 }
 			buttonText = "POL_POP_BUTTON_LABEL"
 			buttonFont = "hoi_18mbs"
@@ -18,7 +18,7 @@ guiTypes = {
 		iconType = {
 			name ="pol_pop_icon"
 			spriteType = "GFX_pol_power_icon"
-			position = { x = 115 y = -10` }
+			position = { x = 0 y = -8 }
 		}
   
 	}
