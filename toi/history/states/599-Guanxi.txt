@@ -4,9 +4,7 @@ state= {
 	manpower = 4685200
 	state_category = town
 	resources={
-		tungsten=4
 		iron= 10
-		chromium = 4
 	}
 
 	history= {
@@ -56,6 +54,9 @@ state= {
 		}
 		YAL={
 			set_province_controller = 1469
+		}
+		1870.1.1={
+			owner = QNG
 		}
 
 	}

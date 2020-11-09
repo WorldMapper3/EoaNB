@@ -1,12 +1,2316 @@
+add_namespace = usa_slavery_debate
+add_namespace = usa_slavery_debate_kansas
+add_namespace = usa_slavery_debate_compromise
+add_namespace = usa_slavery_debate_secession
+
 add_namespace = acw_generic
-add_namespace = acw_lincoln
-add_namespace = acw_beckenridge
-add_namespace = acw_douglas
+add_namespace = acw_observers
+add_namespace = acw_trent
+add_namespace = acw_kanawha
+add_namespace = acw_houston
 add_namespace = acw_norton
+
+add_namespace = acw_lincoln
+add_namespace = acw_douglas
+add_namespace = acw_beckenridge
+add_namespace = acw_bell
+add_namespace = acw_norton
+
 add_namespace = acw_reconstruction_progress
 add_namespace = acw_reconstruction
 add_namespace = LIB_american_civil_war_outbreak
-add_namespace = acw_first_nations_trigger
+add_namespace = acw_first_nations_trigge
+
+############################## SLAVERY DEBATE #############################
+
+# Intro to the Slave Debate
+country_event = {
+	id = usa_slavery_debate.1
+	title = usa_slavery_debate.1.t
+	desc = usa_slavery_debate.1.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 2 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		hidden_effect = {
+			country_event = { id = usa_slavery_debate.2 days = 370 }
+			country_event = { id = usa_slavery_debate.3 days = 480 }
+			country_event = { id = usa_slavery_debate.4 days = 486 random_days = 5 }
+			country_event = { id = usa_slavery_debate.5 days = 510 }
+
+			country_event = { id = USA_slavery_debate_kansas.1 days = 5 }
+		}
+	}
+
+	option = {
+		# The Issue of Slavery is a States' Issue 
+		name = usa_slavery_debate.1.a
+		ai_chance = {
+			base = 50
+		}
+		add_political_power = 20
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 1 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+	option = {
+		# Abolitionists
+		name = usa_slavery_debate.1.b
+		ai_chance = {
+			base = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		add_political_power = -15
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = -4 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+	option = {
+		# Pro-Slavery
+		name = usa_slavery_debate.1.c
+		ai_chance = {
+			base = 35
+		}
+		add_political_power = -5
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 3 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+}
+
+# Oregon applies for Statehood
+country_event = {
+	id = usa_slavery_debate.2
+	title = usa_slavery_debate.2.t
+	desc = usa_slavery_debate.2.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+		owns_state = 385
+	}
+
+	immediate = {
+		activate_mission = USA_Slavery_Debate_Oregon_Statehood_Mission
+	}
+
+	option = {
+		name = usa_slavery_debate.2.a
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = -2 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+}
+
+# Lincoln Douglas Debates
+country_event = {
+	id = usa_slavery_debate.3
+	title = usa_slavery_debate.3.t
+	desc = usa_slavery_debate.3.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+		owns_state = 385
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -5 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate.3.a
+	}
+}
+
+# Dred Scott
+country_event = {
+	id = usa_slavery_debate.4
+	title = usa_slavery_debate.4.t
+	desc = usa_slavery_debate.4.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+		owns_state = 385
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -1 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate.4.a
+	}
+}
+
+# Oberlin - Wellington Rescue
+country_event = {
+	id = usa_slavery_debate.5
+	title = usa_slavery_debate.5.t
+	desc = usa_slavery_debate.5.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+		owns_state = 385
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 4 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate.5.a
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = -1 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+	option = {
+		name = usa_slavery_debate.5.b
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 1 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+
+}
+
+# Generic Statehood Event
+state_event = {
+	id = usa_slavery_debate.99
+	title = usa_slavery_debate.99.t
+	desc = usa_slavery_debate.99.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		OWNER = { has_idea = usa_slavery_law }
+	}
+
+	option = {
+		name = usa_slavery_debate.99.a
+		ai_chance = { base = 100 }
+		OWNER = { add_to_variable = { prestige_score = 1 } }
+	}
+}
+
+# 1860 Election
+country_event = {
+	id = usa_slavery_debate.100
+	title = usa_slavery_debate.100.t
+	desc = usa_slavery_debate.100.d
+	picture = GFX_report_event_election_vote
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_idea = usa_slavery_law
+		OR = {
+			has_government = centrism
+			has_government = traditional_conservatism
+			has_government = radical_democracy
+			has_government = social_egalitarianism
+		}
+	}
+
+	immediate = {
+		complete_national_focus = USA_Focus_ACW_Election_1860
+
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 3 }
+		USA_Slavery_Debate_Tension_Modify = yes
+
+		hidden_effect = {
+			set_division_template_lock = { division_template = "American Militia Battalion" is_locked = yes }
+			set_division_template_lock = { division_template = "American Infantry Regiment" is_locked = yes }
+			set_division_template_lock = { division_template = "American Infantry Regiment with Support" is_locked = yes }
+			set_division_template_lock = { division_template = "American State Guard" is_locked = yes }
+			set_division_template_lock = { division_template = "American National Guard" is_locked = yes }
+			set_division_template_lock = { division_template = "American Cavalry Battalion" is_locked = yes	}
+			# country_event = { days = 100 id = NA_B_unlock_units.1 }
+			# CSA = { country_event = { days = 100 id = NA_B_unlock_units.1 } }
+		}
+	}
+
+	option = { # Lincoln
+		name = usa_slavery_debate.100.a
+		ai_chance = {
+			base = 65
+			modifier = { factor = 100 is_historical_focus_on = yes }
+		}
+		trigger = { check_variable = { USA_Slavery_Debate_Leaning < 25 } }
+
+		hidden_effect = {
+			add_popularity = { ideology = social_egalitarianism popularity = 0.01 }
+			add_popularity = { ideology = centrism popularity = 0.03 }
+
+			set_country_flag = USA_LincolnElected
+			country_event = { id = acw_lincoln.1 days = 21 }
+			news_event = usa_slavery_debate.101
+		}
+	}
+	option = { # Douglas
+		name = usa_slavery_debate.100.b
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 is_historical_focus_on = yes }
+		}
+		trigger = { check_variable = { USA_Slavery_Debate_Leaning < 35 } }
+
+		hidden_effect = {
+			add_popularity = { ideology = centrism popularity = 0.03 }
+
+			set_country_flag = USA_DouglasElected
+			country_event = { id = acw_douglas.1 days = 21 }
+			news_event = usa_slavery_debate.101
+		}
+	}
+	option = { # Bell
+		name = usa_slavery_debate.100.c
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 is_historical_focus_on = yes }
+		}
+		# trigger = { check_variable = { USA_Slavery_Debate_Leaning > -25 } }
+		trigger = { always = no }
+
+		hidden_effect = {
+			add_popularity = { ideology = traditional_conservatism popularity = 0.06 }
+
+			set_country_flag = USA_BellElected
+			country_event = { id = acw_bell.1 days = 21 }
+			news_event = usa_slavery_debate.101
+		}
+	}
+	option = { # Beckenridge
+		name = usa_slavery_debate.100.e
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 is_historical_focus_on = yes }
+		}
+		# trigger = { check_variable = { USA_Slavery_Debate_Leaning > -35 } }
+		trigger = { always = no }
+
+		hidden_effect = {
+			add_popularity = { ideology = radical_democracy popularity = 0.03 }
+
+			set_country_flag = USA_BeckenridgeElected
+			country_event = { id = acw_beckenridge.1 days = 21 }
+			news_event = usa_slavery_debate.101
+		}
+	}
+}
+
+# US 1860 Election News Event
+news_event = {
+	id = usa_slavery_debate.101
+	title = usa_slavery_debate.101.t
+	desc = {
+		text = usa_slavery_debate.101.d_lincoln
+		trigger = {
+			USA = { has_country_flag = USA_LincolnElected }
+		}
+	}
+	desc = {
+		text = usa_slavery_debate.101.d_douglas
+		trigger = {
+			USA = { has_country_flag = USA_DouglasElected }
+		}
+	}
+	desc = {
+		text = usa_slavery_debate.101.d_bell
+		trigger = {
+			USA = { has_country_flag = USA_BellElected }
+		}
+	}
+	desc = {
+		text = usa_slavery_debate.101.d_beckenridge
+		trigger = {
+			USA = { has_country_flag = USA_BeckenridgeElected }
+		}
+	}
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		USA = {
+			OR = {
+				has_government = social_egalitarianism
+				has_government = centrism
+				has_government = traditional_conservatism
+				has_government = radical_democracy
+			}
+		}
+	}
+
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { tag = USA }
+				add_named_threat = {
+					name = usa_slavery_debate.101.t
+					threat = 2
+				}
+			}
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate.101.a
+		trigger = { NOT = { tag = SNM } }
+	}
+	option = {
+		name = usa_slavery_debate.101.b
+		trigger = { tag = SNM }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 USA = { has_country_flag = USA_BeckenridgeElected } }
+		}
+		add_opinion_modifier = {
+    			target = USA
+    			modifier = eoanb_minor_opinion_boost
+		}
+		hidden_effect = {
+			USA = {
+				country_event = usa_slavery_debate.102
+				add_to_variable = { prestige_score = 1 }
+			}
+		}
+	}
+	option = {
+		name = usa_slavery_debate.101.c
+		trigger = { tag = SNM }
+		ai_chance = {
+			base = 50
+			modifier = { factor = 0 USA = { has_country_flag = USA_LincolnElected } }
+		}
+	}
+}
+
+############################## BLEEDING KANSAS #############################
+
+# Kansas-Nebraska Act
+country_event = {
+	id = usa_slavery_debate_kansas.1
+	title = usa_slavery_debate.1.t
+	desc = usa_slavery_debate.1.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { owns_state = 386 }
+			383 = {
+				add_manpower = 2500
+			}
+		}
+
+		hidden_effect = {
+			country_event = { id = usa_slavery_debate_kansas.2 days = 3 }
+			country_event = { id = usa_slavery_debate_kansas.3 days = 85 }
+			country_event = { id = usa_slavery_debate_kansas.4 days = 125 }
+			country_event = { id = usa_slavery_debate_kansas.5 days = 145 }
+			country_event = { id = usa_slavery_debate_kansas.6 days = 170 }
+			country_event = { id = usa_slavery_debate_kansas.7 days = 235 }
+			country_event = { id = usa_slavery_debate_kansas.8 days = 330 }
+			# kansas.9 is news event
+			country_event = { id = usa_slavery_debate_kansas.10 days = 337 }
+			country_event = { id = usa_slavery_debate_kansas.12 days = 590 }
+
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.1.a
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -2 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+}
+
+# Governor Walker
+country_event = {
+	id = usa_slavery_debate_kansas.2
+	title = usa_slavery_debate_kansas.2.t
+	desc = usa_slavery_debate_kansas.2.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 1 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.2.a
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -2 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		ai_chance = { base = 100 }
+	}
+	option = {
+		name = usa_slavery_debate_kansas.2.b
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 1 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		ai_chance = { base = 0 }
+	}
+}
+
+# Bushwhackers boycott Convention
+country_event = {
+	id = usa_slavery_debate_kansas.3
+	title = usa_slavery_debate_kansas.3.t
+	desc = usa_slavery_debate_kansas.3.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 1 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.3.a
+		if = {
+			limit = { check_variable = { prestige_score > 1 } }
+			subtract_from_variable = { prestige_score = 1 }
+		}
+	}
+	option = {
+		name = usa_slavery_debate_kansas.3.b
+		if = {
+			limit = { check_variable = { prestige_score > 1 } }
+			subtract_from_variable = { prestige_score = 1 }
+		}
+	}
+}
+
+# Lecompton Convention
+country_event = {
+	id = usa_slavery_debate_kansas.4
+	title = usa_slavery_debate_kansas.4.t
+	desc = usa_slavery_debate_kansas.4.d
+	picture = GFX_report_event_usa_election_generic
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -3 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 2 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.4.a
+		add_political_power = 15
+	}
+}
+
+# Lecompton Constitution
+country_event = {
+	id = usa_slavery_debate_kansas.5
+	title = usa_slavery_debate_kansas.5.t
+	desc = usa_slavery_debate_kansas.5.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 6 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.5.a
+		ai_chance = { base = 100 }
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -1 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 1 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+		add_political_power = 15
+	}
+	option = {
+		name = usa_slavery_debate_kansas.5.b
+		ai_chance = { base = 0 }
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 4 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+		add_political_power = 20
+	}
+}
+
+# Votes on Lecompton
+country_event = {
+	id = usa_slavery_debate_kansas.6
+	title = usa_slavery_debate_kansas.6.t
+	desc = usa_slavery_debate_kansas.6.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 4 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.6.a
+		ai_chance = { base = 100 }
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -1 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = -2 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+		add_political_power = 15
+	}
+	option = {
+		name = usa_slavery_debate_kansas.6.b
+		ai_chance = { base = 0 }
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 4 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+		add_political_power = 20
+	}
+}
+
+# Fraud
+country_event = {
+	id = usa_slavery_debate_kansas.7
+	title = usa_slavery_debate_kansas.7.t
+	desc = usa_slavery_debate_kansas.7.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 4 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.7.a
+		ai_chance = { base = 100 }
+		hidden_effect = {
+			country_event = { id = usa_slavery_debate_kansas.11 days = 90 }
+		}
+	}
+	option = {
+		name = usa_slavery_debate_kansas.7.b
+		ai_chance = { base = 0 }
+		383 = { set_state_flag = NA_B_Slave_Kansas }
+	}
+}
+
+# Marais des Cgynes
+country_event = {
+	id = usa_slavery_debate_kansas.8
+	title = usa_slavery_debate_kansas.8.t
+	desc = usa_slavery_debate_kansas.8.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		exists = yes
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = 6 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.8.a
+		ai_chance = { base = 100 }
+		hidden_effect = {
+			news_event = usa_slavery_debate_kansas.9	
+		}
+	}
+	option = {
+		name = usa_slavery_debate_kansas.8.b
+		ai_chance = { base = 0 }
+		hidden_effect = {
+			news_event = usa_slavery_debate_kansas.9
+		}
+	}
+}
+
+# Marai des Cygnes
+news_event = {
+	id = usa_slavery_debate_kansas.9
+	title = usa_slavery_debate_kansas.9.t
+	desc = usa_slavery_debate_kansas.9.d
+	picture = GFX_report_event_worker_protests
+
+	is_triggered_only = yes
+	major = yes
+	trigger = {
+		country_exists = USA
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate.6.a
+	}
+}
+
+# Occupation of Kansas
+country_event = {
+	id = usa_slavery_debate_kansas.10
+	title = usa_slavery_debate_kansas.10.t
+	desc = usa_slavery_debate_kansas.10.d
+	picture = GFX_report_event_german_reichstag_gathering
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -5 }
+		USA_Slavery_Debate_Tension_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.10.a
+		add_political_power = 5
+		add_timed_idea = {
+			idea = Generic_Satisfy_Public_2
+			days = 25
+		}
+	}
+}
+
+# Second Vote on Lecompton
+country_event = {
+	id = usa_slavery_debate_kansas.11
+	title = usa_slavery_debate_kansas.11.t
+	desc = usa_slavery_debate_kansas.11.d
+	picture = GFX_report_event_usa_election_generic
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = -6 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+		hidden_effect = {
+			country_event = { id = usa_slavery_debate_kansas.12 days = 170 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.11.a
+	}
+}
+
+# Battle of the Spurs
+country_event = {
+	id = usa_slavery_debate_kansas.12
+	title = usa_slavery_debate_kansas.12.t
+	desc = usa_slavery_debate_kansas.12.d
+	picture = GFX_report_event_usa_election_generic
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = 3 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.12.a
+	}
+}
+
+# Wyandotte Convention
+country_event = {
+	id = usa_slavery_debate_kansas.13
+	title = usa_slavery_debate_kansas.13.t
+	desc = usa_slavery_debate_kansas.13.d
+	picture = GFX_report_event_usa_election_generic
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		NOT = {
+			has_global_flag = ACW_American_Civil_War_Avoided
+			has_global_flag = ACW_American_Civil_War_Happened
+		}
+	}
+
+	immediate = {
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change = -6 }
+		USA_Slavery_Debate_Leaning_Modify = yes
+		set_temp_variable = { USA_Slavery_Debate_Tension_Change = -2 }
+		USA_Slavery_Debate_Tension_Modify = yes
+		383 = { set_state_flag = NA_B_Free_Kansas }
+	}
+
+	option = {
+		name = usa_slavery_debate_kansas.13.a
+	}
+}
+
+############################## SECESSION #############################
+
+# South Carolina
+news_event = {
+	id = usa_slavery_debate_secession.1
+	title = usa_slavery_debate_secession.1.t
+	desc = usa_slavery_debate_secession.1.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	major = yes
+	trigger = {
+		USA = { has_idea = usa_slavery_law }
+	}
+	
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			remove_state_core = 364
+			
+			hidden_effect = {
+				add_state_claim = 364
+				set_variable = { rival_country = CSA.id }
+				
+				if = {
+					limit = { owns_state = 315 }
+					315 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 1350 }
+					1350 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 1022 }
+					1022 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 362 }
+					362 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 746 }
+					746 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 365 }
+					365 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 366 }
+					366 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 1211 }
+					1211 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 367 }
+					367 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 368 }
+					368 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 369 }
+					369 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 370 }
+					370 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 371 }
+					371 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 372 }
+					372 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 373 }
+					373 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 374 }
+					374 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 375 }
+					375 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 362 }
+					362 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 362 }
+					362 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 362 }
+					362 = { set_demilitarized_zone = yes }
+				}
+				if = {
+					limit = { owns_state = 362 }
+					362 = { set_demilitarized_zone = yes }
+				}
+				news_event = { id = usa_slavery_debate_secession.2 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.3 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.4 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.5 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.6 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.7 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.8 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.9 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.10 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.11 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.12 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.13 random_days = 100 }
+				news_event = { id = usa_slavery_debate_secession.14 random_days = 100 }
+				
+				CSA = {
+					transfer_state = 364
+					add_state_core = 364
+					set_capital = 364
+
+					set_variable = { rival_country = USA.id }
+					inherit_technology = USA
+					set_politics = { ruling_party = radical_democracy }
+					add_popularity = { ideology = radical_democracy popularity = 0.35 }
+					
+					create_country_leader = {
+						name = "Jefferson Davis"
+						desc = "POLITICS_FRANKLIN_DELANO_ROOSEVELT_DESC"
+						picture = "Portrait_CSA_Jefferson_Davis.dds"
+						expire = "1895.1.1"
+						ideology = plutocracy
+					}
+
+					set_global_flag = CSA_NA_B_idea_working_class_exploitation_score_var_set_flag
+					set_variable = { var = CSA.NA_B_idea_working_class_exploitation_score_var@CSA value = USA.NA_B_idea_working_class_exploitation_score_var@USA }
+					set_variable = { var = CSA.NA_B_idea_working_class_organization_score_var@CSA value = USA.NA_B_idea_working_class_organization_score_var@USA }
+					
+					country_event = NA_B_idea_working_class_exploitation_calculator.1
+					country_event = { id = csa.1 days = 75 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.1.a
+		trigger = { tag = USA }
+		ai_chance = { base = 100 }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		add_timed_idea = {
+			idea = USA_southern_secession_crisis
+			days = 120
+		}
+	}
+	option = {
+		name = usa_slavery_debate_secession.1.b
+		trigger = { tag = USA }
+		ai_chance = { base = 0 }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+
+		CSA = { change_tag_from = PREV }
+	}
+	option = {
+		name = usa_slavery_debate_secession.1.c
+		trigger = { NOT = { tag = USA } }
+		ai_chance = { base = 100 }
+	}
+}
+
+# Texas
+news_event = {
+	id = usa_slavery_debate_secession.2
+	title = usa_slavery_debate_secession.2.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		NOT = { USA = { has_country_flag = USA_DouglasElected } }
+		OR = {
+			375 = { is_owned_by = USA }
+			1303 = { is_owned_by = USA }
+			1304 = { is_owned_by = USA }
+			1305 = { is_owned_by = USA }
+			1306 = { is_owned_by = USA }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 375 } }
+				remove_state_core = 375
+				add_state_claim = 375
+			}
+			if = {
+				limit = { USA = { owns_state = 1303 } }
+				remove_state_core = 1303
+				add_state_claim = 1303
+			}
+			if = {
+				limit = { USA = { owns_state = 1304 } }
+				remove_state_core = 1304
+				add_state_claim = 1304
+			}
+			if = {
+				limit = { USA = { owns_state = 1305 } }
+				remove_state_core = 1305
+				add_state_claim = 1305
+			}
+			if = {
+				limit = { USA = { owns_state = 1306 } }
+				remove_state_core = 1306
+				add_state_claim = 1306
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.2 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 375 } }
+				375 = { set_demilitarized_zone = no }
+				transfer_state = 375
+				add_state_core = 375
+			}
+			else = { add_state_claim = 375 }
+			if = {
+				limit = { USA = { owns_state = 1303 } }
+				1303 = { set_demilitarized_zone = no }
+				transfer_state = 1303
+				add_state_core = 1303
+			}
+			else = { add_state_claim = 375 }
+			if = {
+				limit = { USA = { owns_state = 1304 } }
+				1304 = { set_demilitarized_zone = no }
+				transfer_state = 1304
+				add_state_core = 1304
+			}
+			else = { add_state_claim = 375 }
+			if = {
+				limit = { USA = { owns_state = 1305 } }
+				1305 = { set_demilitarized_zone = no }
+				transfer_state = 1305
+				add_state_core = 1305
+			}
+			else = { add_state_claim = 1306 }
+			if = {
+				limit = { USA = { owns_state = 1306 } }
+				1306 = { set_demilitarized_zone = no }
+				transfer_state = 1306
+				add_state_core = 1306
+			}
+			else = { add_state_claim = 1306 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+		hidden_effect = {
+  		if = {
+  			limit = {
+  				USA = { has_country_flag = USA_Houston_Revolt_Marked }
+  			}
+  			USA = { country_event = { id = acw.60 days = 25 } } # Houston Revolt
+  		}
+  	}
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Louisiana
+news_event = {
+	id = usa_slavery_debate_secession.3
+	title = usa_slavery_debate_secession.3.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		371 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 371 } }
+				remove_state_core = 371
+				add_state_claim = 371
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.3 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 371 } }
+				371 = { set_demilitarized_zone = no }
+				transfer_state = 371
+				add_state_core = 371
+			}
+			else = { add_state_claim = 371 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Arkansas
+news_event = {
+	id = usa_slavery_debate_secession.4
+	title = usa_slavery_debate_secession.4.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		372 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 372 } }
+				remove_state_core = 372
+				add_state_claim = 372
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.4 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 372 } }
+				372 = { set_demilitarized_zone = no }
+				transfer_state = 372
+				add_state_core = 372
+			}
+			else = { add_state_claim = 372 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Kansas
+news_event = {
+	id = usa_slavery_debate_secession.5
+	title = usa_slavery_debate_secession.5.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		383 = { has_state_flag = NA_B_Slave_Kansas }
+		383 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 374 } }
+				remove_state_core = 374
+				add_state_claim = 374
+			}
+			if = {
+				limit = { USA = { owns_state = 383 } }
+				remove_state_core = 383
+				add_state_claim = 383
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.5 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 374 } }
+				374 = { set_demilitarized_zone = no }
+				transfer_state = 374
+				add_state_core = 374
+			}
+			else = { add_state_claim = 374 }
+			if = {
+				limit = { USA = { owns_state = 383 } }
+				383 = { set_demilitarized_zone = no }
+				transfer_state = 383
+				add_state_core = 383
+			}
+			else = { add_state_claim = 383 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Missouri
+news_event = {
+	id = usa_slavery_debate_secession.6
+	title = usa_slavery_debate_secession.6.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		373 = { has_state_flag = NA_B_Slave_Kansas }
+		373 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 373 } }
+				remove_state_core = 373
+				add_state_claim = 373
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.6 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 373 } }
+				373 = { set_demilitarized_zone = no }
+				transfer_state = 373
+				add_state_core = 373
+			}
+			else = { add_state_claim = 373 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Tennessee
+news_event = {
+	id = usa_slavery_debate_secession.7
+	title = usa_slavery_debate_secession.7.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		368 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 368 } }
+				remove_state_core = 368
+				add_state_claim = 368
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.7 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 368 } }
+				368 = { set_demilitarized_zone = no }
+				transfer_state = 368
+				add_state_core = 368
+			}
+			else = { add_state_claim = 368 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Mississippi
+news_event = {
+	id = usa_slavery_debate_secession.8
+	title = usa_slavery_debate_secession.8.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		370 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 370 } }
+				remove_state_core = 370
+				add_state_claim = 370
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.8 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 370 } }
+				370 = { set_demilitarized_zone = no }
+				transfer_state = 370
+				add_state_core = 370
+			}
+			else = { add_state_claim = 370 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Alabama
+news_event = {
+	id = usa_slavery_debate_secession.9
+	title = usa_slavery_debate_secession.9.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		367 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 367 } }
+				remove_state_core = 367
+				add_state_claim = 367
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.9 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 367 } }
+				367 = { set_demilitarized_zone = no }
+				transfer_state = 367
+				add_state_core = 367
+			}
+			else = { add_state_claim = 367 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Florida
+news_event = {
+	id = usa_slavery_debate_secession.10
+	title = usa_slavery_debate_secession.10.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		366 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 366 } }
+				remove_state_core = 366
+				add_state_claim = 366
+			}
+			if = {
+				limit = { OR = { USA = { owns_state = 1211 } USA = { owns_state = 366 } } }
+				remove_state_core = 1211
+				add_state_claim = 1211
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.10 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 366 } }
+				366 = { set_demilitarized_zone = no }
+				transfer_state = 366
+				add_state_core = 366
+			}
+			else = { add_state_claim = 366 }
+			if = {
+				limit = { USA = { owns_state = 1211 } }
+				1211 = { set_demilitarized_zone = no }
+				transfer_state = 1211
+				add_state_core = 1211
+			}
+			else = { add_state_claim = 1211 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Georgia
+news_event = {
+	id = usa_slavery_debate_secession.11
+	title = usa_slavery_debate_secession.11.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		365 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 365 } }
+				remove_state_core = 365
+				add_state_claim = 365
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.11 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 365 } }
+				365 = { set_demilitarized_zone = no }
+				transfer_state = 365
+				add_state_core = 365
+			}
+			else = { add_state_claim = 365 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# North Carolina
+news_event = {
+	id = usa_slavery_debate_secession.12
+	title = usa_slavery_debate_secession.12.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		365 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 363 } }
+				remove_state_core = 363
+				add_state_claim = 363
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.12 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 363 } }
+				363 = { set_demilitarized_zone = no }
+				transfer_state = 363
+				add_state_core = 363
+			}
+			else = { add_state_claim = 363 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Virginia
+news_event = {
+	id = usa_slavery_debate_secession.13
+	title = usa_slavery_debate_secession.13.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		362 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 362 } }
+				remove_state_core = 362
+				add_state_claim = 362
+			}
+			if = {
+				limit = { USA = { owns_state = 746 } }
+				remove_state_core = 746
+				add_state_claim = 746
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.13 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 362 } }
+				362 = { set_demilitarized_zone = no }
+				transfer_state = 362
+				add_state_core = 362
+			}
+			else = { add_state_claim = 362 }
+			if = {
+				limit = { USA = { owns_state = 746 } }
+				746 = { set_demilitarized_zone = no }
+				transfer_state = 746
+				add_state_core = 746
+			}
+			else = { add_state_claim = 746 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# Cuba
+news_event = {
+	id = usa_slavery_debate_secession.14
+	title = usa_slavery_debate_secession.14.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = CSA
+		315 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 315 } }
+				remove_state_core = 315
+				add_state_claim = 315
+			}
+			if = {
+				limit = { USA = { owns_state = 1022 } }
+				remove_state_core = 1022
+				add_state_claim = 1022
+			}
+			if = {
+				limit = { USA = { owns_state = 1350 } }
+				remove_state_core = 1350
+				add_state_claim = 1350
+			}
+			hidden_effect = {
+				CSA = { news_event = { id = usa_slavery_debate_secession.14 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = CSA }
+			if = {
+				limit = { USA = { owns_state = 315 } }
+				315 = { set_demilitarized_zone = no }
+				transfer_state = 315
+				add_state_core = 315
+			}
+			else = { add_state_claim = 315 }
+			if = {
+				limit = { USA = { owns_state = 1022 } }
+				1022 = { set_demilitarized_zone = no }
+				transfer_state = 1022
+				add_state_core = 1022
+			}
+			else = { add_state_claim = 1022 }
+			if = {
+				limit = { USA = { owns_state = 1350 } }
+				1350 = { set_demilitarized_zone = no }
+				transfer_state = 1350
+				add_state_core = 1350
+			}
+			else = { add_state_claim = 1350 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = centrism popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateS_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = CSA }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+
+# CSA Balkanized
+news_event = {
+	id = usa_slavery_debate_secession.19
+	title = usa_slavery_debate_secession.19.t
+	desc = usa_slavery_debate_secession.19.d
+	picture = GFX_news_event_south_carolina
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_popularity = {
+				ideology = traditional_conservatism
+				popularity = -0.19
+			}
+			ROOT = {
+				remove_ideas = USA_southern_secession_crisis
+				if = {
+					limit = { NOT = { has_country_flag = USA_LincolnorDouglas_Moderate_Appeal } }
+					remove_state_core = 746
+					add_state_claim = 746
+				}
+				remove_state_core = 362
+				add_state_claim = 362
+				remove_state_core = 363
+				add_state_claim = 363
+				remove_state_core = 364
+				add_state_claim = 364
+				remove_state_core = 365
+				add_state_claim = 365
+				if = {
+					limit = { owns_state = 366 }
+					remove_state_core = 366
+					add_state_claim = 366
+				}
+				if = {
+					limit = { owns_state = 1211 }
+					remove_state_core = 1211
+					add_state_claim = 1211
+				}
+				remove_state_core = 367
+				add_state_claim = 367
+				remove_state_core = 368
+				add_state_claim = 368
+				remove_state_core = 370
+				add_state_claim = 370
+				remove_state_core = 371
+				add_state_claim = 371
+				remove_state_core = 372
+				add_state_claim = 372
+				if = {
+					limit = {	owns_state = 315 }
+					remove_state_core = 315
+					add_state_claim = 315
+				}
+				if = {
+					limit = {	owns_state = 1022 }
+					remove_state_core = 1022
+					add_state_claim = 1022
+				}
+			}
+			CSA = {
+				if = {
+					limit = { NOT = { has_global_flag = CSA_NA_B_idea_working_class_exploitation_score_var_set_flag } }
+					hidden_effect = {
+						set_variable = { var = CSA.NA_B_idea_working_class_exploitation_score_var@CSA value = USA.NA_B_idea_working_class_exploitation_score_var@USA }
+						set_variable = { var = CSA.NA_B_idea_working_class_organization_score_var@CSA value = USA.NA_B_idea_working_class_organization_score_var@USA }
+						country_event = { id = NA_B_idea_working_class_exploitation_calculator.1 }
+					}
+					set_global_flag = CSA_NA_B_idea_working_class_exploitation_score_var_set_flag
+				}
+				if = {
+					limit = { NOT = { USA = { has_country_flag = USA_LincolnorDouglas_Moderate_Appeal } } }
+					transfer_state = 746
+					add_state_core = 746
+				}
+				transfer_state = 362
+				add_state_core = 362
+				transfer_state = 363
+				add_state_core = 363
+				transfer_state = 364
+				add_state_core = 364
+				transfer_state = 365
+				add_state_core = 365
+				if = {
+					limit = { ROOT = { owns_state = 366 } }
+					transfer_state = 366
+					add_state_core = 366
+				}
+				if = {
+					limit = { ROOT = { owns_state = 1211 } }
+					transfer_state = 1211
+					add_state_core = 1211
+				}
+				transfer_state = 367
+				add_state_core = 367
+				transfer_state = 368
+				add_state_core = 368
+				transfer_state = 370
+				add_state_core = 370
+				transfer_state = 371
+				add_state_core = 371
+				transfer_state = 372
+				add_state_core = 372
+				inherit_technology = USA
+				country_event = { id = NA_B_start.1 days = 2 }
+				if = {
+					limit = { NOT = { has_global_flag = NA_B_test_cuba_free } }
+					if = {
+						limit = {	ROOT = { owns_state = 315 } }
+						transfer_state = 315
+						add_state_core = 315
+					}
+					if = {
+						limit = {	ROOT = { owns_state = 1022 } }
+						transfer_state = 1022
+						add_state_core 1022
+					}
+				}
+				else = {
+					if = {
+						limit = {	ROOT = { owns_state = 315 } }
+						CUB = {
+							transfer_state = 315
+							add_state_core = 315
+						}
+					}
+					if = {
+						limit = {	ROOT = { owns_state = 1022 } }
+						CUB = {
+							transfer_state = 1022
+							add_state_core 1022
+						}
+					}
+					CUB = {
+						country_event = { id = NA_B_start.1 days = 2 }
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = acw_douglas.17.a
+	}
+	option = {
+		name = acw_douglas.17.b
+		trigger = { is_ai = no }
+		hidden_effect = {
+			CSA = { change_tag_from  = ROOT }
+		}
+	}
+}
+
+# New Hampshire
+news_event = {
+	id = usa_slavery_debate_secession.21
+	title = usa_slavery_debate_secession.21.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = NEG
+		960 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 960 } }
+				remove_state_core = 960
+				add_state_claim = 960
+			}
+			hidden_effect = {
+				NEG = { news_event = { id = usa_slavery_debate_secession.21 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = NEG }
+			if = {
+				limit = { USA = { owns_state = 960 } }
+				960 = { set_demilitarized_zone = no }
+				transfer_state = 960
+				add_state_core = 960
+			}
+			else = { add_state_claim = 960 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = radical_democracy popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateF_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = NEG }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+# Vermont
+news_event = {
+	id = usa_slavery_debate_secession.22
+	title = usa_slavery_debate_secession.22.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = NEG
+		959 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 959 } }
+				remove_state_core = 959
+				add_state_claim = 959
+			}
+			hidden_effect = {
+				NEG = { news_event = { id = usa_slavery_debate_secession.22 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = NEG }
+			if = {
+				limit = { USA = { owns_state = 959 } }
+				959 = { set_demilitarized_zone = no }
+				transfer_state = 959
+				add_state_core = 959
+			}
+			else = { add_state_claim = 959 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = radical_democracy popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateF_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = NEG }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+# Massachusetts
+news_event = {
+	id = usa_slavery_debate_secession.23
+	title = usa_slavery_debate_secession.23.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = NEG
+		357 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 357 } }
+				remove_state_core = 357
+				add_state_claim = 357
+			}
+			hidden_effect = {
+				NEG = { news_event = { id = usa_slavery_debate_secession.23 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = NEG }
+			if = {
+				limit = { USA = { owns_state = 357 } }
+				357 = { set_demilitarized_zone = no }
+				transfer_state = 357
+				add_state_core = 357
+			}
+			else = { add_state_claim = 357 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = radical_democracy popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateF_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = NEG }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+# Rhode Island
+news_event = {
+	id = usa_slavery_debate_secession.24
+	title = usa_slavery_debate_secession.24.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = NEG
+		1031 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 1031 } }
+				remove_state_core = 1031
+				add_state_claim = 1031
+			}
+			hidden_effect = {
+				NEG = { news_event = { id = usa_slavery_debate_secession.24 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = NEG }
+			if = {
+				limit = { USA = { owns_state = 1031 } }
+				1031 = { set_demilitarized_zone = no }
+				transfer_state = 1031
+				add_state_core = 1031
+			}
+			else = { add_state_claim = 1031 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = radical_democracy popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateF_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = NEG }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+# Connecticut
+news_event = {
+	id = usa_slavery_debate_secession.25
+	title = usa_slavery_debate_secession.25.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = NEG
+		958 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 958 } }
+				remove_state_core = 958
+				add_state_claim = 958
+			}
+			hidden_effect = {
+				NEG = { news_event = { id = usa_slavery_debate_secession.25 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = NEG }
+			if = {
+				limit = { USA = { owns_state = 958 } }
+				958 = { set_demilitarized_zone = no }
+				transfer_state = 958
+				add_state_core = 958
+			}
+			else = { add_state_claim = 958 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = radical_democracy popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateF_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = NEG }
+		eoanb_add_1_prestige_score = yes
+	}
+}
+# New Jersey
+news_event = {
+	id = usa_slavery_debate_secession.26
+	title = usa_slavery_debate_secession.26.t
+	desc = usa_slavery_debate_secession.2.d
+	picture = GFX_news_event_south_carolina
+
+	is_triggered_only = yes
+	trigger = {
+		country_exists = USA
+		country_exists = NEG
+		359 = { is_owned_by = USA }
+	}
+
+	immediate = {
+		if = {
+			limit = { tag = USA }
+			if = {
+				limit = { USA = { owns_state = 359 } }
+				remove_state_core = 359
+				add_state_claim = 359
+			}
+			hidden_effect = {
+				NEG = { news_event = { id = usa_slavery_debate_secession.26 hours = 6 } }
+			}
+		}
+		else_if = {
+			limit = { tag = NEG }
+			if = {
+				limit = { USA = { owns_state = 359 } }
+				359 = { set_demilitarized_zone = no }
+				transfer_state = 359
+				add_state_core = 359
+			}
+			else = { add_state_claim = 359 }
+		}
+	}
+
+	option = {
+		name = usa_slavery_debate_secession.2.a
+		trigger = { tag = USA }
+		add_popularity = { ideology = radical_democracy popularity = 0.015 }
+		add_popularity = { ideology = traditional_conservatism popularity = 0.005 }
+		USA_Slavery_Debate_StateF_Count_Modify2 = yes
+	}
+	option = {
+		name = usa_slavery_debate_secession.2.b
+		trigger = { tag = NEG }
+		eoanb_add_1_prestige_score = yes
+	}
+}
 
 ############################## GENERIC #############################
 # Election of 1860
@@ -17,7 +2321,6 @@ news_event = {
 	picture = GFX_report_event_election_vote
 
 	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
 
 	is_triggered_only = yes
 	trigger = {
@@ -41,7 +2344,7 @@ news_event = {
 	option = { # Lincoln
 		name = acw_generic.1.a
 		custom_effect_tooltip = 01_ACW_tt
-		ai_chance = { factor = 40 }
+		ai_chance = { base = 85 }
 		
 		add_popularity = {
 			ideology = centrism
@@ -62,7 +2365,7 @@ news_event = {
 		trigger = { has_country_flag = USA_BreckinridgeElected } #Temp Fix
 		custom_effect_tooltip = 02_ACW_tt
 		ai_chance = {
-			factor = 20
+			base = 0
 			modifier = {
       	factor = 0
       	is_historical_focus_on = yes
@@ -90,7 +2393,7 @@ news_event = {
 		name = acw_generic.1.c
 		custom_effect_tooltip = 05_ACW_tt
 		ai_chance = {
-			factor = 30
+			factor = 15
 			modifier = {
       	factor = 0
       	is_historical_focus_on = yes
@@ -122,9 +2425,8 @@ news_event = {
 	option = { # Bell
 		name = acw_generic.1.e
 		custom_effect_tooltip = 05_ACW_tt
-		trigger = { has_country_flag = USA_BreckinridgeElected } #Temp Fix
 		ai_chance = {
-			factor = 10
+			base = 0
 			modifier = {
       	factor = 0
       	is_historical_focus_on = yes
@@ -452,23 +2754,19 @@ country_event = {
 				remove_ideas = USA_southern_secession_crisis
 				set_global_flag = ACW_American_Civil_War
 				set_global_flag = ACW_American_Civil_War_Happened
-				add_to_variable = {
-					var = acw_weapons_count_left
-					value = 35
-				}
-				add_to_variable = {
-					var = acw_draft_count_left
-					value = 25
-				}
+				set_temp_variable = { acw_weapons_count_change = 35 }
+				ACW_Weapons_Count_Get = yes
+				set_temp_variable = { acw_draft_count_change = 25 }
+				ACW_Draft_Count_Get = yes
 			}
 			else_if = {
 				limit = { tag = CSA }
 				add_stability = 0.10
 				add_war_support = 0.10
-				add_to_variable = {
-					var = acw_draft_count_left
-					value = 20
-				}
+				set_temp_variable = { acw_weapons_count_change = 25 }
+				ACW_Weapons_Count_Get = yes
+				set_temp_variable = { acw_draft_count_change = 20 }
+				ACW_Draft_Count_Get = yes
 			}
 		}
 	}
@@ -1302,78 +3600,87 @@ country_event = {
   }
 }
 
-# The Wheeling Convention (USA)
+################################# KANAWHA ###################################
+
+# Wheeling Convention
 country_event = {
-	id = acw_generic.40
-	title = acw_generic.40.t
-	desc = acw_generic.40.d
+	id = acw_kanawha.1
+	title = acw_kanawha.1.t
+	desc = {
+		text = acw_kanawha.1.d_usa
+		trigger = { 
+			tag = USA 
+		}
+	}
+	desc = {
+		text = acw_kanawha.1.d_csa
+		trigger = { 
+			tag = CSA
+		}
+	}
+	desc = {
+		text = acw_kanawha.1.d_everyoneelse
+		trigger = {
+			NOT = { tag = CSA }
+			NOT = { tag = USA }
+		}
+	}
+
+	picture = GFX_report_event_election_vote
 
 	trigger = {
-		tag = USA
 		has_global_flag = ACW_American_Civil_War
-		has_war_with = CSA
-		date > 1861.6.1
-		NOT = { has_country_flag = USA_BreckinridgeElected }
-		CSA = { controls_state = 746 }
-	}
-
-	fire_only_once = yes
-	mean_time_to_happen = { days = 35 }
-
-	immediate = {
-		hidden_effect = {
-			news_event = { id = acw_generic_news.40 }
-		}
-	}
-
-	option = {
-		name = acw_generic.40.a
-		ai_chance = { factor = 50 }
-		custom_effect_tooltip = 40_ACW_GENERIC_tt
-		hidden_effect = {
-			set_global_flag = ACW_virginia_talks_1
-			CSA = { country_event = { id = acw_generic.41 } }
-			country_event = { id = acw_generic.42 days = 30 random = 30 }
-		}
-	}
-	option = {
-		name = acw_generic.40.b
-		ai_chance = { factor = 50 }
-		custom_effect_tooltip = 41_ACW_GENERIC_tt
-		CSA = { country_event = { id = acw_generic.41 } }
-		country_event = { id = acw_generic.42 days = 30 random_days = 30 }
-	}
-}
-
-# The Wheeling Convention (CSA)
-country_event = {
-	id = acw_generic.41
-	title = acw_generic.40.t
-	desc = {
-		text = acw_generic.41.d
-		trigger = { has_global_flag = ACW_virginia_talks_1 }
-	}
-	desc = {
-		text = acw_generic.41.d_1
-		trigger = { NOT = { has_global_flag = ACW_virginia_talks_1 } }
+		746 = { is_controlled_by = CSA }
 	}
 
 	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = {
 
-	}
+	major = yes
 
 	option = {
-		name = acw_generic.41.a
+		name = acw_kanawha.1.a
+		ai_chance = { base = 50 }
+		trigger = { tag = USA }
+		custom_effect_tooltip = 40_ACW_GENERIC_tt
+		hidden_effect = {
+			set_global_flag = ACW_virginia_talks_1
+			country_event = { id = acw_kanawha.2 days = 30 random_days = 10 }
+		}
+	}
+	option = {
+		name = acw_kanawha.1.b
+		ai_chance = { base = 50 }
+		trigger = { tag = USA }
+		hidden_effect = {
+			custom_effect_tooltip = 41_ACW_GENERIC_tt
+			country_event = { id = acw_kanawha.2 days = 30 random_days = 10 }
+		}
+	}
+	option = {
+		name = acw_kanawha.1.c
+		ai_chance = { base = 100 }
+		trigger = { tag = CSA }
+	}
+	option = {
+		name = acw_kanawha.1.e
+		ai_chance = { base = 100 }
+		trigger = {
+			NOT = {
+				AND = {
+					tag = USA
+					tag = CSA
+				}
+			}
+		}
 	}
 }
 
 # Reformed Virginia Referendum (USA)
 country_event = {
-	id = acw_generic.42
-	title = acw_generic.42.t
-	desc = acw_generic.42.d
+	id = acw_kanawha.2
+	title = acw_kanawha.2.t
+	desc = acw_kanawha.2.d
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -1382,49 +3689,29 @@ country_event = {
 	}
 
 	option = {
-		name = acw_generic.42.a
+		name = acw_kanawha.2.a
 		ai_chance = { factor = 50 }
 		custom_effect_tooltip = 41_ACW_GENERIC_tt
-		CSA = { country_event = { id = acw_generic.43 } }
-		country_event = { id = acw_generic.44 days = 35 random_days = 20 }
+		hidden_effect = {
+			country_event = { id = acw_kanawha.3 days = 35 random_days = 20 }
+		}
 	}
 	option = {
-		name = acw_generic.42.b
+		name = acw_kanawha.2.b
 		ai_chance = { factor = 50 }
 		custom_effect_tooltip = 42_ACW_GENERIC_tt
-		CSA = { country_event = { id = acw_generic.43 } }
 		set_global_flag = ACW_virginia_talks_2
-		country_event = { id = acw_generic.44 days = 35 random_days = 20 }
-	}
-}
-
-# Reformed Virginia Referendum (CSA)
-country_event = {
-	id = acw_generic.43
-	title = acw_generic.43.t
-	desc = acw_generic.43.d
-
-	is_triggered_only = yes
-	fire_only_once = yes
-	trigger = {
-		has_global_flag = ACW_American_Civil_War
-	}
-
-	option = {
-		name = acw_generic.43.a
-		custom_effect_tooltip = 43_ACW_GENERIC_tt
-	}
-	option = {
-		name = acw_generic.43.b
-		custom_effect_tooltip = 41_ACW_GENERIC_tt
+		hidden_effect = {
+			country_event = { id = acw_kanawha.3 days = 35 random_days = 20 }
+		}
 	}
 }
 
 # Reformed Virginia Results (USA)
 country_event = {
-	id = acw_generic.44
-	title = acw_generic.44.t
-	desc = acw_generic.44.d
+	id = acw_kanawha.3
+	title = acw_kanawha.3.t
+	desc = acw_kanawha.3.d
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -1433,57 +3720,63 @@ country_event = {
 	}
 
 	option = {
-		name = acw_generic.44.a
+		name = acw_kanawha.3.a
 		ai_chance = { factor = 50 }
 		set_global_flag = ACW_virginia_talks_3
-		CSA = { country_event = { id = acw_generic.45 } }
-		if = {
-			limit = {
-				count_triggers = {
-					amount = 2
-					has_global_flag = ACW_virginia_talks_1
-					has_global_flag = ACW_virginia_talks_2
-					has_global_flag = ACW_virginia_talks_3
+		hidden_effect = {
+			if = {
+				limit = {
+					count_triggers = {
+						amount = 2
+						has_global_flag = ACW_virginia_talks_1
+						has_global_flag = ACW_virginia_talks_2
+						has_global_flag = ACW_virginia_talks_3
+					}
 				}
+				country_event = { id = acw_kanawha.5 days = 20 }
+				CSA = { country_event = { id = acw_kanawha.5 days = 20 } }
 			}
-			country_event = { id = acw_generic.47 days = 7 }
 			else = {
-				country_event = { id = acw_generic.46 days = 7 }
+				country_event = acw_kanawha.4
+				CSA = { country_event = acw_kanawha.4 }
 			}
 		}
 	}
 	option = {
-		name = acw_generic.44.b
+		name = acw_kanawha.3.b
 		ai_chance = { factor = 50 }
-		CSA = { country_event = { id = acw_generic.45 } }
-		if = {
-			limit = {
-				count_triggers = {
-					amount = 2
-					has_global_flag = ACW_virginia_talks_1
-					has_global_flag = ACW_virginia_talks_2
-					has_global_flag = ACW_virginia_talks_3
+		set_global_flag = ACW_virginia_talks_3
+		hidden_effect = {
+			if = {
+				limit = {
+					count_triggers = {
+						amount = 2
+						has_global_flag = ACW_virginia_talks_1
+						has_global_flag = ACW_virginia_talks_2
+						has_global_flag = ACW_virginia_talks_3
+					}
 				}
+				country_event = { id = acw_kanawha.5 days = 20 }
+				CSA = { country_event = { id = acw_kanawha.5 days = 20 } }
 			}
-			country_event = { id = acw_generic.47 days = 7 }
 			else = {
-				country_event = { id = acw_generic.46 days = 7 }
+				country_event = acw_kanawha.4
+				CSA = { country_event = acw_kanawha.4 }
 			}
 		}
 	}
 }
 
-# Reformed Virginia Results (CSA)
 country_event = {
-	id = acw_generic.45
-	title = acw_generic.45.t
+	id = acw_kanawha.4
+	title = acw_kanawha.4.t
 	desc = {
-		text = acw_generic.45.d
-		trigger = { has_global_flag = ACW_virginia_talks_3 }
+		text = acw_kanawha.4.d_usa
+		trigger = { tag = USA }
 	}
 	desc = {
-		text = acw_generic.45.d_1
-		trigger = { NOT = { has_global_flag = ACW_virginia_talks_3 } }
+		text = acw_kanawha.4.d_csa
+		trigger = { tag = CSA }
 	}
 
 	is_triggered_only = yes
@@ -1493,70 +3786,58 @@ country_event = {
 	}
 
 	option = {
-		name = acw_generic.43.a
-		custom_effect_tooltip = 43_ACW_GENERIC_tt
+		name = acw_kanawha.4.a
+		trigger = { tag = USA }
 	}
-}
-
-# Failed Support (USA)
-country_event = {
-	id = acw_generic.46
-	title = acw_generic.46.t
-	desc = acw_generic.46.d
-
-	is_triggered_only = yes
-	fire_only_once = yes
-	trigger = {
-		has_global_flag = ACW_American_Civil_War
-	}
-
 	option = {
-		name = acw_generic.46.a
+		name = acw_kanawha.4.a
+		trigger = { tag = CSA }
 	}
 }
 
 # West Virginia Uprising
 country_event = {
-	id = acw_generic.47
-	title = acw_generic.47.t
-	desc = acw_generic.47.d
+	id = acw_kanawha.5
+	title = acw_kanawha.5.t
+	desc = acw_kanawha.5.d
 
 	is_triggered_only = yes
 	trigger = {
 		has_global_flag = ACW_American_Civil_War
 	}
 
+	immediate = {
+		clr_global_flag = ACW_virginia_talks_1
+		clr_global_flag = ACW_virginia_talks_2
+		clr_global_flag = ACW_virginia_talks_3
+	}
+
 	option = {
-		name = acw_generic.47.a
+		name = acw_kanawha.5.a
 		trigger = { tag = USA }
 		hidden_effect = {
-			clr_global_flag = ACW_virginia_talks_1
-			clr_global_flag = ACW_virginia_talks_2
-			clr_global_flag = ACW_virginia_talks_3
 			if = {
 				limit = { has_global_flag = ACW_American_Civil_War }
 				if = {
-					limit = { USA = { controls_state = 746 } }
-					USA = { load_oob = USA_WVG_1864 }
+					limit = { controls_state = 746 }
+					load_oob = USA_WVG_1864
 				}
-				else_if = {
-					limit = { CSA = { controls_state = 746 } }
-					custom_effect_tooltip = 44_ACW_GENERIC_tt
+				else = {
 					WVG = {
 						transfer_state = 746
 						add_state_core = 746
-						add_manpower = 10000
-						add_equipment_to_stockpile = {
-		          type = infantry_equipment
-		          amount = 5000
-		          producer = USA
-		        }
-		        add_equipment_to_stockpile = {
-		          type = uniform_equipment
-		          amount = 5000
-		          producer = USA
-		        }
 						inherit_technology = USA
+						add_manpower = 7000
+						add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 5000
+							producer = CSA
+						}
+						add_equipment_to_stockpile = {
+							type = uniform_equipment
+							amount = 5000
+							producer = CSA
+						}
 						set_politics = {
 							ruling_party = centrism
 							elections_allowed = yes
@@ -1568,30 +3849,21 @@ country_event = {
 							centrism = 59
 						}
 						load_oob = USA_WVG_1864
-						country_event = { id = acw_generic.48 days = 10 }
+						country_event = { id = acw_kanawha.6 days = 7 }
 					}
-				}
-				CSA = {
-					country_event = { id = acw_generic.47 hours = 6 }
 				}
 			}
 		}
 	}
 	option = {
-		name = acw_generic.46.a
+		name = acw_kanawha.5.b
 		trigger = { tag = CSA }
-		hidden_effect = {
-			news_event = { id = acw_generic_news.41 }
-		}
 	}
 }
 
-#  West Virginia joins US
+# West Virginia joins US
 country_event = {
-	id = acw_generic.48
-	title = acw_generic.48.t
-	desc = acw_generic.48.d
-
+	id = acw_kanawha.6
 	is_triggered_only = yes
 	fire_only_once = yes
 	hidden = yes
@@ -5878,6 +8150,22 @@ country_event = {
   }
 }
 
+
+################################# BELL #################################
+
+country_event = {
+	id = acw_bell.1
+	title = acw_bell.1.t
+	desc = acw_bell.1.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = acw_bell.1.a
+	}
+}
+
 ############################# NORTON REBELS ###########################
 
 # Lunatic Norton (usa.43)
@@ -6311,6 +8599,7 @@ news_event = {
 	trigger = {
 		tag = USA
 		has_global_flag = ACW_American_Civil_War
+		has_war_with = CSA
 		count_triggers = {
 			amount = 15
 			date > 1863.7.1
@@ -6955,6 +9244,7 @@ news_event = {
 	trigger = {
 		tag = USA
 		has_global_flag = ACW_American_Civil_War
+		has_war_with = CSA
 		count_triggers = {
 			amount = 17
 			has_country_leader = {
@@ -7575,100 +9865,7 @@ news_event = {
   }
 }
 
-# Wheeling Convention
-news_event = {
-	id = acw_generic_news.40
-	title = acw_generic_news.40.t
-	desc = acw_generic_news.40.d
-	picture = GFX_report_event_election_vote
-
-	major = yes
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	option = {
-		name = acw_generic_news.40.a
-	}
-}
-
-# Kanawha
-news_event = {
-	id = acw_generic_news.41
-	title = acw_generic_news.41.t
-	desc = acw_generic_news.41.d
-
-	is_triggered_only = yes
-	fire_only_once = yes
-	major = yes
-
-	option = {
-		name = acw_generic_news.40.a
-	}
-}
-
-#Northern Coup
-news_event = {
-	id = acw_beckenridge_news.1
-	title = acw_beckenridge_news.1.t
-	desc = acw_beckenridge_news.1.d
-	picture = GFX_news_event_acw_radical_coup
-
-	major = yes
-
-	is_triggered_only = yes
-
-	option = {
-		trigger = {
-			NOT = { TAG = USA }
-			NOT = { TAG = CSA }
-		}
-		name = acw_beckenridge_news.1.a
-	}
-	option = {
-		trigger = {
-			TAG = USA
-		}
-		name = acw_beckenridge_news.1.b
-	}
-	option = {
-		trigger = {
-			TAG = CSA
-		}
-		name = acw_beckenridge_news.1.c
-	}
-}
-# Rest of Slaves States leave union!!!!
-news_event = {
-	id = acw_beckenridge_news.2
-	title = acw_beckenridge_news.2.t
-	desc = acw_beckenridge_news.2.d
-	picture = GFX_report_event_german_reichstag_gathering
-
-	is_triggered_only = yes
-
-	option = {
-		trigger = {
-			tag = USA
-		}
-		name = acw_beckenridge_news.2.a
-	}
-	option = {
-		trigger = {
-			tag = CSA
-		}
-		name = acw_beckenridge_news.2.b
-	}
-	option = {
-		trigger = {
-			AND = {
-				tag = CSA
-				tag = USA
-			}
-		}
-		name = acw_beckenridge_news.2.c
-	}
-}
+################ News
 # # The Fall of Washington
 # news_event = {
 #   id = acw_news.2
@@ -8037,449 +10234,6 @@ news_event = {
 #       TAG = FRA
 #     }
 #     name = acw_generic_news.20.f
-#   }
-# }
-# Surrender - Peace
-# news_event = {
-#     id = acw_generic_news.21
-#     title = acw_generic_news.21.t
-#     desc = {
-#       text = acw_generic_news.21.d
-#       trigger = { has_global_flag = USA_peace_1 }
-#     }
-#     desc = {
-#       text = acw_generic_news.21.d_a
-#       trigger = { has_global_flag = USA_peace_2 }
-#     }
-#     desc = {
-#       text = acw_generic_news.21.d_b
-#       trigger = { has_global_flag = USA_peace_3 }
-#     }
-#     picture = GFX_news_event_chicago_surrender_acw
-
-#     major = yes
-
-#     is_triggered_only = yes
-
-#     option = {
-#       trigger = {
-#         NOT = { TAG = USA }
-#         NOT = { TAG = CSA }
-#       }
-#         name = acw_generic_news.21.a
-#     }
-#     option = {
-#       trigger = {
-#         TAG = USA
-#       }
-#       name = acw_generic_news.21.b
-#     }
-#     option = {
-#       trigger = {
-#         TAG = CSA
-#       }
-#       name = acw_generic_news.21.c
-#     }
-# }
-# # Radical Civil War
-# news_event = {
-#   id = acw_generic_news.22
-#   title = acw_generic_news.22.t
-#   desc = acw_generic_news.22.d
-#   picture = GFX_news_event_acw_radical_coup
-
-#   major = yes
-
-#   is_triggered_only = yes
-
-#   option = {
-#     trigger = {
-#       NOT = {
-#         tag = USA
-#         AND = {
-#           original_tag = USA
-#           has_government = radical_democracy
-#         }
-#         tag = CSA
-#       }
-#     }
-#     name = acw_generic_news.22.a
-#   }
-#   option = {
-#     trigger = {
-#       tag = USA
-#     }
-#     name = acw_generic_news.22.b
-#   }
-#   option = {
-#     trigger = {
-#       original_tag = USA
-#       has_government = radical_democracy
-#     }
-#     name = acw_generic_news.22.c
-#   }
-#   option = {
-#     trigger = {
-#       tag = CSA
-#     }
-#     name = acw_generic_news.22.e
-#   }
-# }
-# # Reactionaries take back USA
-# news_event = {
-#   id = acw_generic_news.23
-#   title = acw_generic_news.23.t
-#   desc = {
-#     text = acw_generic_news.23.d
-#     trigger = { CSA = { exists = yes } }
-#   }
-#   desc = {
-#     text = acw_generic_news.23.d_nocsa
-#     trigger = { CSA = { exists = no } }
-#   }
-#   picture = GFX_news_event_acw_freestates_win
-
-#   major = yes
-
-#   is_triggered_only = yes
-
-#   option = {
-#     trigger = {
-#       NOT = {
-#         tag = USA
-#         tag = CSA
-#       }
-#     }
-#     name = acw_generic_news.23.a
-#   }
-#   option = {
-#     trigger = {
-#       tag = USA
-#     }
-#     name = acw_generic_news.23.b
-#   }
-#   option = {
-#     trigger = {
-#       tag = CSA
-#     }
-#     name = acw_generic_news.23.c
-#   }
-# }
-# # CSA rejoins union
-# news_event = {
-#   id = acw_generic_news.24
-#   title = acw_generic_news.24.t
-#   desc = acw_generic_news.24.d
-#   picture = GFX_news_event_appomattox_acw
-
-#   major = yes
-
-#   is_triggered_only = yes
-
-#   option = {
-#     trigger = {
-#       NOT = { tag = USA }
-#     }
-#     name = acw_generic_news.24.a
-#   }
-#   option = {
-#     trigger = {
-#       tag = USA
-#     }
-#     name = acw_generic_news.24.b
-#   }
-# }
-# #Norton takes USA
-# news_event = {
-#   id = acw_generic_news.25
-#   title = acw_generic_news.25.t
-#   desc = {
-#       text = acw_generic_news.25.d
-#       trigger = { CSA = { exists = yes } }
-#   }
-#   desc = {
-#       text = acw_generic_news.25.d_nocsa
-#       trigger = { CSA = { exists = no } }
-#   }
-#   picture = GFX_news_event_usa_monarchist_revolution
-
-#   major = yes
-
-#   is_triggered_only = yes
-
-#   option = {
-#     trigger = {
-#       NOT = {
-#         tag = USA
-#         tag = CSA
-#       }
-#     }
-#     name = acw_generic_news.25.a
-#   }
-#   option = {
-#     trigger = {
-#       tag = USA
-#     }
-#     name = acw_generic_news.25.b
-#   }
-#   option = {
-#     trigger = {
-#       tag = CSA
-#     }
-#     name = acw_generic_news.25.c
-#   }
-# }
-# # Anarcho-Socialists takes USA
-# news_event = {
-#   id = acw_generic_news.26
-#   title = acw_generic_news.26.t
-#   desc = {
-#     text = acw_generic_news.26.d
-#     trigger = { CSA = { exists = yes } }
-#   }
-#   desc = {
-#     text = acw_generic_news.26.d_nocsa
-#     trigger = { CSA = { exists = no } }
-#   }
-
-#   picture = GFX_news_event_usa_socialist_revolution
-
-#   major = yes
-
-#   is_triggered_only = yes
-
-#   option = {
-#     trigger = {
-#       NOT = {
-#         tag = USA
-#         tag = CSA
-#       }
-#     }
-#     name = acw_generic_news.26.a
-#   }
-#   option = {
-#     trigger = {
-#       tag = USA
-#     }
-#     name = acw_generic_news.26.b
-#   }
-#   option = {
-#     trigger = {
-#       tag = CSA
-#     }
-#     name = acw_generic_news.26.c
-#   }
-# }
-# # The Fall of Boston FSA
-# news_event = {
-#   id = acw_generic_news.27
-#   title = acw_generic_news.27.t
-#   desc = {
-#     text = acw_generic_news.27.d_usa
-#     trigger = {
-#       357 = { is_controlled_by = USA }
-#     }
-#   }
-#   desc = {
-#     text = acw_generic_news.27.d_cal
-#     trigger = {
-#       357 = { is_controlled_by = CAL }
-#     }
-#   }
-#   desc = {
-#     text = acw_generic_news.27.d_mhc
-#     trigger = {
-#       357 = { is_controlled_by = MHC }
-#     }
-#   }
-#   picture = GFX_news_event_fall_of_boston_acw
-
-#   major = yes
-
-#   trigger = {
-#     OR = {
-#       357 = { is_controlled_by = USA }
-#       357 = { is_controlled_by = CAL }
-#       357 = { is_controlled_by = MHC }
-#     }
-#     357 = { is_owned_by = NEG }
-#     NOT = { has_global_flag = fall_of_boston_ACW }
-#     NEG = { has_cosmetic_tag = USA_free_states_of_america }
-#   }
-
-#   immediate = {
-#     set_global_flag = fall_of_boston_ACW
-#   }
-
-#   mean_time_to_happen = {
-#     days = 2
-#   }
-
-#   option = {
-#     name = acw_generic_news.27.a
-#     trigger = {
-#       NOT = {
-#         TAG = NEG
-#         TAG = USA
-#         TAG = CAL
-#         TAG = MHC
-#       }
-#     }
-#   }
-#   option = {
-#     name = acw_generic_news.27.b
-#     trigger = {
-#       OR = {
-#         TAG = USA
-#         TAG = CAL
-#         TAG = MHC
-#       }
-#     }
-#   }
-#   option = {
-#     name = acw_generic_news.27.c
-#     trigger = { TAG = NEG }
-#   }
-# }
-# # The Fall of San Fransisco CAL
-# news_event = {
-#   id = acw_generic_news.28
-#   title = acw_generic_news.28.t
-#   desc = {
-#     text = acw_generic_news.28.d_usa
-#     trigger = {
-#       378 = { is_controlled_by = USA }
-#     }
-#   }
-#   desc = {
-#     text = acw_generic_news.28.d_neg
-#     trigger = {
-#       378 = { is_controlled_by = NEG }
-#     }
-#   }
-#   desc = {
-#     text = acw_generic_news.28.d_mhc
-#     trigger = {
-#       378 = { is_controlled_by = MHC }
-#     }
-#   }
-#   picture = GFX_news_event_fall_of_san_fransisco_acw
-
-#   major = yes
-
-#   trigger = {
-#     OR = {
-#       378 = { is_controlled_by = USA }
-#       378 = { is_controlled_by = NEG }
-#       378 = { is_controlled_by = MHC }
-#     }
-#     378 = { is_owned_by = CAL }
-#     NOT = { has_global_flag = fall_of_san_fransisco_ACW }
-#     CAL = { has_cosmetic_tag = USA_imperial_states_of_america }
-#   }
-
-#   immediate = {
-#     set_global_flag = fall_of_san_fransisco_ACW
-#   }
-
-#   mean_time_to_happen = {
-#     days = 2
-#   }
-
-#   option = {
-#     name = acw_generic_news.28.a
-#     trigger = {
-#       NOT = {
-#         TAG = CAL
-#         TAG = USA
-#         TAG = NEG
-#         TAG = MHC
-#       }
-#     }
-#   }
-#   option = {
-#     name = acw_generic_news.28.b
-#     trigger = {
-#       OR = {
-#         TAG = USA
-#         TAG = NEG
-#         TAG = MHC
-#       }
-#     }
-#   }
-#   option = {
-#     name = acw_generic_news.28.c
-#     trigger = { TAG = CAL }
-#   }
-# }
-# # The Fall of New York City MHC
-# news_event = {
-#   id = acw_generic_news.29
-#   title = acw_generic_news.29.t
-#   desc = {
-#     text = acw_generic_news.29.d_usa
-#     trigger = {
-#       954 = { is_controlled_by = USA }
-#     }
-#   }
-#   desc = {
-#     text = acw_generic_news.29.d_neg
-#     trigger = {
-#       954 = { is_controlled_by = NEG }
-#     }
-#   }
-#   desc = {
-#     text = acw_generic_news.29.d_cal
-#     trigger = {
-#       954 = { is_controlled_by = CAL }
-#     }
-#   }
-#   picture = GFX_news_event_fall_of_nyc_acw
-
-#   major = yes
-
-#   trigger = {
-#     OR = {
-#       954 = { is_controlled_by = USA }
-#       954 = { is_controlled_by = NEG }
-#       954 = { is_controlled_by = CAL }
-#     }
-#     954 = { is_owned_by = MHC }
-#     NOT = { has_global_flag = fall_of_new_york_mhc_ACW }
-#   }
-
-#   immediate = {
-#     set_global_flag = fall_of_new_york_mhc_ACW
-#   }
-
-#   mean_time_to_happen = {
-#     days = 2
-#   }
-
-#   option = {
-#     name = acw_generic_news.29.a
-#     trigger = {
-#       NOT = {
-#         TAG = MHC
-#         TAG = USA
-#         TAG = CAL
-#         TAG = NEG
-#       }
-#     }
-#   }
-#   option = {
-#     name = acw_generic_news.29.b
-#     trigger = {
-#       OR = {
-#         TAG = USA
-#         TAG = CAL
-#         TAG = NEG
-#       }
-#     }
-#   }
-#   option = {
-#     name = acw_generic_news.29.c
-#     trigger = { TAG = MHC }
 #   }
 # }
 

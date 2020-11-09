@@ -5,12 +5,25 @@
   oob = "USA_1857"
 
   USA = {
+  
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@SHO value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@NEZ value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@BFT value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@CRW value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@SIX value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@CHY value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@COM value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@APA value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@NAV value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@SEM value = 12 }
+	add_to_variable = { var = USA.FNT_raid_likelihood_var@OKL value = 12 }
 
     set_country_flag = American_System_Eligible
 
     USA_Slavery_Debate_setup = yes
     activate_mission = USA_Slavery_Debate_Rising_Tensions
     activate_mission = USA_Election_of_1860_Mission
+	activate_mission = USA_Slavery_Debate_Minnesota_Statehood_Mission
 
     add_dynamic_modifier = { modifier = USA_Slavery_Debate_Tension_Modifier }
 
@@ -73,7 +86,7 @@
   # National Spirits
   add_ideas = {
     # Systems
-    NA_B_Spirit_New_World_Democracies
+		NA_B_Spirit_New_World_Democracies
 		USA_executive_branch_idea
 		USA_congressional_branch_idea
 		USA_judicial_branch_idea

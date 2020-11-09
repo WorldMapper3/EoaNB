@@ -2,7 +2,7 @@
 state={
 	id=536
 	name="STATE_536" # Ezo
-	manpower = 1412000
+	manpower = 70887
 	
 	state_category = rural
 
@@ -21,6 +21,8 @@ state={
 			12421 5 
 		}
 
+		add_to_array = { state_culture_array = 285 }
+		add_to_array = { state_culture_array_num = 1 }
 	}
 
 	provinces={

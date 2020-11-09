@@ -337,6 +337,7 @@ NA_B_set_pop_points_effect = {
 
 ######################## Slavery Debate ##########################
 USA_Slavery_Debate_setup = {
+	set_country_flag = USA_Slavery_Debate_Ongoing
 	# State Count
 	set_variable = {
 		USA_Slavery_Debate_StateS_Count = 15
@@ -381,207 +382,232 @@ USA_Slavery_Debate_setup = {
 }
 
 USA_Slavery_Debate_StateS_Count_Modify = {
-	add_to_variable = {
-		USA_Slavery_Debate_StateS_Count = 1
+	if = {
+		limit = { has_country_flag = USA_Slavery_Debate_Ongoing }
+		custom_effect_tooltip = USA_Slavery_Debate_StateS_Count_Modify_tt
+		add_to_variable = {
+			USA_Slavery_Debate_StateS_Count = 1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateSD_Count = 1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateFD_Count = -1
+		}
 	}
-	set_temp_variable = { 
-		USA_Slavery_Debate_StateSD_Count_Temp = USA_Slavery_Debate_StateS_Count
-	}
-	subtract_from_temp_variable = {
-		USA_Slavery_Debate_StateSD_Count_Temp = USA_Slavery_Debate_StateF_Count
-	}
-	set_variable = {
-		USA_Slavery_Debate_StateSD_Count = USA_Slavery_Debate_StateSD_Count_Temp
-	}
-	set_temp_variable = { 
-		USA_Slavery_Debate_StateFD_Count_Temp = 0
-	}
-	subtract_from_temp_variable = {
-		USA_Slavery_Debate_StateFD_Count_Temp = USA_Slavery_Debate_StateFD_Count
-	}
-	set_variable = {
-		USA_Slavery_Debate_StateFD_Count = USA_Slavery_Debate_StateFD_Count_Temp
+}
+
+USA_Slavery_Debate_StateS_Count_Modify2 = {
+	if = {
+		limit = { has_country_flag = USA_Slavery_Debate_Ongoing }
+		custom_effect_tooltip = USA_Slavery_Debate_StateS_Count_Modify2_tt
+		add_to_variable = {
+			USA_Slavery_Debate_StateS_Count = -1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateSD_Count = -1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateFD_Count = 1
+		}
 	}
 }
 
 USA_Slavery_Debate_StateF_Count_Modify = {
-	add_to_variable = {
-		USA_Slavery_Debate_StateF_Count = 1
+	if = {
+		limit = { has_country_flag = USA_Slavery_Debate_Ongoing }
+		custom_effect_tooltip = USA_Slavery_Debate_StateF_Count_Modify_tt
+		add_to_variable = {
+			USA_Slavery_Debate_StateF_Count = 1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateFD_Count = 1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateSD_Count = -1
+		}
 	}
-	set_temp_variable = { 
-		USA_Slavery_Debate_StateSD_Count_Temp = USA_Slavery_Debate_StateS_Count
-	}
-	subtract_from_temp_variable = {
-		USA_Slavery_Debate_StateSD_Count_Temp = USA_Slavery_Debate_StateF_Count
-	}
-	set_variable = {
-		USA_Slavery_Debate_StateSD_Count = USA_Slavery_Debate_StateSD_Count_Temp
-	}
-	set_temp_variable = { 
-		USA_Slavery_Debate_StateFD_Count_Temp = 0
-	}
-	subtract_from_temp_variable = {
-		USA_Slavery_Debate_StateFD_Count_Temp = USA_Slavery_Debate_StateFD_Count
-	}
-	set_variable = {
-		USA_Slavery_Debate_StateFD_Count = USA_Slavery_Debate_StateFD_Count_Temp
+}
+
+USA_Slavery_Debate_StateF_Count_Modify2 = {
+	if = {
+		limit = { has_country_flag = USA_Slavery_Debate_Ongoing }
+		custom_effect_tooltip = USA_Slavery_Debate_StateF_Count_Modify2_tt
+		add_to_variable = {
+			USA_Slavery_Debate_StateF_Count = -1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateFD_Count = -1
+		}
+		add_to_variable = {
+			USA_Slavery_Debate_StateSD_Count = 1
+		}
 	}
 }
 
 USA_Slavery_Debate_Leaning_Modify = {
-	# Input
-	add_to_variable = { 
-		USA_Slavery_Debate_Leaning = USA_Slavery_Debate_Leaning_Change 
-	}
-	set_temp_variable = { USA_Slavery_Debate_Leaning_Change1 }
-
-	subtract_from_temp_variable = { USA_Slavery_Debate_Leaning_Change1 = USA_Slavery_Debate_Leaning_Change }
 	if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Leaning_Change > 0 } 
+		limit = { has_country_flag = USA_Slavery_Debate_Ongoing }
+		# Input
+		add_to_variable = { 
+			USA_Slavery_Debate_Leaning = USA_Slavery_Debate_Leaning_Change 
 		}
-		custom_effect_tooltip = USA_Slavery_Debate_Rising_Leaning_ChangeS_tt
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Leaning_Change < 0 }
+		set_temp_variable = { USA_Slavery_Debate_Leaning_Change1 = 0 }
+	
+		subtract_from_temp_variable = { 
+			USA_Slavery_Debate_Leaning_Change1 = USA_Slavery_Debate_Leaning_Change 
 		}
-		custom_effect_tooltip = USA_Slavery_Debate_Rising_Leaning_ChangeF_tt
-	}
 
-	set_variable = { USA_Slavery_Debate_Leaning1 = USA_Slavery_Debate_Leaning }
-	multiply_variable = { USA_Slavery_Debate_Leaning1 = -1 }
+		if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Leaning_Change > 0 } 
+			}
+			custom_effect_tooltip = USA_Slavery_Debate_Rising_Leaning_ChangeS_tt
+		}
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Leaning_Change < 0 }
+			}
+			custom_effect_tooltip = USA_Slavery_Debate_Rising_Leaning_ChangeF_tt
+		}
+
+		set_variable = { USA_Slavery_Debate_Leaning1 = USA_Slavery_Debate_Leaning }
+		multiply_variable = { USA_Slavery_Debate_Leaning1 = -1 }
 
 
-	# Leanings Drift
-	if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Leaning > 14 }
+		# Leanings Drift
+		if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Leaning > 14 }
+			}
+			set_variable = { USA_Slavery_Debate_driftR = 0.075 }
+			set_variable = { USA_Slavery_Debate_driftU = -0.025 }
+			set_variable = { USA_Slavery_Debate_driftD = 0.025 }
 		}
-		set_variable = { USA_Slavery_Debate_driftR = 0.075 }
-		set_variable = { USA_Slavery_Debate_driftU = -0.025 }
-		set_variable = { USA_Slavery_Debate_driftD = 0.025 }
-	}
-	else_if = {
-		limit = {
-			check_variable = { USA_Slavery_Debate_Leaning < -14 }
+		else_if = {
+			limit = {
+				check_variable = { USA_Slavery_Debate_Leaning < -14 }
+			}
+			set_variable = { USA_Slavery_Debate_driftD = 0.075 }
+			set_variable = { USA_Slavery_Debate_driftU = -0.025 }
+			set_variable = { USA_Slavery_Debate_driftR = 0.025 }
 		}
-		set_variable = { USA_Slavery_Debate_driftD = 0.075 }
-		set_variable = { USA_Slavery_Debate_driftU = -0.025 }
-		set_variable = { USA_Slavery_Debate_driftR = 0.025 }
-	}
-	else = {
-		set_variable = { USA_Slavery_Debate_driftU = 0.04 }
-		set_variable = { USA_Slavery_Debate_driftR = -0.025 }
-		set_variable = { USA_Slavery_Debate_driftD = -0.025 }
+		else = {
+			set_variable = { USA_Slavery_Debate_driftU = 0.04 }
+			set_variable = { USA_Slavery_Debate_driftR = -0.025 }
+			set_variable = { USA_Slavery_Debate_driftD = -0.025 }
+		}
 	}
 }
 
 USA_Slavery_Debate_Tension_Modify = {
-	# Input
-	add_to_variable = { 
-		USA_Slavery_Debate_Tension = USA_Slavery_Debate_Tension_Change
-	}
-
 	if = {
-		limit = { check_variable = { USA_Slavery_Debate_Tension_Change > 0 } }
-		custom_effect_tooltip = USA_Slavery_Debate_Rising_Tensions_ChangeU_tt
-	}
-	if = {
-		limit = { check_variable = { USA_Slavery_Debate_Tension_Change < 0 } }
-		set_temp_variable = { USA_Slavery_Debate_Tension_Change1 = 0 }
-		subtract_from_temp_variable = { USA_Slavery_Debate_Tension_Change1 = USA_Slavery_Debate_Tension_Change }
-		custom_effect_tooltip = USA_Slavery_Debate_Rising_Tensions_ChangeD_tt
-	}
+		limit = { has_country_flag = USA_Slavery_Debate_Ongoing }
+		# Input
+		add_to_variable = { 
+			USA_Slavery_Debate_Tension = USA_Slavery_Debate_Tension_Change
+		}
 
-	set_temp_variable = {
-		USA_Slavery_Debate_ppg_temp = USA_Slavery_Debate_Tension
-	}
-	multiply_temp_variable = {
-		USA_Slavery_Debate_ppg_temp = -0.007
-	}
-	set_temp_variable = {
-		USA_Slavery_Debate_swf_temp = USA_Slavery_Debate_Tension
-	}
-	multiply_temp_variable = {
-		USA_Slavery_Debate_swf_temp = -0.002
-	}
-	set_temp_variable = {
-		USA_Slavery_Debate_aaf_temp = USA_Slavery_Debate_Tension
-	}
-	multiply_temp_variable = {
-		USA_Slavery_Debate_aaf_temp = -0.004
-	}
+		if = {
+			limit = { check_variable = { USA_Slavery_Debate_Tension_Change > 0 } }
+			custom_effect_tooltip = USA_Slavery_Debate_Rising_Tensions_ChangeU_tt
+		}
+		if = {
+			limit = { check_variable = { USA_Slavery_Debate_Tension_Change < 0 } }
+			set_temp_variable = { USA_Slavery_Debate_Tension_Change1 = 0 }
+			subtract_from_temp_variable = { USA_Slavery_Debate_Tension_Change1 = USA_Slavery_Debate_Tension_Change }
+			custom_effect_tooltip = USA_Slavery_Debate_Rising_Tensions_ChangeD_tt
+		}
 
-	set_variable = {
-		USA_Slavery_Debate_ppg = USA_Slavery_Debate_ppg_temp
-	}
-	set_variable = {
-		USA_Slavery_Debate_swf = USA_Slavery_Debate_swf_temp
-	}
-	set_variable = {
-		USA_Slavery_Debate_aaf = USA_Slavery_Debate_aaf_temp
-	}
+		set_temp_variable = {
+			USA_Slavery_Debate_ppg_temp = USA_Slavery_Debate_Tension
+		}
+		multiply_temp_variable = {
+			USA_Slavery_Debate_ppg_temp = -0.007
+		}
+		set_temp_variable = {
+			USA_Slavery_Debate_swf_temp = USA_Slavery_Debate_Tension
+		}
+		multiply_temp_variable = {
+			USA_Slavery_Debate_swf_temp = -0.002
+		}
+		set_temp_variable = {
+			USA_Slavery_Debate_aaf_temp = USA_Slavery_Debate_Tension
+		}
+		multiply_temp_variable = {
+			USA_Slavery_Debate_aaf_temp = -0.004
+		}
+
+		set_variable = {
+			USA_Slavery_Debate_ppg = USA_Slavery_Debate_ppg_temp
+		}
+		set_variable = {
+			USA_Slavery_Debate_swf = USA_Slavery_Debate_swf_temp
+		}
+		set_variable = {
+			USA_Slavery_Debate_aaf = USA_Slavery_Debate_aaf_temp
+		}
 	
-	if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 89 } 
+		if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 89 } 
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.30 }
+			set_variable = { USA_Slavery_Debate_sf = -0.25 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.30 }
-		set_variable = { USA_Slavery_Debate_sf = -0.25 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 79 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 79 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.25 }
+			set_variable = { USA_Slavery_Debate_sf = -0.225 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.25 }
-		set_variable = { USA_Slavery_Debate_sf = -0.225 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 69 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 69 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.20 }
+			set_variable = { USA_Slavery_Debate_sf = -0.20 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.20 }
-		set_variable = { USA_Slavery_Debate_sf = -0.20 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 59 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 59 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.15 }
+			set_variable = { USA_Slavery_Debate_sf = -0.175 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.15 }
-		set_variable = { USA_Slavery_Debate_sf = -0.175 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 49 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 49 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.125 }
+			set_variable = { USA_Slavery_Debate_sf = -0.15 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.125 }
-		set_variable = { USA_Slavery_Debate_sf = -0.15 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 39 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 39 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.10 }
+			set_variable = { USA_Slavery_Debate_sf = -0.125 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.10 }
-		set_variable = { USA_Slavery_Debate_sf = -0.125 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 29 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 29 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.10 }
+			set_variable = { USA_Slavery_Debate_sf = -0.10 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.10 }
-		set_variable = { USA_Slavery_Debate_sf = -0.10 }
-	}
-	else_if = {
-		limit = { 
-			check_variable = { USA_Slavery_Debate_Tension_Value > 14 }
+		else_if = {
+			limit = { 
+				check_variable = { USA_Slavery_Debate_Tension_Value > 14 }
+			}
+			set_variable = { USA_Slavery_Debate_gwt = 0.10 }
+			set_variable = { USA_Slavery_Debate_sf = -0.075 }
 		}
-		set_variable = { USA_Slavery_Debate_gwt = 0.10 }
-		set_variable = { USA_Slavery_Debate_sf = -0.075 }
-	}
-	else = {
-		set_variable = { USA_Slavery_Debate_gwt = 0.10 }
-		set_variable = { USA_Slavery_Debate_sf = -0.05 }
+		else = {
+			set_variable = { USA_Slavery_Debate_gwt = 0.10 }
+			set_variable = { USA_Slavery_Debate_sf = -0.05 }
+		}
 	}
 }
 
@@ -605,10 +631,72 @@ USA_Slavery_Debate_remove = {
 	clear_variable = USA_Slavery_Debate_StateF_Count
 	clear_variable = USA_Slavery_Debate_StateFD_Count
 
-	remove_dynamic_modifier = USA_Slavery_Debate_Modifier
+	remove_dynamic_modifier = {
+		modifier = USA_Slavery_Debate_Tension_Modifier
+	}
 }
 
-
+ACW_Weapons_Count_Get = {
+	if = {
+		limit = {
+			has_global_flag = ACW_American_Civil_War
+			OR = {
+				has_war_with = CSA
+				has_war_with = USA
+				has_war_with = CAL
+				has_war_with = NEG
+			}
+		}
+		custom_effect_tooltip = ACW_Weapons_Count_Get_tt
+		add_to_variable = { acw_weapons_count_left = acw_weapons_count_change }
+	}
+}
+ACW_Weapons_Count_Use = {
+	if = {
+		limit = {
+			has_global_flag = ACW_American_Civil_War
+			OR = {
+				has_war_with = CSA
+				has_war_with = USA
+				has_war_with = CAL
+				has_war_with = NEG
+			}
+		}
+		custom_effect_tooltip = ACW_Weapons_Count_Use_tt
+		subtract_from_variable = { acw_weapons_count_left = 1 }
+	}
+}
+ACW_Draft_Count_Get = {
+	if = {
+		limit = {
+			has_global_flag = ACW_American_Civil_War
+			OR = {
+				has_war_with = CSA
+				has_war_with = USA
+				has_war_with = CAL
+				has_war_with = NEG
+			}
+		}
+		custom_effect_tooltip = ACW_Draft_Count_Get_tt
+		add_to_variable = { acw_draft_count_left = acw_draft_count_change }
+	}
+}
+ACW_Draft_Count_Use = {
+	if = {
+		limit = {
+			has_global_flag = ACW_American_Civil_War
+			OR = {
+				has_war_with = CSA
+				has_war_with = USA
+				has_war_with = CAL
+				has_war_with = NEG
+			}
+		}
+		custom_effect_tooltip = ACW_Draft_Count_Use_tt
+		subtract_from_variable = { acw_draft_count_left = 1 }
+		add_war_support = -0.01
+	}
+}
 #################### Reconstruction Points #######################
 USAROD_reconstruction_zones_setup = {
 	# National Setup
