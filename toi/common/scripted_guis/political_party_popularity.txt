@@ -10,7 +10,7 @@ scripted_gui = {
   
 		 effects = {
 			pol_pop_bg_click = {
-				
+				set_country_flag = pol_pop_screen_open
 			 }
 		 }
 		 triggers = {
