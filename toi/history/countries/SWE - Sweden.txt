@@ -48,7 +48,7 @@
     sfund_private_ventures_only
 
         #NATIONAL SPIRITS
-	NOR_swedish_norwegian_union
+	SWE_swedish_norwegian_union
 	SWE_Finnish_Defeat
 	SWE_Inept_Army
 	SWE_Toxic_Politics
@@ -119,6 +119,8 @@ set_popularities = {
 	early_artificial_fertilizer = 1
 	electrical_engineering = 1
 	basic_cavalry = 1
+  	horse_transport = 1
+	horse_artillery = 1
 	start_build_tech = 1
 	tech_support = 1
   }

@@ -1,19 +1,21 @@
 state={
 	id=670
 	name="STATE_670"
-	manpower = 560000
-
+	manpower = 571222
+ 
 	resources = {
 		coal=4
 		wood=10
 		rubber=2
-	}
+	} 
 
 	state_category = pastoral
 
 	history={
 		owner = SIA
-		add_core_of=SIA
+		add_claim_by=SIA
+		add_core_of=LAO
+		add_claim_by = VIN
 		victory_points = {
 			1464 5
 		}
@@ -24,24 +26,37 @@ state={
 			1374 3
 		}
 		victory_points = {
-			7218 1
-		}
-		victory_points = {
-			12433 1
-		}
-		victory_points = {
-			4539 1
-		}
-		victory_points = {
-			1592 1
+			1592 3
 		}
 		buildings = {
-			infrastructure = 1
+			infrastructure = 3
 		}
+		add_to_array = { state_religion_array = 11 } # Theravada
+		add_to_array = { state_religion_array_num = 0.59 }
+		add_to_array = { state_religion_array = 22 } # Shamanist
+		add_to_array = { state_religion_array_num = 0.19 }
+		add_to_array = { state_religion_array = 11 } # Mahayana
+		add_to_array = { state_religion_array_num = 0.12 }
+		add_to_array = { state_religion_array = 20 } # Animist
+		add_to_array = { state_religion_array_num = 0.10 }
 
+		add_to_array = { state_culture_array = 213 } # Lao
+		add_to_array = { state_culture_array_num = 0.53 }
+		add_to_array = { state_culture_array = 216 } # Northern Thai
+		add_to_array = { state_culture_array_num = 0.15 }
+		add_to_array = { state_culture_array = 227 } # Cham
+		add_to_array = { state_culture_array_num = 0.11 }
+		add_to_array = { state_culture_array = 214 } # Thai
+		add_to_array = { state_culture_array_num = 0.08 }
+		add_to_array = { state_culture_array = 212 } # Isan
+		add_to_array = { state_culture_array_num = 0.05 }
+		add_to_array = { state_culture_array = 221 } # Chinese Thai
+		add_to_array = { state_culture_array_num = 0.05 }
+		add_to_array = { state_culture_array = 222 } # Lisu
+		add_to_array = { state_culture_array_num = 0.03 }
 	}
 
 	provinces={
-		1362 1374 1390 1464 1507 1520 1563 1577 4260 4339 4539 4554 4568 4613 7075 7103 7218 7356 7426 9961 10195 10238 10326 10453 10496 12210 12332 12392 12433
+		1362 1390 1464 1507 1520 4260 7356 10326 10496 12332 
 	}
 }

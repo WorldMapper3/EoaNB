@@ -164,24 +164,36 @@ spriteTypes = {
 	}	
 	
 	SpriteType = {
-		name = "GFX_motorized_equipment_1_medium"
-		texturefile = "gfx/interface/technologies/motorized_equipment_1.dds"
+		name = "GFX_armor_tech_early_trucks_medium"
+		texturefile = "gfx/interface/technologies/armor/motorized_equipment_1.dds"
 	}	
+	SpriteType = {
+		name = "GFX_armor_tech_early_motorized_medium"
+		texturefile = "gfx/interface/technologies/armor/motorized_equipment_2.dds"
+	}
+	SpriteType = {
+		name = "GFX_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/armor/motorized_equipment_3.dds"
+	}
 
 	SpriteType = {
-		name = "GFX_JAP_motorized_equipment_1_medium"
+		name = "GFX_JAP_armor_tech_motorized_2_medium"
 		texturefile = "gfx/interface/technologies/JAP_motorized_equipment_1.dds"
 	}
 
 	SpriteType = {
-		name = "GFX_SOV_motorized_equipment_1_medium"
-		texturefile = "gfx/interface/technologies/SOV_motorized_equipment_1.dds"
+		name = "GFX_SOV_armor_tech_motorized_2_medium"
+		texturefile = "gfx/interface/technologies/SOV_motorised_equipment_1.dds"
 	}
 
 	SpriteType = {
-		name = "GFX_USA_motorized_equipment_1_medium"
+		name = "GFX_USA_armor_tech_motorized_2_medium"
 		texturefile = "gfx/interface/technologies/USA_motorized_equipment_1.dds"
 	}
+	SpriteType = {
+		name = "GFX_armor_tech_motorized_2_medium"
+		texturefile = "gfx/interface/technologies/motorized_equipment_1.dds"
+	}	
 	
 	SpriteType = {
 		name = "GFX_advanced_infantry_weapons_medium"
@@ -447,7 +459,7 @@ spriteTypes = {
 	}	
 	
 	SpriteType = {
-		name = "GFX_motorised_infantry_medium"
+		name = "GFX_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/motorized_equipment_1.dds"
 	}	
 
@@ -2002,6 +2014,10 @@ spriteTypes = {
 		name = "GFX_tech_naval_mtg_early_submarine_hull_medium"
 		texturefile = "gfx/interface/technologies/ships/submarine_1.dds"
 	}
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_prototype_submarine_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/submarine_0.dds"
+	}
 	
 	SpriteType = {
 		name = "GFX_ship_hull_submarine_1_medium"
@@ -2021,6 +2037,33 @@ spriteTypes = {
 		name = "GFX_ship_hull_dreadnought_0_medium"
 		texturefile = "gfx/interface/technologies/ships/dreadnought_0.dds"
 	}
+	
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_early_battleship_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/navy_ship_pre_dreadnought.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_early_dreadnought_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/navy_ship_the_dreadnought.dds"
+	}
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_1910_dreadnought_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/navy_ship_dreadnought_1910.dds"
+	}
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_1914_dreadnought_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/navy_ship_dreadnought_1914.dds"
+	}
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_1916_dreadnought_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/navy_ship_dreadnought_1916.dds"
+	}
+	SpriteType = {
+		name = "GFX_tech_naval_mtg_1918_dreadnought_hull_medium"
+		texturefile = "gfx/interface/technologies/ships/KING_GEORGE_1918.dds"
+	}
+	
 	
 	SpriteType = {
 		name = "GFX_tech_naval_mtg_1878_armored_cruiser_medium"
@@ -2640,7 +2683,7 @@ spriteTypes = {
 	}	
 	
 	SpriteType = {
-		name = "GFX_SOV_motorised_infantry_medium"
+		name = "GFX_SOV_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/SOV_motorised_equipment_1.dds"
 	}	
 	
@@ -2922,11 +2965,6 @@ spriteTypes = {
 	SpriteType = {
 		name = "GFX_ENG_tech_naval_mtg_pre_dreadnought_hull_medium"
 		texturefile = "gfx/interface/technologies/ships/ENG_pre_dread93.dds"
-	}
-
-	SpriteType = {
-		name = "GFX_ENG_tech_naval_mtg_early_dreadnought_hull_medium"
-		texturefile = "gfx/interface/technologies/ships/ENG_pre_dread03.dds"
 	}
 
 	SpriteType = {
@@ -3246,7 +3284,7 @@ spriteTypes = {
 	}
 
 	SpriteType = {
-		name = "GFX_FRA_motorised_infantry_medium"
+		name = "GFX_FRA_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/armor/FRA_motorized_equipment_III.dds"
 	}
 
@@ -3571,7 +3609,7 @@ spriteTypes = {
 	}
 
 	SpriteType = {
-		name = "GFX_ITA_motorised_infantry_medium"
+		name = "GFX_ITA_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/ita_motorised_infantry.dds"
 	}
 	
@@ -3670,7 +3708,7 @@ spriteTypes = {
 	}	
 	
 	SpriteType = {
-		name = "GFX_JAP_motorised_infantry_medium"
+		name = "GFX_JAP_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/JAP_motorized_equipment_1.dds"
 	}
 		
@@ -3682,7 +3720,7 @@ spriteTypes = {
 	}	
 	
 	SpriteType = {
-		name = "GFX_USA_motorised_infantry_medium"
+		name = "GFX_USA_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/USA_motorized_equipment_1.dds"
 	}
 
@@ -3761,7 +3799,7 @@ spriteTypes = {
 	}
 
 	SpriteType = {
-		name = "GFX_USA_motorised_infantry_medium"
+		name = "GFX_USA_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/usa_motorised_infantry.dds"
 	}
 	
@@ -4672,7 +4710,7 @@ spriteTypes = {
 	}
 
 	SpriteType = {
-		name = "GFX_POL_motorised_infantry_medium"
+		name = "GFX_POL_motorised_infantry_2_medium"
 		texturefile = "gfx/interface/technologies/pol_motorised_infantry.dds"
 	}
 	
@@ -10427,5 +10465,17 @@ spriteTypes = {
 		name = "GFX_over_the_top_medium"
 		texturefile = "gfx/interface/technologies/army_doctrine/over_the_top_charges.dds"
 	}
-
+	SpriteType = {
+		name = "GFX_radio_detection_medium"
+		texturefile = "gfx/interface/technologies/radio_detection.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_heli_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/air/attack_heli_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_attack_heli_1_medium"
+		texturefile = "gfx/interface/technologies/air/attack_heli_1.dds"
+	}
 }

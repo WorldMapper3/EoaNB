@@ -5,6 +5,7 @@ add_namespace = NA_B_mantle_of_the_states_calculator
 add_namespace = NA_B_mantle_of_the_states_calculator_check_1_state
 add_namespace = NA_B_diplomacy_maintenance
 add_namespace = NA_B_start
+add_namespace = NA_B_statehood
 add_namespace = NA_B_set_up_senate
 add_namespace = NA_B_congress_mechanic_election_calculator
 add_namespace = NA_B_idea_working_class_exploitation_calculator
@@ -250,7 +251,7 @@ country_event = {
 					limit = { NOT = { has_country_flag = USA_DouglasElected } }
 					set_country_flag = USA_DouglasElected
 				}
-				news_event = { id = csa_secession.20 days = 6 } # CSA
+				news_event = { id = usa_slavery_debate_secession.119 days = 6 } # CSA
 				country_event = { id = acw_douglas.17 days = 5 random_days = 25 } # Oregon
 				country_event = { id = acw_douglas.18 days = 5 random_days = 25 } # California
 				country_event = { id = acw_douglas.19 days = 5 random_days = 25 } # Utah
@@ -266,14 +267,7 @@ country_event = {
 				country_event = { id = acw_douglas.31 days = 5 random_days = 25 } # New England
 				country_event = { id = acw_douglas.32 days = 5 random_days = 25 } # Alaska
 				country_event = { id = acw_douglas.33 days = 30 random_days = 3 } # Atlantics
-				random_list = {
-					75 = {
-						set_country_flag = USA_LincolnorDouglas_Moderate_Appeal
-						country_event = { id = acw_douglas.28 days = 5 random_days = 25 } # West Virginia
-					}
-					25 = {
-					}
-				}
+				country_event = { id = acw_douglas.28 days = 5 random_days = 25 } # West Virginia
 			}
 		}
 	}
@@ -290,7 +284,7 @@ country_event = {
 					set_country_flag = USA_DouglasElected
 				}
 				set_country_flag = USA_LincolnorDouglas_Moderate_Appeal
-				news_event = { id = csa_secession.20 days = 6 } # CSA
+				news_event = { id = usa_slavery_debate_secession.19 days = 6 } # CSA
 				country_event = { id = acw_douglas.17 days = 5 random_days = 25 } # Oregon
 				country_event = { id = acw_douglas.18 days = 5 random_days = 25 } # California
 				country_event = { id = acw_douglas.19 days = 5 random_days = 25 } # Utah
@@ -327,7 +321,7 @@ country_event = {
 				}
 				set_global_flag = NA_B_test_cuba_free
 				set_country_flag = USA_LincolnorDouglas_Moderate_Appeal
-				news_event = { id = csa_secession.20 days = 6 } # CSA
+				news_event = { id = usa_slavery_debate_secession.119 days = 6 } # CSA
 				country_event = { id = acw_douglas.17 days = 5 random_days = 25 } # Oregon
 				country_event = { id = acw_douglas.18 days = 5 random_days = 25 } # California
 				country_event = { id = acw_douglas.19 days = 5 random_days = 25 } # Utah
@@ -425,6 +419,7 @@ country_event = {
 			}
 			load_focus_tree = kansas_focus
 			KNS_fire_random_election_event = yes
+			KNS_fire_random_bloody_kansas_event = yes
 		}
 		if = {
 			limit = {
@@ -858,6 +853,95 @@ country_event = {
 			}
 		}
 		country_event = { id = NA_B_unlock_units.1 hours = 12 }
+	}
+}
+state_event = {
+	id = NA_B_statehood.1
+	title = NA_B_statehood.1.t
+	desc = {
+		trigger = { 
+			ROOT = { has_country_flag = USA_Slavery_Debate_Ongoing }
+			NOT = { has_state_flag = NA_B_Resistant_Population }
+		}
+		text = NA_B_statehood.1.d_slavery_debate
+	}
+	desc = {
+		trigger = { always = yes }
+		text = NA_B_statehood.1.d
+	}
+	is_triggered_only = yes
+
+	option = {
+		name = NA_B_statehood.1.a
+		trigger = { 
+			OR = {
+				NOT = { ROOT = { has_country_flag = USA_Slavery_Debate_Ongoing } } 
+				has_state_flag = NA_B_Resistant_Population
+			}
+		}
+		NA_B_Add_State_Effect = yes
+		clr_state_flag = NA_B_Resistant_Population
+	}
+
+	option = {
+		name = NA_B_statehood.1.b
+		trigger = { 
+			ROOT = { has_country_flag = USA_Slavery_Debate_Ongoing }
+			NOT = { has_state_flag = NA_B_Resistant_Population }
+		}
+		ai_chance = { 
+			base = 100
+			modifier = {
+				ROOT = { has_government = social_egalitarianism }
+				add = 75
+			}
+			modifier = {
+				ROOT = { has_government = centrism }
+				add = 25
+			}
+			modifier = {
+				ROOT = { has_government = traditional_conservatism }
+				add = -25
+			}
+			modifier = {
+				ROOT = { has_government = radical_democracy }
+				add = -75
+			}
+		}
+		NA_B_Add_State_Effect = yes
+		OWNER = { 
+			USA_Slavery_Debate_StateF_Count_Modify = yes
+		}
+	}
+	option = {
+		name = NA_B_statehood.1.c
+		trigger = { 
+			ROOT = { has_country_flag = USA_Slavery_Debate_Ongoing }
+			NOT = { has_state_flag = NA_B_Resistant_Population }
+		}
+		ai_chance = { 
+			base = 100
+			modifier = {
+				ROOT = { has_government = social_egalitarianism }
+				add = -75
+			}
+			modifier = {
+				ROOT = { has_government = centrism }
+				add = -25
+			}
+			modifier = {
+				ROOT = { has_government = traditional_conservatism }
+				add = 25
+			}
+			modifier = {
+				ROOT = { has_government = radical_democracy }
+				add = 75
+			}
+		}
+		NA_B_Add_State_Effect = yes
+		OWNER = { 
+			USA_Slavery_Debate_StateS_Count_Modify = yes
+		}
 	}
 }
 

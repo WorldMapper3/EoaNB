@@ -472,6 +472,10 @@
     SERmisc.5.d:0 "Serbia is currently not really playable. So if you decide to play it anyway, remember that it will probably not work very well or even at all in some parts.\n-Serbian dev"
     SERmisc.5.a:0 "Ok"
     
+    SERmisc.6.t:0 "Establishing Serbian Gendarmery"
+    SERmisc.6.d:0 "We have established first Serbian Gendarmery"
+    SERmisc.6.a:0 "Glory to Serbia!"
+    
     SERcuk.1.t:0 "Chukur Fountain Incident"
     SERcuk.1.d:0 "A hot summer day. Both Serbs and Turkish soldiers are drinking water from a well in Belgrade. An argument started about who will drink/take the water first. And in that heated moment, a Serbian boy named Sava Petkovic accidentaly broke a water jug belonging to a Turkish soldier. The soldier hit the boy in the head and wounded him. Serbian police sent some gendarmes to arrest the soldier. Other Turkish soldiers shot at and killed two Serb policemen. The shots could be heard around the city the whole night."
     SERcuk.1.a:0 "Outrageous!"
@@ -535,6 +539,14 @@
     SER_idea_serbianarmy:0 "Serbian Army"
     SER_idea_alliance:0 "The Balkan Alliance"
     SER_idea_alliance_desc:0 "An alliance created by Serbia, Montenegro, Greece and Wallachia for the purpose of defeating the Ottomans and freeing their people from their rule."
+    SER_idea_dual_government_of_belgrade:0 "Dual Goverment of Belgrade"
+    SER_idea_dual_government_of_belgrade_desc:0 "Ever since the first Serbian Uprising and it's inevitable demise at the hands of the Turks it sowed the seed of misstrust between us and the Sultan which culminated into Dual Administration of Belgrade, city split in administration, one governed by the Serbs and other directly from the Porte. And as a result conflict seems to be a daily occurance between two sides for the control of the city, and if nothing is done peoples trust in the goverment will be completely diminished."
+    SER_idea_growing_turkish_minority:0 "Growing Turkish Minority"
+    SER_idea_growing_turkish_minority_desc:0 "With our recent actions and will to resist the Porte Sultan has grown increasingly worried about Russia's influence over our Principality so along with the garrison came their families with which the Sultan hopes to change the ethnic map of not only Belgrade but Serbia as a whole, and those very actions haven drained what little we have dry, as long as the garrison stays so will the civillians."
+    SER_idea_the_sultans_watchful_eyes:0 "The Sultan's Watchful Eyes"
+    SER_idea_the_sultans_watchful_eyes_desc:0 "The issue of Dual Administration lays in the heart of Serbia itself, it's fortress in which the Sultan's lapdog resides the Pasha of Belgrade, the Porte's Watchful Eyes, as long as he and the garrison remain we have little power over the Principalities internal and external policies which forces us to keep our head low, until the first opportunnity strikes."
+    SER_idea_principality_in_name_only:0 "Principality in Name Only"
+    SER_idea_principality_in_name_only_desc:0 "Even though our Principality gained an autonomous status it is still a part of the Ottoman Empire and the Porte is making sure we remember that, all of our cities are under the Sultan's administration and protection as well as all resources belong to the Porte and little that is left is distributed between the Principalities, which prevents any meaningful conscription inside the Principality only time will tell if this nightmare ever end." 
     
     #CUSTOM EFFECT TOOLTIPS
     
@@ -554,3 +566,10 @@
     eoanb_tt_SER_factoryef:0 "Factory Efficiency: §G+5% §! "
     eoanb_tt_SER_focus_resourcegain:0 "Resource Gain: §G+10% §! "
     eoanb_tt_SER_focus_outofsupply:0 "Out Of Supply: §G-20% §! "
+    
+    #IDEAS
+    
+    SER_kragujevac_cannons_foundry:0 "Kragujevac Cannons Foundry"
+    SER_serbian_postal_service:0 "Serbian Postal Service"
+    SER_bip:0 "BIP Brewery"
+    

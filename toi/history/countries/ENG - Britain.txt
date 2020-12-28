@@ -19,6 +19,13 @@
     active = yes
 }
 
+	 set_truce = { target = RUS days = 1820 }
+	 
+	 set_truce = {
+    target = BRM
+    days = 500
+	}
+
    unlock_national_focus = ENG_focus_1857_elections
 
   set_research_slots = 4
@@ -582,7 +589,11 @@ set_variable = {
 
 	if = {
 		limit = {
-			has_dlc = "Together for Victory"
+			OR = {
+				has_dlc = "Together for Victory"
+				has_dlc = "Waking the Tiger"
+				has_dlc = "Death or Dishonor"
+			}
 		}
 		set_autonomy = {
 			target = NAT
@@ -696,12 +707,12 @@ set_variable = {
 		}
 		set_autonomy = {
 			target = VAN
-			autonomous_state = autonomy_afr_colony
+			autonomous_state = autonomy_afr_colonial_company
 			freedom_level = 0.1
 		}
 		set_autonomy = {
 			target = HBC
-			autonomous_state = autonomy_afr_colony
+			autonomous_state = autonomy_afr_colonial_company
 			freedom_level = 0.1
 		}
 		set_autonomy = {
@@ -712,7 +723,11 @@ set_variable = {
 	}
   if = {
 		limit = {
-			NOT = { has_dlc = "Together for Victory" }
+			NOT = { OR = {
+				has_dlc = "Together for Victory"
+				has_dlc = "Waking the Tiger"
+				has_dlc = "Death or Dishonor"
+			} }
 		}
 		puppet = TRA
 		puppet = RAJ

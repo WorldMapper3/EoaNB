@@ -29,7 +29,11 @@ country_event = {
 		add_political_power = -15
 		if = {
 			limit = {
-				has_dlc = "Together for Victory"
+				OR = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Waking the Tiger"
+					has_dlc = "Death or Dishonor"
+				}
 			}
 			FROM = {
 				add_autonomy_score = {
@@ -64,7 +68,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_dlc = "Together for Victory"
+				OR = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Waking the Tiger"
+					has_dlc = "Death or Dishonor"
+				}
 			}
 			FROM = {
 				add_autonomy_ratio = {
@@ -326,9 +334,10 @@ country_event = {
 	#picture = GFX_report_event_generic_riot
 
 	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		date > 1862.8.1
+		#date > 1862.8.1
 		has_country_leader = {
 			name = "Muhammad Sa'id Pasha"
 			ruling_only = yes
@@ -348,9 +357,6 @@ country_event = {
 				}
 			}
 		}
-	}
-	mean_time_to_happen={
-		days = 150
 	}
 
 	option = { #Praise Ismail
@@ -467,7 +473,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_dlc = "Together for Victory"
+				OR = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Waking the Tiger"
+					has_dlc = "Death or Dishonor"
+				}
 			}
 			set_autonomy = {#the loyal leader is, well loyal
 				target = FROM
@@ -496,7 +506,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_dlc = "Together for Victory"
+				OR = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Waking the Tiger"
+					has_dlc = "Death or Dishonor"
+				}
 			}
 			set_autonomy = {#the loyal leader is, well loyal
 				target = FROM
@@ -807,7 +821,7 @@ country_event = { #EGY - establishment of the dual control
 		has_idea = EGY_FRA_controlled_government
 	}
 	mean_time_to_happen={
-		days = 2
+		days = 20
 	}
 
 	option = {#damn
@@ -868,7 +882,11 @@ country_event = { #OTO - due to EGY independance, lose hold on AWS and HRR
 			}
 			if = {
 				limit = {
-					has_dlc = "Together for Victory"
+					OR = {
+						has_dlc = "Together for Victory"
+						has_dlc = "Waking the Tiger"
+						has_dlc = "Death or Dishonor"
+					}
 				}
 				set_autonomy = {
 					target = HRR
@@ -887,7 +905,11 @@ country_event = { #OTO - due to EGY independance, lose hold on AWS and HRR
 			}
 			if = {
 				limit = {
-					has_dlc = "Together for Victory"
+					OR = {
+						has_dlc = "Together for Victory"
+						has_dlc = "Waking the Tiger"
+						has_dlc = "Death or Dishonor"
+					}
 				}
 				set_autonomy = {
 					target = AWS
@@ -922,18 +944,16 @@ country_event = {
 	hidden = yes
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		date > 1862.5.20
-		date < 1862.6.20
+		#date > 1862.5.20
+		#date < 1862.6.20
 		has_country_leader = {
 			name = "Muhammad Sa'id Pasha"
 			ruling_only = yes
 		}
 		tag = EGY
-	}
-	mean_time_to_happen={
-		days = 8
 	}
 
 	immediate = {

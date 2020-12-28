@@ -1,101 +1,12 @@
 ﻿# Indentation must be set to tabs before editing! This file is edited with a tab size of 4.
 add_namespace = eoanb_norway
 
-country_event = { # Kick out the stadtholder
-	id = eoanb_norway.0
-	title = eoanb_norway.0.t
-	desc = eoanb_norway.0.d
-	picture = GFX_report_event_newspaper
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-	
-	option = {
-		name = eoanb_norway.0.a
-		ai_chance = { 
-			factor = 10
-		}
-		SWE = { add_stability = -0.05 }	
-		SWE = { add_political_power = -100 }
-		NOR = { 
-			add_timed_idea = {
-				idea = NOR_sweden_did_not_remove_the_stadtholder
-				days = 365
-			}
-		}
-	}
-
-	option = {
-		name = eoanb_norway.0.b
-		ai_chance = { 
-			factor = 10 
-			modifier = {
-				factor = 20
-				is_historical_focus_on = yes 
-			}
-		}
-		SWE = { add_stability = 0.05 }	
-		SWE = { add_political_power = -25 }
-		NOR = {
-			add_timed_idea = {
-				idea = NOR_sweden_removed_the_stadtholder
-				days = 365
-			}
-		}
-	}
-}
-
-country_event = { # Remove the vicory of Norway
-	id = eoanb_norway.1
-	title = eoanb_norway.1.t
-	desc = eoanb_norway.1.d
-	picture = GFX_report_event_newspaper
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-	
-	option = {
-		name = eoanb_norway.1.a
-		ai_chance = { 
-			factor = 10
-		}
-		SWE = { add_stability = -0.05 }	
-		SWE = { add_political_power = -100 }
-		NOR = {
-			add_timed_idea = {
-				idea = NOR_sweden_did_not_remove_the_vicory_of_norway
-				days = 365
-			}
-		}
-	}
-
-	option = {
-		name = eoanb_norway.1.b
-		ai_chance = { 
-			factor = 10 
-			modifier = {
-				factor = 20
-				is_historical_focus_on = yes 
-			}
-		}		
-		SWE = { add_stability = 0.05 }	
-		SWE = { add_political_power = -25 }
-		NOR = { 
-			add_timed_idea = {
-				idea = NOR_sweden_removed_the_vicory_of_norway
-				days = 365
-			}
-		}		
-	}
-}
 
 news_event = { # Murder of Knut Grøte
 	id = eoanb_norway.2
 	title = eoanb_norway.2.t
 	desc = eoanb_norway.2.d
-	picture = GFX_report_event_newspaper
+	picture = GFX_news_event_001
 
 	major = no
 
@@ -118,7 +29,6 @@ news_event = { # Murder of Knut Grøte
 	}
 }
 
-
 news_event = { # Construction started on the storting building
 	id = eoanb_norway.3
 	title = eoanb_norway.3.t
@@ -138,13 +48,31 @@ news_event = { # Construction started on the storting building
 	}
 }
 
-# Reserved for construction finished on the storting building
+news_event = { # Construction finished on the storting building
+	id = eoanb_norway.4
+	title = eoanb_norway.4.t
+	desc = eoanb_norway.4.d
+	picture = GFX_report_event_newspaper
+
+	major = no
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = eoanb_norway.4.a
+
+		NOR = {
+			add_stability = 0.05
+		}
+	}
+}
 
 news_event = { # Venstre has been established
 	id = eoanb_norway.5
 	title = eoanb_norway.5.t
 	desc = eoanb_norway.5.d
-	picture = GFX_report_event_newspaper
+	picture = GFX_news_event_002
 
 	major = no
 
@@ -168,7 +96,7 @@ news_event = { # Høyre has been established
 	id = eoanb_norway.6
 	title = eoanb_norway.6.t
 	desc = eoanb_norway.6.d
-	picture = GFX_report_event_newspaper
+	picture = GFX_news_event_003
 
 	major = no
 
@@ -184,6 +112,41 @@ news_event = { # Høyre has been established
 				long_name = NOR_hoyre_party
 				name = NOR_hoyre_party
 			}
+		}
+	}
+}
+
+country_event = { # Look for replacements
+	id = eoanb_norway.7
+	title = eoanb_norway.7.t
+	desc = eoanb_norway.7.d
+	picture = GFX_report_event_trial_six
+
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = eoanb_norway.7.a
+
+		NOR = {
+			complete_national_focus = NOR_vogt_replacement_found
+		}
+	}
+
+	option = {
+		name = eoanb_norway.7.b
+
+		NOR = {
+			complete_national_focus = NOR_vogt_replacement_found
+		}
+	}
+
+	option = {
+		name = eoanb_norway.7.c
+
+		NOR = {
+			complete_national_focus = NOR_vogt_replacement_found
 		}
 	}
 }

@@ -435,6 +435,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			hidden_effect = { 100 = { add_core_of = ICE } }
 		DEN = { release_puppet = ICE }
 		hidden_effect = {
 		        ICE = {
@@ -787,7 +788,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = {
-				limit = { has_dlc = "Together for Victory" }
+				limit = { OR = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Waking the Tiger"
+					has_dlc = "Death or Dishonor"
+				} }
 				SCH = { add_autonomy_score = { value = -200 } }
 			}
 			else = {
@@ -867,8 +872,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			unlock_decision_tooltip = DEN_decision_expand_economic_ties_hamburg
-            unlock_decision_tooltip = DEN_decision_expand_economic_ties_lubeck
+			country_event = { id = denmark_focus.9 days = 20 }
 		}
 	}
 	

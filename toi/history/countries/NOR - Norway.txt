@@ -2,9 +2,8 @@
 1857.1.1 = {
 	capital = 110
 	set_convoys = 140
-
 	oob = "NOR_1857"
-
+	
 	set_country_flag = is_junior_personal_union_member
 	set_cosmetic_tag = NOR_SWE_union
 
@@ -21,6 +20,8 @@
 		agrarian
 		has_heir
 		constitutional_monarchy
+		no_federalism
+		limited_independence
 
 		civilian_economy
 		export_focus
@@ -52,14 +53,15 @@
 
 		#NATIONAL SPIRITS
 
-		NOR_swedish_norwegian_union
+		NOR_idea_swedish_norwegian_union
+		NOR_idea_sami_opression
+		NOR_idea_norwegian_loyalty_2
 	}
 
 	SWE = {
 		if = {
-			limit = {
-				has_dlc = "Together for Victory"
-			}
+			limit = { eoanb_enable_autonomy = yes }
+
 			set_autonomy = {
 				target = NOR
 				autonomous_state = autonomy_personal_union
@@ -73,20 +75,20 @@
 
 
 	set_politics = {
-		ruling_party = centrism
+		ruling_party = traditional_conservatism
 		last_election = "1856.11.3"
 		election_frequency = 36
-		elections_allowed = yes
+		elections_allowed = no
 	}
 
 	set_popularities = {
 		anarchism = 0
-		vanguard_communism = 3
+		vanguard_communism = 0
 		collectivist_socialism = 0
 		social_egalitarianism = 0
-		centrism = 50
-		traditional_conservatism = 40
-		radical_democracy = 2
+		centrism = 40
+		traditional_conservatism = 55
+		radical_democracy = 0
 		chauvinist_populism = 0
 		autocracy = 5
 		fundamentalism = 0
@@ -117,6 +119,9 @@
 		tech_naval_mtg_sails = 1
 		tech_naval_mtg_crows_nest = 1
 		gw_artillery = 1
+		basic_cavalry = 1
+		horse_transport = 1
+		horse_artillery = 1
 		iron_railways = 1
 		steam_engine = 1
 		start_build_tech = 1
@@ -130,17 +135,17 @@
 	# POLITICAL LEADERS
 	# Country leaders
 	create_country_leader = {
-		name = "Frederik Due"
+		name = "Jørgen Herman Vogt"
 		desc = "POLITICS_TEMP_DESC"
-		picture = "Portrait_NOR_Frederik_Gottschalk_Haxthausen_Due.dds"
+		picture = "Portrait_NOR_Jorgen_Herman_Vogt.dds"
 		expire = 1872.09.10
-		ideology = market_liberal
+		ideology = conserv
 	}
 
 	# Naval leaders
 	create_navy_leader = {
 		name = "Henrik Steffens Hagerup"
-		portrait_path = "Portrait_NOR_Henrik_Steffens_Hagerup.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Henrik_Steffens_Hagerup.dds"
 		traits = { career_officer }
 		attack_skill = 1
 		defense_skill = 2
@@ -150,7 +155,7 @@
 
 	create_navy_leader = {
 		name = "Thomas Konow"
-		portrait_path = "Portrait_NOR_Thomas_Konow.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Thomas_Konow.dds"
 		traits = {}
 		attack_skill = 2
 		defense_skill = 2
@@ -161,7 +166,7 @@
 	# Army leaders
 	create_corps_commander = { # https://en.wikipedia.org/wiki/Hans_Glad_Bloch
 		name = "Hans Glad Bloch"
-		portrait_path = "Portrait_NOR_Hans_Glad_Bloch.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Hans_Glad_Bloch.dds"
 		traits = {}
 		attack_skill = 3
 		defense_skill = 3
@@ -171,7 +176,7 @@
 
 	create_corps_commander = { # https://no.wikipedia.org/wiki/Balthazar_Nicolai_Garben
 		name = "Balthazar Nicolai Garben"
-		portrait_path = "Portrait_NOR_Balthazar_Nicolai_Garben.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Balthazar_Nicolai_Garben.dds"
 		traits = { politically_connected }
 		attack_skill = 2
 		defense_skill = 3
@@ -181,7 +186,7 @@
 
 	create_corps_commander = { # https://no.wikipedia.org/wiki/Nils_Christian_Irgens
 		name = "Nils Christian Irgens"
-		portrait_path = "Portrait_NOR_Nils_Christian_Irgens.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Nils_Christian_Irgens.dds"
 		traits = { old_guard }
 		attack_skill = 3
 		defense_skill = 4
@@ -191,7 +196,7 @@
 
 	create_corps_commander = { # No information about this guy. Father-in-law of Jørgen Moe.
 		name = "Fredrik Moltke Sørenssen"
-		portrait_path = "Portrait_NOR_Fredrik_Moltke_Sørenssen.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Fredrik_Moltke_Sorenssen.dds"
 		traits = {}
 		attack_skill = 2
 		defense_skill = 2
@@ -201,7 +206,7 @@
 
 	create_corps_commander = { # https://en.wikipedia.org/wiki/Christian_Frederik_Michelet
 		name = "Christian Frederik Michelet"
-		portrait_path = "Portrait_NOR_Christian_Frederik_Michelet.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Christian_Frederik_Michelet.dds"
 		traits = { war_hero career_officer }
 		attack_skill = 3
 		defense_skill = 3
@@ -211,7 +216,7 @@
 
 	create_corps_commander = { # https://no.wikipedia.org/wiki/Harald_Nicolai_Storm_Wergeland
 		name = "Nicolai Wergeland"
-		portrait_path = "Portrait_NOR_Harald_Nicolai_Storm_Wergeland.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Harald_Nicolai_Storm_Wergeland.dds"
 		traits = {}
 		attack_skill = 4
 		defense_skill = 3
@@ -221,7 +226,7 @@
 
 	create_corps_commander = { # https://no.wikipedia.org/wiki/Joseph_Frantz_Oscar_Wergeland
 		name = "Oscar Wergeland"
-		portrait_path = "Portrait_NOR_Joseph_Frantz_Oscar_Wergeland.dds"
+		portrait_path = "gfx/leaders/NOR/Commanders/Portrait_NOR_Joseph_Frantz_Oscar_Wergeland.dds"
 		traits = { politically_connected }
 		attack_skill = 2
 		defense_skill = 3

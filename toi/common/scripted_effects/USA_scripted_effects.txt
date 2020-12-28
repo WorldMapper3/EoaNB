@@ -335,6 +335,1085 @@ NA_B_set_pop_points_effect = {
 			}
 }
 
+NA_B_Add_State_Effect = {
+	if = {
+		limit = { ROOT = { NA_B_is_american_allowed = yes } }
+		add_core_of = ROOT
+		every_neighbor_state = {
+			limit = {
+				has_state_flag = NA_B_Disregardable_State
+				NOT = { is_core_of = ROOT }
+				OR = {
+					is_owned_by = ROOT
+					OWNER = { is_subject_of = ROOT }
+					OWNER = { is_first_nations_tribe = yes }
+				}
+			}
+		}
+		if = {
+			limit = { is_owned_by = ROOT }
+			FROM = { state_event = { id = NA_B_statehood.1 } }
+			add_to_variable = {
+				var = usa_congress_senate_total_seats
+				value = 2
+			}
+			add_to_variable = {
+				var = usa_congress_house_total_seats
+				value = 1
+			}
+			OWNER = { 
+				USA_admit_state_add_stars = yes
+				eoanb_add_1_prestige_score = yes
+			}
+		}
+	}
+}
+
+# Energy's Buchanan Cabinet
+
+USA_Buchanan_Cabinet_Modify = {
+	if = {
+		limit = {
+			date < 1860.11.6
+			USA = {
+				has_completed_focus = USA_covode_committee
+			}
+		}
+		country_event = {
+			id = usaPolitics.1
+			days = 1
+		}
+		if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_2_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl2}
+			add_ideas = {USA_doughface_2_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_2_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl3}
+			add_ideas = {USA_doughface_2_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_2_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl4}
+			add_ideas = {USA_doughface_2_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_2_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl5}
+			add_ideas = {USA_doughface_2_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_2_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl1}
+			add_ideas = {USA_doughface_2_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_2_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl3}
+			add_ideas = {USA_doughface_2_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_2_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl4}
+			add_ideas = {USA_doughface_2_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_2_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl5}
+			add_ideas = {USA_doughface_2_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_2_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl1}
+			add_ideas = {USA_doughface_2_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_2_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl2}
+			add_ideas = {USA_doughface_2_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_2_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl4}
+			add_ideas = {USA_doughface_2_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_2_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl5}
+			add_ideas = {USA_doughface_2_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_2_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl1}
+			add_ideas = {USA_doughface_2_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_2_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl2}
+			add_ideas = {USA_doughface_2_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_2_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl3}
+			add_ideas = {USA_doughface_2_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_2_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl5}
+			add_ideas = {USA_doughface_2_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_2_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl1}
+			add_ideas = {USA_doughface_2_lvl5}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_2_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl2}
+			add_ideas = {USA_doughface_2_lvl5}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_2_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl3}
+			add_ideas = {USA_doughface_2_lvl5}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_2_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_2_lvl4}
+			add_ideas = {USA_doughface_2_lvl5}
+		}
+	}
+	else_if = {
+		limit = {
+			date < 1860.11.6
+			USA = {
+				has_completed_focus = USA_doughface_cabinet
+			}
+		}
+		country_event = {
+			id = usaPolitics.1
+			days = 1
+		}
+		if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_1_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl2}
+			add_ideas = {USA_doughface_1_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_1_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl3}
+			add_ideas = {USA_doughface_1_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_1_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl4}
+			add_ideas = {USA_doughface_1_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_doughface_1_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl5}
+			add_ideas = {USA_doughface_1_lvl1}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_1_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl1}
+			add_ideas = {USA_doughface_1_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_1_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl3}
+			add_ideas = {USA_doughface_1_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_1_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl4}
+			add_ideas = {USA_doughface_1_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_doughface_1_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl5}
+			add_ideas = {USA_doughface_1_lvl2}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_1_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl1}
+			add_ideas = {USA_doughface_1_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_1_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl2}
+			add_ideas = {USA_doughface_1_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_1_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl4}
+			add_ideas = {USA_doughface_1_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_doughface_1_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl5}
+			add_ideas = {USA_doughface_1_lvl3}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_1_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl1}
+			add_ideas = {USA_doughface_1_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_1_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl2}
+			add_ideas = {USA_doughface_1_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_1_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl3}
+			add_ideas = {USA_doughface_1_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_doughface_1_lvl5
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl5}
+			add_ideas = {USA_doughface_1_lvl4}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_1_lvl1
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl1}
+			add_ideas = {USA_doughface_1_lvl5}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_1_lvl2
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl2}
+			add_ideas = {USA_doughface_1_lvl5}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_1_lvl3
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl3}
+			add_ideas = {USA_doughface_1_lvl5}
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_doughface_1_lvl4
+				}
+			}
+			remove_ideas = {USA_doughface_1_lvl4}
+			add_ideas = {USA_doughface_1_lvl5}
+		}
+	}
+	else_if = {
+		limit = {
+			date < 1860.11.6
+			USA = {
+				has_completed_focus = USA_close_ranks
+			}
+		}
+		country_event = {
+			id = usaPolitics.1
+			days = 1
+		}
+		if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_2_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl2
+			add_ideas = USA_inclusive_2_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_2_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl3
+			add_ideas = USA_inclusive_2_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_2_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl4
+			add_ideas = USA_inclusive_2_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_2_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl5
+			add_ideas = USA_inclusive_2_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_2_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl1
+			add_ideas = USA_inclusive_2_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_2_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl3
+			add_ideas = USA_inclusive_2_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_2_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl4
+			add_ideas = USA_inclusive_2_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_2_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl5
+			add_ideas = USA_inclusive_2_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_2_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl1
+			add_ideas = USA_inclusive_2_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_2_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl2
+			add_ideas = USA_inclusive_2_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_2_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl4
+			add_ideas = USA_inclusive_2_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_2_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl5
+			add_ideas = USA_inclusive_2_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_2_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl1
+			add_ideas = USA_inclusive_2_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_2_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl2
+			add_ideas = USA_inclusive_2_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_2_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl3
+			add_ideas = USA_inclusive_2_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_2_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl5
+			add_ideas = USA_inclusive_2_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_2_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl1
+			add_ideas = USA_inclusive_2_lvl5
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_2_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl2
+			add_ideas = USA_inclusive_2_lvl5
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_2_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl3
+			add_ideas = USA_inclusive_2_lvl5
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_2_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_2_lvl4
+			add_ideas = USA_inclusive_2_lvl5
+		}
+	}
+	else_if = {
+		limit = {
+			date < 1860.11.6
+			USA = {
+				has_completed_focus = USA_inclusive_cabinet
+			}
+		}
+		country_event = {
+			id = usaPolitics.1
+			days = 1
+		}
+		if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_1_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl2
+			add_ideas = USA_inclusive_1_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_1_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl3
+			add_ideas = USA_inclusive_1_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_1_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl4
+			add_ideas = USA_inclusive_1_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -75
+						# has_political_power = -75
+					}
+					has_idea = USA_inclusive_1_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl5
+			add_ideas = USA_inclusive_1_lvl1
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_1_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl1
+			add_ideas = USA_inclusive_1_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_1_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl3
+			add_ideas = USA_inclusive_1_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_1_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl4
+			add_ideas = USA_inclusive_1_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -150
+						# has_political_power = -150
+					}
+					has_idea = USA_inclusive_1_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl5
+			add_ideas = USA_inclusive_1_lvl2
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_1_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl1
+			add_ideas = USA_inclusive_1_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_1_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl2
+			add_ideas = USA_inclusive_1_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_1_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl4
+			add_ideas = USA_inclusive_1_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -225
+						# has_political_power = -225
+					}
+					has_idea = USA_inclusive_1_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl5
+			add_ideas = USA_inclusive_1_lvl3
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_1_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl1
+			add_ideas = USA_inclusive_1_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_1_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl2
+			add_ideas = USA_inclusive_1_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_1_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl3
+			add_ideas = USA_inclusive_1_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					OR = {
+						has_political_power > -300
+						# has_political_power = -300
+					}
+					has_idea = USA_inclusive_1_lvl5
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl5
+			add_ideas = USA_inclusive_1_lvl4
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_1_lvl1
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl1
+			add_ideas = USA_inclusive_1_lvl5
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_1_lvl2
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl2
+			add_ideas = USA_inclusive_1_lvl5
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_1_lvl3
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl3
+			add_ideas = USA_inclusive_1_lvl5
+		}
+		else_if = {
+			limit = {
+				USA = {
+					has_political_power < -300
+					has_idea = USA_inclusive_1_lvl4
+				}
+			}
+			remove_ideas = USA_inclusive_1_lvl4
+			add_ideas = USA_inclusive_1_lvl5
+		}
+	}
+}
+
 ######################## Slavery Debate ##########################
 USA_Slavery_Debate_setup = {
 	set_country_flag = USA_Slavery_Debate_Ongoing
@@ -379,6 +1458,7 @@ USA_Slavery_Debate_setup = {
 		USA_Slavery_Debate_Tension_Change = 0
 	}
 	USA_Slavery_Debate_Tension_Modify = yes
+	add_dynamic_modifier = { modifier = USA_Slavery_Debate_Tension_Modifier }
 }
 
 USA_Slavery_Debate_StateS_Count_Modify = {
@@ -403,6 +1483,10 @@ USA_Slavery_Debate_StateS_Count_Modify2 = {
 		custom_effect_tooltip = USA_Slavery_Debate_StateS_Count_Modify2_tt
 		add_to_variable = {
 			USA_Slavery_Debate_StateS_Count = -1
+		}
+		clamp_variable = {
+			var = USA_Slavery_Debate_StateS_Count
+			min = 0
 		}
 		add_to_variable = {
 			USA_Slavery_Debate_StateSD_Count = -1
@@ -436,6 +1520,10 @@ USA_Slavery_Debate_StateF_Count_Modify2 = {
 		add_to_variable = {
 			USA_Slavery_Debate_StateF_Count = -1
 		}
+		clamp_variable = {
+			var = USA_Slavery_Debate_StateF_Count
+			min = 0
+		}
 		add_to_variable = {
 			USA_Slavery_Debate_StateFD_Count = -1
 		}
@@ -451,6 +1539,12 @@ USA_Slavery_Debate_Leaning_Modify = {
 		# Input
 		add_to_variable = { 
 			USA_Slavery_Debate_Leaning = USA_Slavery_Debate_Leaning_Change 
+		}
+
+		clamp_variable = {
+			var = USA_Slavery_Debate_Leaning
+			min = -50
+			max = 50
 		}
 		set_temp_variable = { USA_Slavery_Debate_Leaning_Change1 = 0 }
 	
@@ -506,6 +1600,12 @@ USA_Slavery_Debate_Tension_Modify = {
 		# Input
 		add_to_variable = { 
 			USA_Slavery_Debate_Tension = USA_Slavery_Debate_Tension_Change
+		}
+
+		clamp_variable = {
+			var = USA_Slavery_Debate_Tension
+			min = 0
+			max = 100
 		}
 
 		if = {
@@ -611,7 +1711,7 @@ USA_Slavery_Debate_Tension_Modify = {
 	}
 }
 
-USA_Slavery_Debate_remove = {
+USA_Slavery_Debate_Remove = {
 	clear_variable = USA_Slavery_Debate_Leaning
 	clear_variable = USA_Slavery_Debate_Leaning1
 	clear_variable = USA_Slavery_Debate_Tension
@@ -631,30 +1731,33 @@ USA_Slavery_Debate_remove = {
 	clear_variable = USA_Slavery_Debate_StateF_Count
 	clear_variable = USA_Slavery_Debate_StateFD_Count
 
+	clr_country_flag = USA_Slavery_Debate_Ongoing
 	remove_dynamic_modifier = {
 		modifier = USA_Slavery_Debate_Tension_Modifier
 	}
 }
 
+######################## Civil War ##########################
+
 ACW_Weapons_Count_Get = {
 	if = {
 		limit = {
-			has_global_flag = ACW_American_Civil_War
 			OR = {
-				has_war_with = CSA
-				has_war_with = USA
-				has_war_with = CAL
-				has_war_with = NEG
+				has_global_flag = ACW_American_Civil_War_Start
+				has_global_flag = ACW_American_Civil_War
 			}
 		}
 		custom_effect_tooltip = ACW_Weapons_Count_Get_tt
-		add_to_variable = { acw_weapons_count_left = acw_weapons_count_change }
+		add_to_variable = { ROOT.acw_weapons_count_left = acw_weapons_count_change }
 	}
 }
 ACW_Weapons_Count_Use = {
 	if = {
 		limit = {
-			has_global_flag = ACW_American_Civil_War
+			OR = {
+				has_global_flag = ACW_American_Civil_War_Start
+				has_global_flag = ACW_American_Civil_War
+			}
 			OR = {
 				has_war_with = CSA
 				has_war_with = USA
@@ -663,28 +1766,28 @@ ACW_Weapons_Count_Use = {
 			}
 		}
 		custom_effect_tooltip = ACW_Weapons_Count_Use_tt
-		subtract_from_variable = { acw_weapons_count_left = 1 }
+		subtract_from_variable = { ROOT.acw_weapons_count_left = 1 }
 	}
 }
 ACW_Draft_Count_Get = {
 	if = {
 		limit = {
-			has_global_flag = ACW_American_Civil_War
 			OR = {
-				has_war_with = CSA
-				has_war_with = USA
-				has_war_with = CAL
-				has_war_with = NEG
+				has_global_flag = ACW_American_Civil_War_Start
+				has_global_flag = ACW_American_Civil_War
 			}
 		}
 		custom_effect_tooltip = ACW_Draft_Count_Get_tt
-		add_to_variable = { acw_draft_count_left = acw_draft_count_change }
+		add_to_variable = { ROOT.acw_draft_count_left = acw_draft_count_change }
 	}
 }
 ACW_Draft_Count_Use = {
 	if = {
 		limit = {
-			has_global_flag = ACW_American_Civil_War
+			OR = {
+				has_global_flag = ACW_American_Civil_War_Start
+				has_global_flag = ACW_American_Civil_War
+			}
 			OR = {
 				has_war_with = CSA
 				has_war_with = USA
@@ -693,7 +1796,7 @@ ACW_Draft_Count_Use = {
 			}
 		}
 		custom_effect_tooltip = ACW_Draft_Count_Use_tt
-		subtract_from_variable = { acw_draft_count_left = 1 }
+		subtract_from_variable = { ROOT.acw_draft_count_left = 1 }
 		add_war_support = -0.01
 	}
 }
@@ -702,7 +1805,13 @@ USAROD_reconstruction_zones_setup = {
 	# National Setup
 	USA = {
 		if = {
-			limit = { has_dlc = "Together for Victory" }
+			limit = { 
+				OR = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Waking the Tiger"
+					has_dlc = "Death or Dishonor"
+				} 
+			}
 			set_autonomy = {
 				target = PREV
 				autonomous_state = autonomy_unintegrated_seceded_state
@@ -881,7 +1990,7 @@ USAROD_reconstruction_zones_setup = {
 
 USAROD_reconstruction_progress_setup = {
 	if = {
-		limit = { NOT = { has_state_flag = NA_B_minor_state } }
+		limit = { NOT = { has_state_flag = NA_B_Disregardable_State } }
 		randomize_temp_variable = {
 			var = starting_progress
 			distribution = uniform

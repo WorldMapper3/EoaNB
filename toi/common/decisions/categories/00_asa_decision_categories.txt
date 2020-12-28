@@ -291,3 +291,35 @@ ASA_Aggressive_Reunion_With_Kentucky = {
 		has_country_flag = asa_aggressive_reunion_with_kentucky
 	}
 }
+
+ASA_Put_Down_Revolt = {
+	icon = placeholder
+
+	allowed = {
+		tag = ASA
+	}
+
+	available = {
+		has_country_flag = asa_philadelphia_uprising
+	}
+
+	visible = {
+		has_country_flag = asa_philadelphia_uprising
+	}
+}
+
+ASA_Discuss_Policy_With_Protestors = {
+	icon = placeholder
+
+	allowed = {
+		tag = ASA
+	}
+
+	available = {
+		has_country_flag = asa_meeting_with_protestors_policy_planning
+	}
+
+	visible = {
+		has_country_flag = asa_meeting_with_protestors_policy_planning
+	}
+}

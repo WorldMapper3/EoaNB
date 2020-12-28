@@ -53,13 +53,17 @@
   
   TUN = {
 	set_country_flag = afr_progress_tree
-	add_to_variable = { TUN.industrisation_progress = 14 }
+	add_to_variable = { TUN.industrisation_progress = 8 }
   }
   
   OTO = {
     if = {
       limit = {
-        has_dlc = "Together for Victory"
+        OR = {
+          has_dlc = "Together for Victory"
+          has_dlc = "Waking the Tiger"
+          has_dlc = "Death or Dishonor"
+        }
       }
       set_autonomy = {
         target = TUN

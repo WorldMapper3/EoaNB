@@ -5,6 +5,7 @@ add_namespace = asa_nap
 add_namespace = asa_address_issues_of_capital
 add_namespace = asa_mcclellan_responds_to_govt_issues_of_capital
 add_namespace = asa_address_issues_of_labor
+add_namespace = asa_mcclellan_influence_hidden
 add_namespace = asa_mcclellan_responds_to_govt_issues_of_labor
 add_namespace = asa_mcclellan_founds_charity
 add_namespace = asa_mcclellan_founds_food_bank
@@ -13,6 +14,7 @@ add_namespace = asa_mcclellan_personally_recruits_soldiers
 add_namespace = asa_mcclellan_seizes_power
 add_namespace = asa_mcclellan_declares_himself_emperor
 add_namespace = asa_the_mcclellan_cult_event
+add_namespace = asa_reunion_with_west_virginia
 add_namespace = asa_referendum_in_connecticut
 add_namespace = asa_referendum_in_ohio
 add_namespace = asa_reunion_with_kentucky
@@ -34,16 +36,21 @@ add_namespace = asa_amend_tenth_amendment_militarist_event
 add_namespace = asa_amend_eleventh_amendment_militarist_event
 add_namespace = asa_amend_twelvth_amendment_militarist_event
 add_namespace = asa_take_virginia
-add_namespace = asa_over_fishing
-add_namespace = asa_soil_infertility
-add_namespace = asa_devegetation
 add_namespace = asa_imperial_palace
-add_namespace = asa_emergency_election
 add_namespace = asa_new_social_issues
 add_namespace = generic_asa_demands_emancipation
 add_namespace = asa_alliance_with_new_england
 add_namespace = asa_meeting_with_protestors
 add_namespace = asa_expedition_into_countryside_event
+add_namespace = asa_anarchist_revolt
+### ELECTION NAMESPACES ###
+add_namespace = asa_election_start_hidden
+add_namespace = asa_emergency_election
+add_namespace = asa_1864_election
+add_namespace = asa_1868_election
+add_namespace = asa_1872_election
+add_namespace = asa_1876_election
+add_namespace = asa_1880_election
 
 #Global Events
 
@@ -121,51 +128,6 @@ news_event = {
 }
 
 #Country Events
-
-country_event = {
-	id = asa_emergency_election.1
-	title = asa_emergency_election.1.t
-	desc = asa_emergency_election.1.desc
-	picture = placeholder
-	is_triggered_only = yes
-	option = { 
-		name = asa_emergency_election.1.a
-		custom_effect_tooltip = asa_emergency_election_1_tt
-		country_event = {
-			id = asa_emergency_election.2
-			days = 7
-		}
-	}
-}
-
-country_event = {
-	id = asa_emergency_election.2
-	title = asa_emergency_election.2.t
-	desc = asa_emergency_election.2.desc
-	picture = placeholder
-	is_triggered_only = yes
-	option = { #Benjamin Wade
-		name = asa_emergency_election.2.a
-		set_politics = {
-			ruling_party = social_egalitarianism
-			elections_allowed = no
-		}
-	}
-	option = { #Reuben Fenton
-		name = asa_emergency_election.2.b
-		set_politics = { 
-			ruling_party = centrism
-			elections_allowed = no
-		}
-	}
-	option = { #George B. McClellan
-		name = asa_emergency_election.2.c
-		set_politics = { #George B. McClellan
-			ruling_party = traditional_conservatism
-			elections_allowed = no
-		}
-	}
-}
 
 country_event = {
 	id = asa_address_issues_of_capital.1
@@ -320,7 +282,7 @@ country_event = {
 country_event = {
 	id = asa_nap.2
 	title = asa_nap.2.t
-	desc = asa_nap.2.t
+	desc = asa_nap.2.desc
 	picture = placeholder
 	is_triggered_only = yes
 	option = {
@@ -329,6 +291,69 @@ country_event = {
 			factor = 10
 		}
 		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = asa_nap.3
+	title = asa_nap.3.t
+	desc = asa_nap.3.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_nap.3.a
+	}
+}
+
+country_event = { # Reunification proposal
+	id = asa_reunion_with_west_virginia.1
+	title = asa_reunion_with_west_virginia.1.t
+	desc = asa_reunion_with_west_virginia.1.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { # Yes
+		name = asa_reunion_with_west_virginia.1.a
+		ASA = {
+			country_event = {
+				id = asa_reunion_with_west_virginia.2
+			}
+			annex_country = {
+				target = WVG
+				transfer_troops = yes
+			}
+		}
+	}
+	option = { # No
+		name = asa_reunion_with_west_virginia.1.b
+		ASA = {
+			country_event = asa_reunion_with_west_virginia.2
+		}
+	}
+}
+
+country_event = { # WVG Reunion Acceptance (ASA perspective)
+	id = asa_reunion_with_west_virginia.2
+	title = asa_reunion_with_west_virginia.2.t
+	desc = asa_reunion_with_west_virginia.2.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_reunion_with_west_virginia.2.a
+	}
+}
+
+country_event = { # WVG Reunion Denial (ASA perspective)
+	id = asa_reunion_with_west_virginia.3
+	title = asa_reunion_with_west_virginia.3.t
+	desc = asa_reunion_with_west_virginia.3.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_reunion_with_west_virginia.3.a
+		create_wargoal = {
+			type = annex_country
+			target = WVG
+		}
 	}
 }
 	
@@ -1072,7 +1097,7 @@ country_event = { #Reunification Proposal
 		}
 	}
 	option = { #No to Reunion
-		name = asa_reunion_with_kentucky
+		name = asa_reunion_with_kentucky.1.b
 		ASA = {
 			country_event = asa_reunion_with_kentucky.3
 		}
@@ -1227,7 +1252,7 @@ country_event = { #CSA and/or GRL successfully defend Kentucky
 	}
 }
 
-country_event = {
+country_event = { #CSA and/or GRL successfully defend Kentucky (GRL/CSA perspective)
 	id = asa_reunion_with_kentucky.9
 	title = asa_reunion_with_kentucky.9.t
 	desc = asa_reunion_with_kentucky.9.desc
@@ -1239,64 +1264,6 @@ country_event = {
 
 	option = {
 		name = asa_reunion_with_kentucky.9.a
-	}
-}
-
-### TAKE VIRGINIA ###
-country_event = {
-	id = asa_take_virginia.1
-	title = asa_take_virginia.1.t
-	desc = asa_take_virginia.1.desc
-	picture = placeholder
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-
-	option = {
-		name = asa_take_virginia.1.a
-		declare_war_on = {
-			target = CSA
-			type = topple_government
-		}
-		add_ideas = ASA_Taking_Back_Virginia
-		add_state_core = 362
-	}
-}
-
-country_event = {
-	id = asa_take_virginia.2
-	title = asa_take_virginia.2.t
-	desc = asa_take_virginia.2.d
-	picture = placeholder
-	
-	fire_only_once = yes
-	
-	trigger = {
-		ASA = {
-			has_offensive_war_with = CSA
-			has_completed_focus = ASA_Retake_Virginia
-		}
-		OR = {
-			CSA = { surrender_progress > 0.5 }
-			ASA = { controls_state = 362 }
-		}
-	}
-
-	option = {
-		name = asa_take_virginia.2.a
-		ai_chance = {
-			base = 100
-		}
-		custom_effect_tooltip = asa_take_virginia_tt
-		hidden_effect = {
-			ASA = {
-				white_peace = CSA
-				remove_ideas = ASA_Taking_Back_Virginia
-				remove_state_core = 362
-			}
-			ASA = { transfer_state = 362 }
-		}
 	}
 }
 
@@ -1395,8 +1362,16 @@ country_event = {
 	option = {
 		name = asa_the_new_america.1.a
 		add_popularity = {
-			ideology = radical_democracy
-			popularity = 0.05
+			ideology = centrism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = traditional_conservatism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_egalitarianism
+			popularity = -0.05
 		}
 	}
 }
@@ -1889,7 +1864,7 @@ country_event = {
 			id = 6845
 			name = "McClellan City"
 		}
-		set_capital = 360
+		set_capital = 1385
 		add_ideas = ASA_The_Imperial_Palace_1
 	}
 	option = {
@@ -1906,19 +1881,57 @@ country_event = {
 ### MCCLELLAN INFLUENCE EVENTS ###
 ##################################
 
+country_event = { # McClellan Influence Random Events
+	id = asa_mcclellan_influence_hidden.1
+	title = asa_mcclellan_influence_hidden.1.t
+	desc = asa_mcclellan_influence_hidden.1.desc
+	picture = placeholder
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = asa_mcclellan_influence_hidden.1.a
+		country_event = {
+			id = asa_mcclellan_founds_charity.1
+			days = 30
+		}
+	}
+	option = {
+		name = asa_mcclellan_influence_hidden.1.b
+		country_event = {
+			id = asa_mcclellan_founds_food_bank.1
+			days = 30
+		}
+	}
+	option = {
+		name = asa_mcclellan_influence_hidden.1.c
+		country_event = {
+			id = asa_mcclellan_personally_recruits_soldiers.1
+			days = 30
+		}
+	}
+	option = {
+		name = asa_mcclellan_influence_hidden.1.d
+		country_event = {
+			id = asa_mcclellan_gives_speech.1
+			days = 30
+		}
+	}
+}
+
 country_event = {
 	id = asa_mcclellan_founds_charity.1
 	title = asa_mcclellan_founds_charity.1.t
 	desc = asa_mcclellan_founds_charity.1.desc
 	picture = placeholder
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
 
 	option = {
 		name = asa_mcclellan_founds_charity.1.a
-		360 = {
+		random_owned_controlled_state = {
 			add_building_construction = {
 				type = industrial_complex
 				level = 1
@@ -1955,6 +1968,10 @@ country_event = {
 				var = asa_mcclellan_cult_drift
 				value = 0.01
 			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
+			}
 		}
 	}
 
@@ -1964,7 +1981,7 @@ country_event = {
 			ideology = autocracy
 			popularity = 0.005
 		}
-		360 = {
+		random_owned_controlled_state = {
 			add_building_construction = {
 				type = industrial_complex
 				level = 1
@@ -1977,6 +1994,10 @@ country_event = {
 				var = asa_mcclellan_cult_anger
 				value = 1
 			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
+			}
 		}
 	}
 }
@@ -1987,13 +2008,11 @@ country_event = {
 	desc = asa_mcclellan_founds_food_bank.1.desc
 	picture = placeholder
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
 
 	option = {
 		name = asa_mcclellan_founds_food_bank.1.a
-		360 = {
+		random_owned_controlled_state = {
 			add_building_construction = {
 				type = farm
 				level = 1
@@ -2020,6 +2039,7 @@ country_event = {
 			ideology = social_egalitarianism
 			popularity = -0.01
 		}
+		custom_effect_tooltip = asa_mcclellan_cult_anger_tt
 		hidden_effect = {
 			add_to_variable = {
 				var = asa_mcclellan_popularity
@@ -2028,6 +2048,10 @@ country_event = {
 			add_to_variable = {
 				var = asa_mcclellan_cult_drift
 				value = 0.01
+			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
 			}
 		}
 	}
@@ -2043,6 +2067,10 @@ country_event = {
 				var = asa_mcclellan_cult_anger
 				value = 1
 			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
+			}
 		}
 	}
 }
@@ -2052,8 +2080,6 @@ country_event = {
 	title = asa_mcclellan_personally_recruits_soldiers.1.t
 	desc = asa_mcclellan_personally_recruits_soldiers.1.desc
 	picture = placeholder
-
-	fire_only_once = yes
 
 	is_triggered_only = yes
 
@@ -2080,6 +2106,7 @@ country_event = {
 			ideology = social_egalitarianism
 			popularity = -0.01
 		}
+		custom_effect_tooltip = asa_mcclellan_popularity_increase_tt
 		hidden_effect = {
 			add_to_variable = {
 				var = asa_mcclellan_popularity
@@ -2089,12 +2116,15 @@ country_event = {
 				var = asa_mcclellan_cult_drift
 				value = 0.01
 			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
+			}
 		}
 	}
 
 	option = {
 		name = asa_mcclellan_personally_recruits_soldiers.1.b
-		add_manpower = 2000
 		add_popularity = {
 			popularity = 0.005
 		}
@@ -2103,6 +2133,10 @@ country_event = {
 			add_to_variable = {
 				var = asa_mcclellan_cult_anger
 				value = 1
+			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
 			}
 		}
 	}
@@ -2114,33 +2148,31 @@ country_event = {
 	desc = asa_mcclellan_gives_speech.1.desc
 	picture = placeholder
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
 
 	option = {
-		add_manpower = 2000
 		name = asa_mcclellan_gives_speech.1.a
 		add_popularity = {
 			ideology = autocracy
-			popularity = 0.01
+			popularity = 0.02
 		}
 		add_popularity = {
 			ideology = radical_democracy
-			popularity = 0.01
+			popularity = 0.02
 		}
 		add_popularity = {
 			ideology = centrism
-			popularity = -0.01
+			popularity = -0.02
 		}
 		add_popularity = {
 			ideology = traditional_conservatism
-			popularity = -0.01
+			popularity = -0.02
 		}
 		add_popularity = {
 			ideology = social_egalitarianism
-			popularity = -0.01
+			popularity = -0.02
 		}
+		custom_effect_tooltip = asa_mcclellan_popularity_increase_big_tt
 		hidden_effect = {
 			add_to_variable = {
 				var = asa_mcclellan_popularity
@@ -2150,12 +2182,15 @@ country_event = {
 				var = asa_mcclellan_cult_drift
 				value = 0.01
 			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
+			}
 		}
 	}
 
 	option = {
 		name = asa_mcclellan_gives_speech.1.b
-		add_manpower = 2000
 		add_popularity = {
 			popularity = 0.005
 		}
@@ -2165,9 +2200,15 @@ country_event = {
 				var = asa_mcclellan_cult_anger
 				value = 1
 			}
+			country_event = {
+				id = asa_mcclellan_influence_hidden.1
+				days = 30
+			}
 		}
 	}
 }
+
+##################################
 
 country_event = {
 	id = generic_asa_demands_emancipation.1
@@ -2182,7 +2223,11 @@ country_event = {
 	option = { #Accept
 		name = generic_asa_demands_emancipation.1.a
 		ai_chance = {
-			factor = 5
+			base = 5
+			modifier = {
+				tag = CSA
+				add = 10
+			}
 		}
 		add_political_power = -150
 		if = {
@@ -2414,16 +2459,31 @@ country_event = { #Meeting Starts
 	
 	is_triggered_only = yes
 
-	option = { #Issue of Politicy
+	option = { #Issue of Policy
 		name = asa_meeting_with_protestors.1.a
+		trigger = {
+			NOT = {
+				has_country_flag = asa_meeting_with_protestors_policy_discussed
+			}
+		}
 		country_event = asa_meeting_with_protestors.2
 	}
 	option = { #Issue of Economic Downturn
 		name = asa_meeting_with_protestors.1.b
+		trigger = {
+			NOT = {
+				has_country_flag = asa_meeting_with_protestors_economy_discussed
+			}
+		}
 		country_event = asa_meeting_with_protestors.3
 	}
 	option = { #Issue of National Security
 		name = asa_meeting_with_protestors.1.c
+		trigger = {
+			NOT = {
+				has_country_flag = asa_meeting_with_protestors_national_security_discussed
+			}
+		}
 		country_event = asa_meeting_with_protestors.4
 	}
 }
@@ -2462,6 +2522,7 @@ country_event = { #Issues of Policy
 			}
 			remove_ideas = ASA_Widespread_Protests_level_1
 		}
+		set_country_flag = asa_meeting_with_protestors_policy_discussed
 	}
 	option = { #Work With Them To Develop A Plan
 		name = asa_meeting_with_protestors.2.b
@@ -2491,6 +2552,8 @@ country_event = { #Issues of Policy
 			}
 			remove_ideas = ASA_Widespread_Protests_level_1
 		}
+		set_country_flag = asa_meeting_with_protestors_policy_discussed
+		set_country_flag = asa_meeting_with_protestors_policy_planning
 	}
 	option = { #Give Them Speaking Time In Congress
 		name = asa_meeting_with_protestors.2.c
@@ -2520,6 +2583,7 @@ country_event = { #Issues of Policy
 			}
 			remove_ideas = ASA_Widespread_Protests_level_1
 		}
+		set_country_flag = asa_meeting_with_protestors_policy_discussed
 	}
 }
 
@@ -2557,6 +2621,7 @@ country_event = { #Issues of Economic Downturn
 			}
 			remove_ideas = ASA_Widespread_Protests_level_1
 		}
+		set_country_flag = asa_meeting_with_protestors_economy_discussed
 	}
 	option = { #Work With Them To Develop A Plan
 		name = asa_meeting_with_protestors.3.b
@@ -2586,6 +2651,8 @@ country_event = { #Issues of Economic Downturn
 			}
 			remove_ideas = ASA_Widespread_Protests_level_1
 		}
+		set_country_flag = asa_meeting_with_protestors_economy_discussed
+		set_country_flag = asa_meeting_with_protestors_economy_planning
 	}
 	option = { #Give Them Speaking Time In Congress
 		name = asa_meeting_with_protestors.3.c
@@ -2614,6 +2681,1367 @@ country_event = { #Issues of Economic Downturn
 				has_idea = ASA_Widespread_Protests_level_1
 			}
 			remove_ideas = ASA_Widespread_Protests_level_1
+		}
+		set_country_flag = asa_meeting_with_protestors_economy_discussed
+	}
+}
+
+country_event = { # Issues of National Security
+	id = asa_meeting_with_protestors.4
+	title = asa_meeting_with_protestors.4.t
+	desc = asa_meeting_with_protestors.4.desc
+	picture = placeholder
+	is_triggered_only = yes
+	hidden = yes
+	option = { # Give them our word
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_3
+			}
+			swap_ideas = {
+				remove_idea = ASA_Widespread_Protests_level_3
+				add_idea = ASA_Widespread_Protests_level_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_2
+			}
+			swap_ideas = {
+				remove_idea = ASA_Widespread_Protests_level_2
+				add_idea = ASA_Widespread_Protests_level_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_1
+			}
+			remove_ideas = ASA_Widespread_Protests_level_1
+		}
+		set_country_flag = asa_meeting_with_protestors_national_security_discussed
+	}
+	option = { # Work with them to develop a plan
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_3
+			}
+			swap_ideas = {
+				remove_idea = ASA_Widespread_Protests_level_3
+				add_idea = ASA_Widespread_Protests_level_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_2
+			}
+			swap_ideas = {
+				remove_idea = ASA_Widespread_Protests_level_2
+				add_idea = ASA_Widespread_Protests_level_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_1
+			}
+			remove_ideas = ASA_Widespread_Protests_level_1
+		}
+		set_country_flag = asa_meeting_with_protestors_national_security_discussed
+		set_country_flag = asa_meeting_with_protestors_national_security_planning
+	}
+	option = { # Give them speaking time in Congress
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_3
+			}
+			swap_ideas = {
+				remove_idea = ASA_Widespread_Protests_level_3
+				add_idea = ASA_Widespread_Protests_level_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_2
+			}
+			swap_ideas = {
+				remove_idea = ASA_Widespread_Protests_level_2
+				add_idea = ASA_Widespread_Protests_level_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ASA_Widespread_Protests_level_1
+			}
+			remove_ideas = ASA_Widespread_Protests_level_1
+		}
+	}
+	set_country_flag = asa_meeting_with_protestors_national_security_discussed
+}
+
+country_event = { # Rumors of Revolt
+	id = asa_anarchist_revolt.1
+	title = asa_anarchist_revolt.1.t
+	desc = asa_anarchist_revolt.1.desc
+	picture = placeholder
+	is_triggered_only = yes
+	hidden = yes
+	option = { # Give General McClellan Emergency Powers
+		name = asa_anarchist_revolt.1.a
+		set_politics = {
+			ruling_party = radical_democracy
+			elections_allowed = no
+		}
+		add_stability = -0.05
+		set_country_flag = asa_mcclellan_granted_emergency_powers_flag
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.2
+				days = 45
+			}
+		}
+	}
+	option = { #This'll Blow Over
+		name = asa_anarchist_revolt.1.b
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.2
+				days = 90
+			}
+		}
+	}
+}
+
+country_event = { # Strikes In Philadelphia
+	id = asa_anarchist_revolt.2
+	title = asa_anarchist_revolt.2.t
+	desc = asa_anarchist_revolt.2.desc
+	picture = placeholder
+	is_triggered_only = yes
+	hidden = yes
+	option = { # General McClellan Will Sort This Out
+		name = asa_anarchist_revolt.2.a
+		trigger = {
+			NOT = {
+				has_country_flag = asa_mcclellan_granted_emergency_powers_flag
+			}
+		}
+		set_politics = {
+			ruling_party = radical_democracy
+			elections_allowed = no
+		}
+		add_stability = -0.025
+		set_country_flag = asa_mcclellan_granted_emergency_powers_flag
+		ASA_increase_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.3
+				days = 14
+			}
+		}
+	}
+	option = { # Fire!
+		name = asa_anarchist_revolt.2.b
+		trigger = {
+			has_country_flag = asa_mcclellan_granted_emergency_powers_flag
+		}
+		add_stability = -0.10
+		add_political_power = -75
+		ASA_decrease_anarchist_riots = yes
+		hidden_effect = {
+			set_country_flag = asa_anarchist_protestors_fired_on
+			country_event = {
+				id = asa_anarchist_revolt.3
+				days = 7
+			}
+		}
+	}
+	option = { # Send National Guard To Disperse The Crowd
+		name = asa_anarchist_revolt.2.c
+		add_stability = -0.02
+		add_political_power = -25
+		ASA_decrease_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.3
+				days = 30
+			}
+		}
+	}
+	option = { # This will blow over
+		name = asa_anarchist_revolt.2.d
+		trigger = {
+			NOT = {
+				has_country_flag = asa_mcclellan_granted_emergency_powers_flag
+			}
+		}
+		ASA_increase_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.3
+				days = 35
+			}
+		}
+	}
+	option = { # Let me talk to the people of my home city
+		name = asa_anarchist_revolt.2.e
+		trigger = {
+			NOT = {
+				has_country_flag = asa_mcclellan_granted_emergency_powers_flag
+			}
+			has_country_leader = {
+				name = "George B. McClellan"
+				ruling_only = yes
+			}
+		}
+		ASA_decrease_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.3
+				days = 60
+			}
+		}
+	}
+}
+
+country_event = { # Protestors Marching To D.C.
+	id = asa_anarchist_revolt.3
+	title = asa_anarchist_revolt.3.t
+	desc = asa_anarchist_revolt.3.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { # We really need McClellan now
+		name = asa_anarchist_revolt.3.a
+		trigger = {
+			NOT = {
+				has_country_flag = asa_mcclellan_granted_emergency_powers_flag
+			}
+		}
+		set_politics = {
+			ruling_party = radical_democracy
+			elections_allowed = no
+		}
+		add_stability = -0.025
+		set_country_flag = asa_mcclellan_granted_emergency_powers_flag
+		ASA_increase_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.4
+				days = 14
+			}
+		}
+	}
+	option = { # This ends here
+		name = asa_anarchist_revolt.3.b
+		ASA_increase_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.7
+				days = 1
+			}
+		}
+	}
+	option = { # Meet them halfway
+		name = asa_anarchist_revolt.3.c
+		trigger = {
+			NOT = {
+				has_country_flag = asa_mcclellan_granted_emergency_powers_flag
+			}
+		}
+		ASA_decrease_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.5
+				days = 1
+			}
+		}
+	}
+	option = { # Disperse them with the National Guard
+		name = asa_anarchist_revolt.3.d
+		ASA_decrease_anarchist_riots = yes
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.7
+				days = 21
+			}
+		}
+	}
+}
+
+country_event = { # Protestors propose meeting
+	id = asa_anarchist_revolt.4
+	title = asa_anarchist_revolt.4.t
+	desc = asa_anarchist_revolt.4.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { # Accept the proposal
+		name = asa_anarchist_revolt.4.a
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.5
+				days = 7
+			}
+		}
+	}
+	option = { # Turn them away
+		name = asa_anarchist_revolt.4.b
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.7
+				days = 30
+			}
+		}
+	}
+	option = { # Arrest them
+		name = asa_anarchist_revolt.4.c
+		hidden_effect = {
+			country_event = {
+				id = asa_anarchist_revolt.7
+				days = 3
+			}
+		}
+	}
+}
+
+country_event = { # Agreement reached
+	id = asa_anarchist_revolt.6
+	title = asa_anarchist_revolt.6.t
+	desc = asa_anarchist_revolt.6.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_anarchist_revolt.6.a
+		ASA_remove_anarchist_riots = yes
+	}
+}
+
+country_event = { #Anarchists Revolt
+	id = asa_anarchist_revolt.7
+	title = asa_anarchist_revolt.7.t
+	desc = asa_anarchist_revolt.7.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_anarchist_revolt.7.a
+	}
+	immediate = {
+		PHL = {
+			transfer_state = 1385
+			add_state_core = 1385
+			load_oob = "ASA_anarchist_revolt"
+		}
+		ASA = {
+			ASA_remove_anarchist_riots = yes
+		}
+	}
+}
+
+#################
+### ELECTIONS ###
+#################
+
+### HIDDEN STARTUP EVENT ###
+
+country_event = {
+	id = asa_election_start_hidden.1
+	title = asa_election_start_hidden.1.t
+	desc = asa_election_start_hidden.1.desc
+	picture = placeholder
+	is_triggered_only = yes
+	hidden = yes
+	immediate = {
+		ASA = {
+			country_event = {
+				id = asa_1864_election.1
+			}
+			country_event = {
+				id = asa_1868_election.1
+				days = 1460
+			}
+		}
+	}
+}
+
+### 1862 ###
+
+country_event = { ### EMERGENCY ELECTION ANNOUNCEMENT ###
+	id = asa_emergency_election.1
+	title = asa_emergency_election.1.t
+	desc = asa_emergency_election.1.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { 
+		name = asa_emergency_election.1.a
+		custom_effect_tooltip = asa_emergency_election_1_tt
+		country_event = {
+			id = asa_emergency_election.2
+			days = 7
+		}
+	}
+}
+
+country_event = { ### EMERGENCY ELECTION ###
+	id = asa_emergency_election.2
+	title = asa_emergency_election.2.t
+	desc = asa_emergency_election.2.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { # Thaddeus Stevens
+		name = asa_emergency_election.2.a
+		set_politics = {
+			ruling_party = social_egalitarianism
+			elections_allowed = no
+		}
+	}
+	option = { #Reuben Fenton
+		name = asa_emergency_election.2.b
+		set_politics = { 
+			ruling_party = centrism
+			elections_allowed = no
+		}
+	}
+	option = { #George B. McClellan
+		name = asa_emergency_election.2.c
+		set_politics = { #George B. McClellan
+			ruling_party = traditional_conservatism
+			elections_allowed = no
+		}
+	}
+}
+
+### 1864 ###
+
+country_event = { ### 1864 RACE BEGINS ###
+	id = asa_1864_election.1
+	title = asa_1864_election.1.t
+	desc = asa_1864_election.1.desc
+	picture = placeholder
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = asa_1864_election.1.a
+	}
+	immediate = {
+		country_event = {
+			id = asa_1864_election.2
+			days = 114
+		}
+	}
+}
+
+country_event = { ### 1864 DEMOCRATIC NOMINEE NAMED ###
+	id = asa_1864_election.2
+	title = asa_1864_election.2.t
+	desc = asa_1864_election.2.desc
+	picture = placeholder
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { # McClellan, Obviously
+		name = asa_1864_election.2.a
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "George B. McClellan"
+					ruling_only = yes
+				}
+			}
+		}
+		set_country_flag = asa_1864_george_mcclellan_nominated_flag
+	}
+	option = { # Incumbent, McClellan
+		name = asa_1864_election.2.b
+		trigger = {
+			has_country_leader = {
+				name = "George B. McClellan"
+				ruling_only = yes
+			}
+		}
+		set_country_flag = asa_1864_george_mcclellan_nominated_flag
+	}
+	immediate = {
+		country_event = {
+			id = asa_1864_election.3
+			days = 84
+		}
+	}
+}
+
+country_event = { ### 1864 REPUBLICAN NOMINEE NAMED ###
+	id = asa_1864_election.3
+	title = asa_1864_election.3.t
+	desc = asa_1864_election.3.desc
+	picture = placeholder
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { # Radical, Thaddeus Stevens
+		name = asa_1864_election.3.a
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "Thaddeus Stevens"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "William H. Seward"
+					ruling_only = yes
+				}
+			}
+		}
+		set_country_flag = asa_1864_thaddeus_stevens_nominated_flag
+	}
+	option = { #Incumbent, Radical, Thaddeus Stevens
+		name = asa_1864_election.3.b
+		trigger = {
+			has_country_leader = {
+				name = "Thaddeus Stevens"
+				ruling_only = yes
+			}
+		}
+		set_country_flag = asa_1864_thaddeus_stevens_nominated_flag
+	}
+	option = { # Stalwart, William H. Seward
+		name = asa_1864_election.3.c
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "Thaddeus Stevens"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "William H. Seward"
+					ruling_only = yes
+				}
+			}
+		}
+		set_country_flag = asa_1864_william_seward_nominated_flag
+	}
+	option = { # Incumbent, Stalwart, William H. Seward
+		name = asa_1864_election.3.d
+		trigger = {
+			has_country_leader = {
+				name = "William H. Seward"
+				ruling_only = yes
+			}
+		}
+		set_country_flag = asa_1864_william_seward_nominated_flag
+	}
+	immediate = {
+		country_event = asa_1864_election.4
+		country_event = {
+			id = asa_1864_election.8
+			days = 67
+		}
+		country_event = {
+			id = asa_1864_election.10
+			days = 62
+		}
+	}
+}
+
+country_event = { # 1864 Candidate Campaign Hidden Event
+	id = asa_1864_election.4
+	title = asa_1864_election.4.t
+	desc = asa_1864_election.4.desc
+	picture = placeholder
+	is_triggered_only = yes
+	hidden = yes
+	option = { # McClellan Campaigns
+		name = asa_1864_election.4.a
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1864_election_over
+				has_country_flag = asa_1864_election_6_days_away
+			}
+			has_country_flag = asa_1864_george_mcclellan_nominated_flag
+		}
+		country_event = {
+			id = asa_1864_election.5
+			days = 7
+		}
+	}
+	option = { # Stevens Campaigns
+		name = asa_1864_election.4.b
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1864_election_over
+				has_country_flag = asa_1864_election_6_days_away
+			}
+			has_country_flag = asa_1864_thaddeus_stevens_nominated_flag
+		}
+		country_event = {
+			id = asa_1864_election.6
+			days = 7
+		}
+	}
+	option = { # Seward Campaigns
+		name = asa_1864_election.4.c
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1864_election_over
+				has_country_flag = asa_1864_election_6_days_away
+			}
+			has_country_flag = asa_1864_william_seward_nominated_flag
+		}
+		country_event = {
+			id = asa_1864_election.7
+			days = 7
+		}
+	}
+	option = {
+		trigger = {
+			has_country_flag = asa_1864_election_over
+			has_country_flag = asa_1864_election_6_days_away
+		}
+		name = asa_1864_election.4.d
+	}
+}
+
+country_event = { # McClellan Campaigns
+	id = asa_1864_election.5
+	title = asa_1864_election.5.t
+	desc = asa_1864_election.5.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1864_election.5.a
+		add_popularity = {
+			ideology = traditional_conservatism
+			popularity = 0.01
+		}
+	}
+	immediate = {
+		country_event = asa_1864_election.4
+	}
+}
+
+country_event = { # Stevens Campaigns
+	id = asa_1864_election.6
+	title = asa_1864_election.6.t
+	desc = asa_1864_election.6.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1864_election.6.a
+		add_popularity = {
+			ideology = social_egalitarianism
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = asa_1864_election.4
+		}
+	}
+}
+
+country_event = { # Seward Campaigns
+	id = asa_1864_election.7
+	title = asa_1864_election.7.t
+	desc = asa_1864_election.7.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1864_election.7.a
+		add_popularity = {
+			ideology = centrism
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = asa_1864_election.4
+		}
+	}
+}
+
+country_event = { # 1864 Election
+	id = asa_1864_election.8
+	title = asa_1864_election.8.t
+	desc = asa_1864_election.8.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { #McClellan
+		name = asa_1864_election.8.a
+		IF = {
+			limit = {
+				has_government = traditional_conservatism
+			}
+			add_political_power = 100
+			set_country_flag = asa_1864_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1864_mcclellan_elected
+		}
+	}
+	option = { #Seward
+		name = asa_1864_election.8.b
+		trigger = {
+			has_country_flag = asa_1864_william_seward_nominated_flag
+		}
+		IF = {
+			limit = {
+				has_government = centrism
+			}
+			add_political_power = 100
+			set_country_flag = asa_1864_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1864_seward_elected
+		}
+	}
+	option = { #Stevens
+		name = asa_1864_election.8.c
+		trigger = {
+			has_country_flag = asa_1864_thaddeus_stevens_nominated_flag
+		}
+		IF = {
+			limit = {
+				has_government = social_egalitarianism
+			}
+			add_political_power = 100
+			set_country_flag = asa_1864_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1864_stevens_elected
+		}
+	}
+}
+
+country_event = { # Inauguration/Second Term
+	id = asa_1864_election.9
+	title = asa_1864_election.9.t
+	desc = asa_1864_election.9.desc
+	picture = placeholder
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = asa_1864_election_over
+	}
+	option = { # McClellan Inauguration
+		name = asa_1864_election.9.a
+		trigger = {
+			has_country_flag = asa_1864_mcclellan_elected
+			NOT = {
+				has_country_flag = asa_1864_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = traditional_conservatism
+			elections_allowed = yes
+		}
+	}
+	option = { # Seward Inauguration
+		name = asa_1864_election.9.b
+		trigger = {
+			has_country_flag = asa_1864_seward_elected
+			NOT = {
+				has_country_flag = asa_1864_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = centrism
+			elections_allowed = yes
+		}
+	}
+	option = { # Stevens Inauguration
+		name = asa_1864_election.9.c
+		trigger = {
+			has_country_flag = asa_1864_stevens_elected
+			NOT = {
+				has_country_flag = asa_1864_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = social_egalitarianism
+			elections_allowed = yes
+		}
+	}
+	option = { # McClellan Second Term
+		name = asa_1864_election.9.d
+		trigger = {
+			has_country_flag = asa_1864_incumbent_won
+			has_country_leader = {
+				name = "George B. McClellan"
+				ruling_only = yes 
+			}
+		}
+		add_political_power = 50
+	}
+	option = { # Seward Second Term
+		name = asa_1864_election.9.e
+		trigger = {
+			has_country_flag = asa_1864_incumbent_won
+			has_country_leader = {
+				name = "William H. Seward"
+				ruling_only = yes 
+			}
+		}
+		add_political_power = 50
+	}
+	option = { # Stevens Second Term
+		name = asa_1864_election.9.f
+		trigger = {
+			has_country_flag = asa_1864_incumbent_won
+			has_country_leader = {
+				name = "Thaddeus Stevens"
+				ruling_only = yes 
+			}
+		}
+		add_political_power = 50
+	}
+}
+
+country_event = { # Hidden Event To Cancel "Campaign" Events
+	id = asa_1864_election.10
+	title = asa_1864_election.10.t
+	desc = asa_1864_election.10.desc
+	picture = placeholder
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = asa_1864_election_6_days_away
+	}
+}
+
+### 1868 Elections ###
+
+country_event = { ### 1868 RACE BEGINS ###
+	id = asa_1868_election.1
+	title = asa_1868_election.1.t
+	desc = asa_1868_election.1.desc
+	picture = placeholder
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = asa_1868_election.1.a
+	}
+	immediate = {
+		country_event = {
+			id = asa_1868_election.2
+			days = 114
+		}
+	}
+}
+
+country_event = { ### 1868 DEMOCRATIC NOMINEE NAMED ###
+	id = asa_1868_election.2
+	title = asa_1868_election.2.t
+	desc = asa_1868_election.2.desc
+	picture = placeholder
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { # McClellan, Obviously
+		name = asa_1868_election.2.a
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "George B. McClellan"
+                    ruling_only = yes
+				}
+			}
+		}
+		set_country_flag = asa_1868_george_mcclellan_nominated_flag
+	}
+	option = { # Incumbent, McClellan
+		name = asa_1868_election.2.b
+		trigger = {
+			has_country_leader = {
+				name = "George B. McClellan"
+                ruling_only = yes
+			}
+		}
+		set_country_flag = asa_1868_george_mcclellan_nominated_flag
+	}
+    option = { # Horatio Seymour
+        name = asa_1868_election.2.c
+        trigger = {
+            NOT = {
+                has_country_leader = {
+					name = "George B. McClellan"
+                    ruling_only = yes
+				}
+            }
+        }
+        set_country_flag = asa_1868_horatio_seymour_nominated_flag
+        create_country_leader = {
+            name = "Horatio Seymour"
+            desc = "POLITICS_FRANKLIN_DELANO_ROOSEVELT_DESC"
+            picture = "Portrait_USA_Horatio_Seymour.dds"
+            expire = 1885.8.25
+            ideology = federal
+            traits = { }
+        }
+    }
+	immediate = {
+		country_event = {
+			id = asa_1868_election.3
+			days = 84
+		}
+	}
+}
+
+country_event = { ### 1868 REPUBLICAN NOMINEE NAMED ###
+	id = asa_1868_election.3
+	title = asa_1868_election.3.t
+	desc = asa_1868_election.3.desc
+	picture = placeholder
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { # Radical, Thaddeus Stevens
+		name = asa_1868_election.3.a
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "Thaddeus Stevens"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "William H. Seward"
+					ruling_only = yes
+				}
+			}
+		}
+		set_country_flag = asa_1868_thaddeus_stevens_nominated_flag
+	}
+	option = { #Incumbent, Radical, Thaddeus Stevens
+		name = asa_1868_election.3.b
+		trigger = {
+			has_country_leader = {
+				name = "Thaddeus Stevens"
+				ruling_only = yes
+			}
+		}
+		set_country_flag = asa_1868_thaddeus_stevens_nominated_flag
+	}
+	option = { # Stalwart, William H. Seward
+		name = asa_1868_election.3.c
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "Thaddeus Stevens"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "William H. Seward"
+					ruling_only = yes
+				}
+			}
+		}
+		set_country_flag = asa_1868_william_seward_nominated_flag
+	}
+	option = { # Incumbent, Stalwart, William H. Seward
+		name = asa_1868_election.3.d
+		trigger = {
+			has_country_leader = {
+				name = "William H. Seward"
+				ruling_only = yes
+			}
+		}
+		set_country_flag = asa_1868_william_seward_nominated_flag
+	}
+    option = { # Reuben Fenton
+        name = asa_1868_election.3.e
+        trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "Thaddeus Stevens"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "William H. Seward"
+					ruling_only = yes
+				}
+			}
+		}
+        set_country_flag = asa_1868_reuben_fenton_nominated_flag
+        create_country_leader = {
+            name = "Reuben Fenton"
+            desc = "POLITICS_FRANKLIN_DELANO_ROOSEVELT_DESC"
+            picture = "Portrait_ASA_Reuben_Fenton.dds"
+            expire = 1885.8.25
+            ideology = conserv_liberal
+            traits = { }
+        }
+    }
+	immediate = {
+		country_event = asa_1868_election.4
+		country_event = {
+			id = asa_1868_election.8
+			days = 67
+		}
+		country_event = {
+			id = asa_1868_election.10
+			days = 62
+		}
+	}
+}
+
+country_event = { # 1868 Candidate Campaign Hidden Event
+	id = asa_1868_election.4
+	title = asa_1868_election.4.t
+	desc = asa_1868_election.4.desc
+	picture = placeholder
+	is_triggered_only = yes
+	hidden = yes
+	option = { # McClellan Campaigns
+		name = asa_1868_election.4.a
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1868_election_over
+				has_country_flag = asa_1868_election_6_days_away
+			}
+			has_country_flag = asa_1868_george_mcclellan_nominated_flag
+		}
+		country_event = {
+			id = asa_1868_election.5
+			days = 7
+		}
+	}
+	option = { # Stevens Campaigns
+		name = asa_1868_election.4.b
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1868_election_over
+				has_country_flag = asa_1868_election_6_days_away
+			}
+			has_country_flag = asa_1868_thaddeus_stevens_nominated_flag
+		}
+		country_event = {
+			id = asa_1868_election.6
+			days = 7
+		}
+	}
+	option = { # Seward Campaigns
+		name = asa_1868_election.4.c
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1868_election_over
+				has_country_flag = asa_1868_election_6_days_away
+			}
+			has_country_flag = asa_1868_william_seward_nominated_flag
+		}
+		country_event = {
+			id = asa_1868_election.7
+			days = 7
+		}
+	}
+    option = { # Seymour Campaigns
+		name = asa_1868_election.4.d
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1868_election_over
+				has_country_flag = asa_1868_election_6_days_away
+			}
+			has_country_flag = asa_1868_horatio_seymour_nominated_flag
+		}
+		country_event = {
+			id = asa_1868_election.8
+			days = 7
+		}
+	}
+	option = {
+		trigger = {
+			has_country_flag = asa_1868_election_over
+			has_country_flag = asa_1868_election_6_days_away
+		}
+		name = asa_1868_election.4.d
+	}
+    option = { # Fenton Campaigns
+		name = asa_1868_election.4.d
+		trigger = {
+			NOT = {
+				has_country_flag = asa_1868_election_over
+				has_country_flag = asa_1868_election_6_days_away
+			}
+			has_country_flag = asa_1868_reuben_fenton_nominated_flag
+		}
+		country_event = {
+			id = asa_1868_election.9
+			days = 7
+		}
+	}
+	option = {
+		trigger = {
+			has_country_flag = asa_1868_election_over
+			has_country_flag = asa_1868_election_6_days_away
+		}
+		name = asa_1868_election.4.d
+	}
+}
+
+country_event = { # McClellan Campaigns
+	id = asa_1868_election.5
+	title = asa_1868_election.5.t
+	desc = asa_1868_election.5.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1868_election.5.a
+		add_popularity = {
+			ideology = traditional_conservatism
+			popularity = 0.01
+		}
+	}
+	immediate = {
+		country_event = asa_1868_election.4
+	}
+}
+
+country_event = { # Stevens Campaigns
+	id = asa_1868_election.6
+	title = asa_1868_election.6.t
+	desc = asa_1868_election.6.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1868_election.6.a
+		add_popularity = {
+			ideology = social_egalitarianism
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = asa_1868_election.4
+		}
+	}
+}
+
+country_event = { # Seward Campaigns
+	id = asa_1868_election.7
+	title = asa_1868_election.7.t
+	desc = asa_1868_election.7.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1868_election.7.a
+		add_popularity = {
+			ideology = centrism
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = asa_1868_election.4
+		}
+	}
+}
+
+country_event = { # Seymour Campaigns
+	id = asa_1868_election.8
+	title = asa_1868_election.8.t
+	desc = asa_1868_election.8.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1868_election.8.a
+		add_popularity = {
+			ideology = centrism
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = asa_1868_election.4
+		}
+	}
+}
+
+country_event = { # Seymour Campaigns
+	id = asa_1868_election.9
+	title = asa_1868_election.9.t
+	desc = asa_1868_election.9.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = {
+		name = asa_1868_election.9.a
+		add_popularity = {
+			ideology = centrism
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = asa_1868_election.4
+		}
+	}
+}
+
+country_event = { # 1868 Election
+	id = asa_1868_election.10
+	title = asa_1868_election.10.t
+	desc = asa_1868_election.10.desc
+	picture = placeholder
+	is_triggered_only = yes
+	option = { #McClellan
+		name = asa_1868_election.10.a
+		IF = {
+			limit = {
+				has_government = traditional_conservatism
+			}
+			add_political_power = 100
+			set_country_flag = asa_1868_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1868_mcclellan_elected
+		}
+	}
+	option = { #Seward
+		name = asa_1868_election.10.b
+		trigger = {
+			has_country_flag = asa_1868_william_seward_nominated_flag
+		}
+		IF = {
+			limit = {
+				has_government = centrism
+			}
+			add_political_power = 100
+			set_country_flag = asa_1868_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1868_seward_elected
+		}
+	}
+	option = { #Stevens
+		name = asa_1868_election.10.c
+		trigger = {
+			has_country_flag = asa_1868_thaddeus_stevens_nominated_flag
+		}
+		IF = {
+			limit = {
+				has_government = social_egalitarianism
+			}
+			add_political_power = 100
+			set_country_flag = asa_1868_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1868_stevens_elected
+		}
+	}
+    option = { #Seymour
+		name = asa_1868_election.10.d
+		IF = {
+			limit = {
+				has_country_leader = {
+					name = "Horatio Seymour"
+					ruling_only = yes
+				}
+			}
+			add_political_power = 100
+			set_country_flag = asa_1868_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1868_seymour_elected
+		}
+	}
+    option = { #Fenton
+		name = asa_1868_election.10.e
+		IF = {
+			limit = {
+				has_country_leader = {
+					name = "Reuben Fenton"
+					ruling_only = yes
+				}
+			}
+			add_political_power = 100
+			set_country_flag = asa_1868_incumbent_won
+		}
+		ELSE = {
+			set_country_flag = asa_1868_fenton_elected
+		}
+	}
+}
+
+country_event = { # Inauguration/Second Term
+	id = asa_1868_election.11
+	title = asa_1868_election.11.t
+	desc = asa_1868_election.11.desc
+	picture = placeholder
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = asa_1868_election_over
+	}
+	option = { # McClellan Inauguration
+		name = asa_1868_election.11.a
+		trigger = {
+			has_country_flag = asa_1868_mcclellan_elected
+			NOT = {
+				has_country_flag = asa_1868_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = traditional_conservatism
+			elections_allowed = yes
+		}
+	}
+	option = { # Seward Inauguration
+		name = asa_1868_election.11.b
+		trigger = {
+			has_country_flag = asa_1868_seward_elected
+			NOT = {
+				has_country_flag = asa_1868_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = centrism
+			elections_allowed = yes
+		}
+	}
+	option = { # Stevens Inauguration
+		name = asa_1868_election.11.c
+		trigger = {
+			has_country_flag = asa_1868_stevens_elected
+			NOT = {
+				has_country_flag = asa_1868_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = social_egalitarianism
+			elections_allowed = yes
+		}
+	}
+	option = { # McClellan Second Term
+		name = asa_1868_election.11.d
+		trigger = {
+			has_country_flag = asa_1868_incumbent_won
+			has_country_leader = {
+				name = "George B. McClellan"
+				ruling_only = yes 
+			}
+		}
+		add_political_power = 50
+	}
+	option = { # Seward Second Term
+		name = asa_1868_election.11.e
+		trigger = {
+			has_country_flag = asa_1868_incumbent_won
+			has_country_leader = {
+				name = "William H. Seward"
+				ruling_only = yes 
+			}
+		}
+		add_political_power = 50
+	}
+	option = { # Stevens Second Term
+		name = asa_1868_election.11.f
+		trigger = {
+			has_country_flag = asa_1868_incumbent_won
+			has_country_leader = {
+				name = "Thaddeus Stevens"
+				ruling_only = yes 
+			}
+		}
+		add_political_power = 50
+	}
+    option = { # Fenton Inauguration
+		name = asa_1868_election.11.g
+		trigger = {
+			has_country_flag = asa_1868_fenton_elected
+			NOT = {
+				has_country_flag = asa_1868_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = centrism
+			elections_allowed = yes
+		}
+	}
+    option = { # Seymour Inauguration
+		name = asa_1868_election.11.f
+		trigger = {
+			has_country_flag = asa_1868_seymour_elected
+			NOT = {
+				has_country_flag = asa_1868_incumbent_won
+			}
+		}
+		set_politics = {
+			ruling_party = traditional_conservatism
+			elections_allowed = yes
 		}
 	}
 }

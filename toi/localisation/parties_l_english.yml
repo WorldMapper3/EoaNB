@@ -136,7 +136,7 @@
 
  ASA_centrism_party_long:0 "Stalwart Republican Caucus"
  ASA_centrism_party:0 "Stalwart Republicans"
- ASA_traditional_conservatism_party_long:0 "Democrat Party"
+ ASA_traditional_conservatism_party_long:0 "Democratic Party"
  ASA_traditional_conservatism_party:0 "Democrats"
  ASA_social_egalitarianism_party_long:0 "Radical Republican Caucus"
  ASA_social_egalitarianism_party:0 "Radical Republicans"
@@ -391,7 +391,10 @@
 
  # Norway
  NOR_vanguard_communism_party:0 "Norges Kommunistiske Parti"
- NOR_social_egalitarianism_party:0 "Det Norske Arbeiderparti"
+ NOR_social_egalitarianism_party:0 "DNA - M"
+ NOR_collectivist_socialism_party:0 "DNA - R"
+ NOR_social_egalitarianism_party_long:0 "Det norske Arbeiderparti - Moderate Wing"
+ NOR_collectivist_socialism_party_long:0 "Det norske Arbeiderparti - Radical Wing"
  NOR_autocracy_party:0 "House of Bernadotte"
  NOR_chauvinist_populism_party:0 "Nasjonal samling"
  NOR_centrism_party:0 "Bønder"
@@ -848,6 +851,17 @@
  MRN_autocracy_party:0 "House of Hova"
 
  VIN_autocracy_party:0 "House of Nguyen"
+
+ JAI_fundamentalism_party:0 "Elementalists"
+ JAI_fundamentalism_party_long:0 "Jarai Masters of the Elements"
+ JAI_water_tribe:0 "Water Tribe"
+ JAI_water_tribe_long:0 "Masters of Water"
+ JAI_fire_tribe:0 "Fire Tribe"
+ JAI_fire_tribe_long:0 "Masters of Fire"
+ JAI_earth_tribe:0 "Earth Tribe"
+ JAI_earth_tribe_long:0 "Masters of Earth"
+ JAI_wind_tribe:0 "Wind Tribe"
+ JAI_wind_tribe_long:0 "Masters of Wind"
 
  ACE_autocracy_party:0 "House of Aceh"
 

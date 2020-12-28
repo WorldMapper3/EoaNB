@@ -11,7 +11,13 @@ focus_tree = {
 	}
 
 	default = no
-	
+
+###################################################
+#
+#	Political
+#
+###################################################
+
 ###################################################
 #
 #	Moderate inital Spain
@@ -455,15 +461,6 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			division_template = {
-				name = "Carlist Volunteers"
-				is_locked = no
-				division_names_group = USA_INF_01
-				priority = 0
-				regiments = {
-					irregular_infantry = { x = 0 y = 0 }
-				}
-			}
 			load_oob = SPR_carlist_mobilisation
 		}
 
@@ -546,6 +543,239 @@ focus_tree = {
 		ai_will_do = {
 		}
 	}
+
+###################################################
+#
+#	Economy
+#
+###################################################
+
+###################################################
+#
+#	Economy 1858-1868
+#
+###################################################
+
+	focus = {
+		id = SPR_national_roads_plan
+		cost = 60
+		
+		x = 11
+		y = 1
+
+		available = {
+			#date > 1858.01.01
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_mining_revolution
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_national_roads_plan
+		}
+		relative_position_id = SPR_national_roads_plan
+		x = -3
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_basque_iron
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_mining_revolution
+		}
+		relative_position_id = SPR_mining_revolution
+		x = 0
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = SPR_ferroviary_concesions
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_national_roads_plan
+		}
+		relative_position_id = SPR_national_roads_plan
+		x = 0
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_end_corruption
+		cost = 0
+		
+		prerequisite = {
+			focus = SPR_ferroviary_concesions
+		}
+		mutually_exclusive = {
+			focus = SPR_accelerate_the_expansion
+		}
+		relative_position_id = SPR_ferroviary_concesions
+		x = -1
+		y = 1
+
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_accelerate_the_expansion
+		cost = 0
+		
+		prerequisite = {
+			focus = SPR_ferroviary_concesions
+		}
+		mutually_exclusive = {
+			focus = SPR_end_corruption
+		}
+		relative_position_id = SPR_ferroviary_concesions
+		x = 1
+		y = 1
+
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_telegraph_network
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_national_roads_plan
+		}
+		relative_position_id = SPR_national_roads_plan
+		x = 3
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_banquing_investments
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_telegraph_network
+		}
+		relative_position_id = SPR_telegraph_network
+		x = 0
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
 	
 ###################################################
 #
@@ -557,7 +787,7 @@ focus_tree = {
 		id = SPR_the_international_policy
 		cost = 60
 		
-		x = 27
+		x = 35
 		y = 1
 
 		available = {
@@ -628,7 +858,7 @@ focus_tree = {
 	focus = {
 		id = SPR_the_guinea_question
 		cost = 60
-		
+		icon = GFX_focus_SPR_the_guinea_question
 		prerequisite = {
 			focus = SPR_africa
 		}
@@ -638,7 +868,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -660,7 +894,7 @@ focus_tree = {
 	focus = {
 		id = SPR_sell_it
 		cost = 60
-		
+		icon = GFX_focus_SPR_sell_it
 		prerequisite = {
 			focus = SPR_the_guinea_question
 		}
@@ -673,7 +907,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -696,7 +934,7 @@ focus_tree = {
 	focus = {
 		id = SPR_keep_it
 		cost = 60
-		
+		icon = GFX_focus_SPR_keep_it
 		prerequisite = {
 			focus = SPR_the_guinea_question
 		}
@@ -709,7 +947,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -730,7 +972,7 @@ focus_tree = {
 	focus = {
 		id = SPR_develop_fernando_poo
 		cost = 60
-		
+		icon = GFX_focus_SPR_develop_fernando_poo
 		prerequisite = {
 			focus = SPR_keep_it
 		}
@@ -743,7 +985,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -779,7 +1025,7 @@ focus_tree = {
 	focus = {
 		id = SPR_make_it_a_penal_colony
 		cost = 60
-		
+		icon = GFX_focus_SPR_make_it_a_penal_colony
 		prerequisite = {
 			focus = SPR_keep_it
 		}
@@ -792,7 +1038,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -811,7 +1061,7 @@ focus_tree = {
 	focus = {
 		id = SPR_promote_migration
 		cost = 60
-		
+		icon = GFX_focus_SPR_promote_migration
 		prerequisite = {
 			focus = SPR_develop_fernando_poo
 		}
@@ -821,7 +1071,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -840,7 +1094,7 @@ focus_tree = {
 	focus = {
 		id = SPR_the_island_of_death
 		cost = 60
-		
+		icon = GFX_focus_SPR_the_island_of_death
 		prerequisite = {
 			focus = SPR_make_it_a_penal_colony
 		}
@@ -853,7 +1107,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -872,7 +1130,7 @@ focus_tree = {
 	focus = {
 		id = SPR_develop_the_prison
 		cost = 60
-		
+		icon = GFX_focus_SPR_develop_the_prison
 		prerequisite = {
 			focus = SPR_make_it_a_penal_colony
 		}
@@ -885,7 +1143,11 @@ focus_tree = {
 		
 		available = {
 			owns_state = 297
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -940,7 +1202,11 @@ focus_tree = {
 				owns_state = 1029
 				owns_state = 1030
 			}
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 			has_war_with = MOR 
@@ -1028,6 +1294,121 @@ focus_tree = {
 		ai_will_do = {
 		}
 	}
+	
+###################################################
+#
+#	Mexico
+#
+###################################################
+
+	focus = {
+		id = SPR_mexico_expedition
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_america
+		}
+		relative_position_id = SPR_america
+		x = -5
+		y = 1
+		
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_ask_france_to_join
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_mexico_expedition
+		}
+		relative_position_id = SPR_mexico_expedition
+		x = 1
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_ask_gb_to_join
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_ask_france_to_join
+		}
+		relative_position_id = SPR_ask_france_to_join
+		x = 0
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_prepare_the_invasion
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_mexico_expedition
+		}
+		relative_position_id = SPR_mexico_expedition
+		x = -1
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
 
 ###################################################
 #
@@ -1037,6 +1418,7 @@ focus_tree = {
 
 	focus = {
 		id = SPR_develop_cuba_and_puerto_rico
+		icon = GFX_focus_SPR_develop_cuba_and_puerto_rico
 		cost = 60
 		
 		prerequisite = {
@@ -1047,11 +1429,20 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
-			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = SPR_owns_all_of_cuba_tooltip
+					owns_state = 315
+					owns_state = 1022
+					owns_state = 1350
+				}
+				owns_state = 686
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1061,46 +1452,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			315 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-					province = 1550
-				}
-			}
-			1022 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1350 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			686 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-					province = 1440
-				}
-			}
+			custom_effect_tooltip = SPR_develop_cuba_and_puerto_rico_effect_tooltip
+			set_country_flag = SPR_develop_cuba_and_puerto_rico_flag
 		}
 
 		ai_will_do = {
@@ -1109,21 +1462,32 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_invest_in_sugar_trade
+		icon = GFX_focus_SPR_invest_in_sugar_trade
 		cost = 60
 		
 		prerequisite = {
 			focus = SPR_develop_cuba_and_puerto_rico
 		}
 		relative_position_id = SPR_develop_cuba_and_puerto_rico
-		x = -1
+		x = -2
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
-			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_cuba_has_infrastructure_investments_trigger
+				has_country_flag = SPR_cuba_has_infrastructure_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1133,7 +1497,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = SPR_cuban_trading_boom
+			custom_effect_tooltip = SPR_invest_in_sugar_trade_effect_tooltip
+			set_country_flag = SPR_invest_in_sugar_trade_flag
 		}
 
 		ai_will_do = {
@@ -1142,20 +1507,32 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_expand_tobacco_plantations
+		icon = GFX_focus_SPR_expand_tobacco_plantations
 		cost = 60
 		
 		prerequisite = {
-			focus = SPR_invest_in_sugar_trade
+			focus = SPR_develop_cuba_and_puerto_rico
 		}
-		relative_position_id = SPR_invest_in_sugar_trade
+		relative_position_id = SPR_develop_cuba_and_puerto_rico
 		x = 0
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_cuba_has_infrastructure_investments_trigger
+				has_country_flag = SPR_cuba_has_infrastructure_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1165,14 +1542,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			315 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = farm
-					level = 1
-					instant_build = yes
-				}
-			}
+			custom_effect_tooltip = SPR_expand_tobacco_plantations_effect_tooltip
+			set_country_flag = SPR_expand_tobacco_plantations_flag
 		}
 
 		ai_will_do = {
@@ -1181,21 +1552,39 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_increase_cattle_land
+		icon = GFX_focus_SPR_increase_cattle_land
 		cost = 60
 		
 		prerequisite = {
 			focus = SPR_develop_cuba_and_puerto_rico
 		}
 		relative_position_id = SPR_develop_cuba_and_puerto_rico
-		x = 1
+		x = 2
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
-			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = SPR_owns_all_of_cuba_tooltip
+					owns_state = 315
+					owns_state = 1022
+					owns_state = 1350
+				}
+				owns_state = 686
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_cuba_has_infrastructure_investments_trigger
+				has_country_flag = SPR_cuba_has_infrastructure_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_puerto_rico_has_infrastructure_investments_trigger
+				has_country_flag = SPR_puerto_rico_has_infrastructure_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1205,22 +1594,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			315 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = farm
-					level = 2
-					instant_build = yes
-				}
-			}
-			686 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = farm
-					level = 1
-					instant_build = yes
-				}
-			}
+			custom_effect_tooltip = SPR_increase_cattle_land_effect_tooltip
+			set_country_flag = SPR_increase_cattle_land_flag
 		}
 
 		ai_will_do = {
@@ -1229,8 +1604,12 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_modernize_plantations
+		icon = GFX_focus_SPR_modernize_plantations
 		cost = 60
 		
+		prerequisite = {
+			focus = SPR_invest_in_sugar_trade
+		}
 		prerequisite = {
 			focus = SPR_expand_tobacco_plantations
 		}
@@ -1238,15 +1617,35 @@ focus_tree = {
 			focus = SPR_increase_cattle_land
 		}
 		relative_position_id = SPR_expand_tobacco_plantations
-		x = 1
+		x = 0
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
 			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_cuba_has_sugar_trade_investments_trigger
+				has_country_flag = SPR_cuba_has_sugar_trade_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_cuba_has_tobacco_plantation_investments_trigger
+				has_country_flag = SPR_cuba_has_tobacco_plantation_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_has_cattle_ranch_investments_trigger
+				has_country_flag = SPR_puerto_rico_has_cattle_ranch_investments_flag
+				has_country_flag = SPR_cuba_has_cattle_ranch_investments_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1269,6 +1668,7 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_give_power_to_the_landowners
+		icon = GFX_focus_SPR_give_power_to_the_landowners
 		cost = 60
 		
 		prerequisite = {
@@ -1282,11 +1682,18 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
 			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1306,6 +1713,7 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_expand_the_telegraph_in_the_caribbean
+		icon = GFX_focus_SPR_expand_the_telegraph_in_the_caribbean
 		cost = 60
 		
 		prerequisite = {
@@ -1319,11 +1727,18 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
 			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1369,6 +1784,7 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_absorb_caribbean_institutions
+		icon = GFX_focus_SPR_absorb_caribbean_institutions
 		cost = 60
 		
 		prerequisite = {
@@ -1379,11 +1795,18 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
 			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1393,8 +1816,6 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_state_core = 315
-			add_state_core = 1022
 			add_state_core = 686
 		}
 
@@ -1404,6 +1825,7 @@ focus_tree = {
 	
 	focus = {
 		id = SPR_create_the_capitaincy
+		icon = GFX_focus_SPR_create_the_capitaincy
 		cost = 60
 		
 		prerequisite = {
@@ -1414,11 +1836,18 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			owns_state = 315
-			owns_state = 1022
+			custom_trigger_tooltip = {
+				tooltip = SPR_owns_all_of_cuba_tooltip
+				owns_state = 315
+				owns_state = 1022
+				owns_state = 1350
+			}
 			owns_state = 686
-			owns_state = 1350
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}
@@ -1428,12 +1857,143 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			SPC = {
-				transfer_state = 315
-				transfer_state = 1022
-				transfer_state = 686
-				transfer_state = 1350
+			release_puppet = SPC
+			hidden_effect = { 
+				if = { 
+					limit = { 686 = { is_owned_by = SPR } }
+					SPC = { transfer_state = 686 }
+				}
 			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+###################################################
+#
+#	Hispaniola 1858-1868
+#
+###################################################
+
+	focus = {
+		id = SPR_welcome_back_la_hispaniola
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_america
+		}
+		relative_position_id = SPR_america
+		x = 4
+		y = 1
+		
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_enforce_catholic_morals
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_welcome_back_la_hispaniola
+		}
+		relative_position_id = SPR_welcome_back_la_hispaniola
+		x = 0
+		y = 1
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_persecute_protestants
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_enforce_catholic_morals
+		}
+		relative_position_id = SPR_enforce_catholic_morals
+		x = -1
+		y = 1
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_persecute_masonry
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_enforce_catholic_morals
+		}
+		relative_position_id = SPR_enforce_catholic_morals
+		x = 1
+		y = 1
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
 		}
 
 		ai_will_do = {
@@ -1454,7 +2014,7 @@ focus_tree = {
 			focus = SPR_the_international_policy
 		}
 		relative_position_id = SPR_the_international_policy
-		x = 7
+		x = 10
 		y = 1
 		
 		available = {
@@ -1473,6 +2033,320 @@ focus_tree = {
 		ai_will_do = {
 		}
 	}
+
+###################################################
+#
+#	Conchinchina Expedition
+#
+###################################################
+
+	focus = {
+		id = SPR_conchinchina_expedition
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_asia
+		}
+		relative_position_id = SPR_asia
+		x = -3
+		y = 1
+		
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_prepare_at_manila
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_conchinchina_expedition
+		}
+		relative_position_id = SPR_conchinchina_expedition
+		x = -1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			327 = {
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				add_building_construction = { type = naval_base level = 1 instant_build = yes province = 10265 }
+			}
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+				if = {
+					limit = {
+						has_country_flag = has_debt
+					}
+				}
+				else = {
+					set_country_flag = has_debt
+					activate_mission = SPR_paying_debt_decision
+					SPR = { country_event = { id = calc_spain_debt.1 days = 1 } }
+				}
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_patriotic_call
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_conchinchina_expedition
+		}
+		relative_position_id = SPR_conchinchina_expedition
+		x = 1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.05
+			add_manpower = 6000
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_champa_campaing
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_prepare_at_manila
+		}
+		prerequisite = {
+			focus = SPR_patriotic_call
+		}
+		relative_position_id = SPR_prepare_at_manila
+		x = 1
+		y = 1
+		
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_obey_france
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_champa_campaing
+		}
+		mutually_exclusive = {
+			focus = SPR_spanish_victory
+		}
+		relative_position_id = SPR_champa_campaing
+		x = -1
+		y = 1
+		
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_spanish_victory
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_champa_campaing
+		}
+		mutually_exclusive = {
+			focus = SPR_obey_france
+		}
+		relative_position_id = SPR_champa_campaing
+		x = 1
+		y = 1
+		
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_continue_up_the_mekong
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_spanish_victory
+		}
+		relative_position_id = SPR_spanish_victory
+		x = 0
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_send_coolies_to_cuba
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_continue_up_the_mekong
+		}
+		relative_position_id = SPR_continue_up_the_mekong
+		x = 0
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+###################################################
+#
+#	Philippines 1858-1868
+#
+###################################################
 	
 	focus = {
 		id = SPR_found_new_cities_in_the_philippines
@@ -1497,11 +2371,295 @@ focus_tree = {
 				owns_state = 647
 				owns_state = 638
 				owns_state = 684
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_improve_infrastructure
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_found_new_cities_in_the_philippines
+		}
+		relative_position_id = SPR_found_new_cities_in_the_philippines
+		x = -1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_christianize_the_region
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_found_new_cities_in_the_philippines
+		}
+		relative_position_id = SPR_found_new_cities_in_the_philippines
+		x = 1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_found_new_schools
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_improve_infrastructure
+		}
+		prerequisite = {
+			focus = SPR_christianize_the_region
+		}
+		relative_position_id = SPR_improve_infrastructure
+		x = 1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_expand_the_pacific_net
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_found_new_schools
+		}
+		relative_position_id = SPR_found_new_schools
+		x = -1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_country_flag = SPR_unclaimed_territory_colonize_decisions
+			custom_effect_tooltip = SPR_unclaimed_territory_claim_decisions_unlocked
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_spanish_ocean
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_expand_the_pacific_net
+		}
+		relative_position_id = SPR_expand_the_pacific_net
+		x = 0
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
+				owns_state = 633
+				owns_state = 639
+				owns_state = 725
+				owns_state = 645
+				owns_state = 648
+				owns_state = 632
+				owns_state = 631
+				owns_state = 630
+				owns_state = 727
+				owns_state = 642
+				owns_state = 643
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+
+		ai_will_do = {
+		}
+	}
+	
+	focus = {
+		id = SPR_retake_formosa
+		cost = 60
+		
+		prerequisite = {
+			focus = SPR_found_new_schools
+		}
+		relative_position_id = SPR_found_new_schools
+		x = 1
+		y = 1
+		
+		available = {
+			SPH = {
+				is_subject_of = SPR
+				owns_state = 623
+				owns_state = 327
+				owns_state = 624
+				owns_state = 625
+				owns_state = 628
+				owns_state = 626
+				owns_state = 647
+				owns_state = 638
+				owns_state = 684
 				owns_state = 633
 				owns_state = 639
 				owns_state = 725
 			}
-			date < 1868.9.19
+			custom_trigger_tooltip = {
+				tooltip = SPR_not_declared_bankruptcy_tooltip
+				date < 1868.9.19
+				check_variable = { var = debt_level value = 50 compare = less_than }
+			}
 		}
 		bypass = {
 		}

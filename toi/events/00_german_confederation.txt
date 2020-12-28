@@ -207,7 +207,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 3
+		days = 6
 	}
 	
 	option = {
@@ -267,7 +267,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 3
+		days = 6
 	}
 	
 	option = {
@@ -410,7 +410,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 3
+		days = 6
 	}
 	
 	option = {
@@ -456,7 +456,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 3
+		days = 6
 	}
 	
 	option = {
@@ -495,7 +495,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 3
+		days = 6
 	}
 	
 	option = {
@@ -631,7 +631,11 @@ country_event = {
 		hidden_effect = {
 			GEC = {
 				if = {
-					limit = { has_dlc = "Together for Victory" }
+					limit = { OR = {
+						has_dlc = "Together for Victory"
+						has_dlc = "Waking the Tiger"
+						has_dlc = "Death or Dishonor"
+					} }
 					add_autonomy_ratio = {
 						value = -0.1
 						localization = GEC_customeffect_german_dependence

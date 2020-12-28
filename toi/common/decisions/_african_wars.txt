@@ -7,6 +7,14 @@ tribal_decisions_eoanb = {
 			NOT = { has_idea = disarmed_nation }
 			has_war_support > 0.25
 		}
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			NOT = { has_idea = afr_reforming_kingdom }
 			NOT = { has_country_flag = stockpile_tribal_weapons_flag }
@@ -82,6 +90,14 @@ tribal_decisions_eoanb = {
 			NOT = { has_idea = disarmed_nation }
 			has_war_support > 0.25
 		}
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			NOT = { has_idea = afr_reforming_kingdom }
 			has_country_flag = stockpile_tribal_weapons_flag
@@ -141,12 +157,18 @@ tribal_decisions_eoanb = {
 			has_tech = basic_cavalry
 			custom_trigger_tooltip = {
 				tooltip = afr_prosperity_mechanic_greater_than_25
-					check_variable = {
-					afr_prosperity_mechanic_value > 24
-				}
+				check_variable = { afr_prosperity_mechanic_value > 24 }
 			}
 			NOT = { has_idea = disarmed_nation }
 			has_war_support > 0.25
+		}
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
 		}
 		visible = {
 			NOT = { has_idea = disarmed_nation }
@@ -169,14 +191,11 @@ tribal_decisions_eoanb = {
 		fire_only_once = no
 		
 		custom_cost_trigger = {
-
-			command_power > 24.9
-
+			check_variable = { afr_prosperity_mechanic_value > 24 }
 		}
-		custom_cost_text = command_power_more_than_24
+		custom_cost_text = afr_prosperity_mechanic_custom_cost_25
 		
 		complete_effect = {
-			hidden_effect = { add_command_power = -25 }
 			custom_effect_tooltip = afr_prosperity_mechanic_minus_25
 			add_to_variable = {
 				var = afr_prosperity_mechanic_value
@@ -384,6 +403,14 @@ tribal_decisions_eoanb = {
 			NOT = { has_idea = disarmed_nation }
 			has_war_support > 0.25
 		}
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			NOT = { has_idea = disarmed_nation }
 			OR = {
@@ -401,6 +428,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -430,14 +458,11 @@ tribal_decisions_eoanb = {
 		fire_only_once = no
 		
 		custom_cost_trigger = {
-
-			command_power > 24.9
-
+			check_variable = { afr_prosperity_mechanic_value > 24 }
 		}
-		custom_cost_text = command_power_more_than_24
+		custom_cost_text = afr_prosperity_mechanic_custom_cost_25
 		
 		complete_effect = {
-			hidden_effect = { add_command_power = -25 }
 			custom_effect_tooltip = afr_prosperity_mechanic_minus_25
 			add_to_variable = {
 				var = afr_prosperity_mechanic_value
@@ -639,7 +664,13 @@ tribal_decisions_eoanb = {
 			has_tech = tribal_society
 			has_manpower > 99
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_cosmetic_tag = EGY_mahdist_insurgency }
@@ -649,6 +680,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -706,7 +738,14 @@ tribal_decisions_eoanb = {
 			has_tech = tribal_society
 			has_manpower > 999
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_cosmetic_tag = EGY_mahdist_insurgency }
@@ -716,6 +755,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -782,7 +822,14 @@ tribal_decisions_eoanb = {
 				cavalry_equipment > 49
 			}
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_cosmetic_tag = EGY_mahdist_insurgency }
@@ -792,6 +839,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -866,7 +914,14 @@ tribal_decisions_eoanb = {
 				camel_equipment_0 > 49
 			}
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_cosmetic_tag = EGY_mahdist_insurgency }
@@ -876,6 +931,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -963,7 +1019,14 @@ tribal_decisions_eoanb = {
 			has_equipment = { infantry_equipment > 149 }
 			has_equipment = { uniform_equipment > 99 }
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_idea = afr_reforming_kingdom }
@@ -1055,7 +1118,14 @@ tribal_decisions_eoanb = {
 			has_equipment = { infantry_equipment > 99 }
 			has_equipment = { uniform_equipment > 99 }
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_idea = afr_reforming_kingdom }
@@ -1064,6 +1134,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -1119,6 +1190,7 @@ tribal_decisions_eoanb = {
 				limit = { 
 					NOT = { has_country_flag = afr_feudal_cavalry_division_created } 
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 				}
 				division_template = {
 					name = "Light Cavalry"
@@ -1186,7 +1258,14 @@ tribal_decisions_eoanb = {
 			has_equipment = { infantry_equipment > 199 }
 			has_equipment = { uniform_equipment > 279 }
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			if = {
 				limit = { has_idea = afr_reforming_kingdom }
@@ -1195,6 +1274,7 @@ tribal_decisions_eoanb = {
 			OR = {
 				OR = {
 					afr_is_tribal = yes
+					oceania_is_tribal = yes
 					is_first_nations_tribe = yes
 					is_south_american_tribe = yes
 				}
@@ -1315,7 +1395,9 @@ unidustrialized_warfare = {
 				afr_is_tribal = yes
 			}
 		}
-
+		allowed = { 
+			afr_is_tribal_allowed = yes
+		}
 		visible = {
 			NOT = { has_country_flag = first_nations_tribe_recently_raided_flag }
 			afr_is_tribal = yes
@@ -1392,7 +1474,7 @@ unidustrialized_warfare = {
 		remove_effect = {
 			hidden_effect = {
 				set_country_flag = first_nations_tribe_recently_raided_flag
-				FROM = { country_event = { id = first_nations_tribe_recently_raided_event.1 random_days = 5 days = 40 } }
+				FROM = { country_event = { id = first_nations_tribe_recently_raided_event.1 days = 55 } }
 			}
 			clr_country_flag = raiding_neighbour
 			##raiding result based on numbers sent, defenders numbers
@@ -1543,13 +1625,12 @@ unidustrialized_warfare = {
 			state = var:FROM.defender_state_vs_@ROOT
 		}
 		
-		allowed = {
+		allowed = { 
 			OR = {
-				afr_is_tribal = yes
-				is_south_american_tribe = yes
+				afr_is_tribal_allowed = yes
+				is_south_american_tribe_allowed = yes
 			}
 		}
-
 		visible = {
 			NOT = { has_country_flag = first_nations_tribe_recently_raided_flag }
 			NOT = { has_autonomy_state = autonomy_organized_incorporated_territory }
@@ -1773,7 +1854,7 @@ unidustrialized_warfare = {
 			hidden_effect = {
 				set_country_flag = first_nations_tribe_recently_raided_flag
 				set_variable = { var = ROOT.FNT_recently_raided@FROM value = 1 }
-				FROM = { country_event = { id = first_nations_tribe_recently_raided_event.1 random_days = 5 days = 40 } }
+				FROM = { country_event = { id = first_nations_tribe_recently_raided_event.1 days = 325 } }
 			}
 			hidden_effect = { ROOT = { set_country_flag = afr_tribal_raid_colonial_neighbor_flag } }
 			hidden_effect = { FROM = { set_country_flag = afr_tribal_raid_colonial_neighbor_flag } }
@@ -1864,11 +1945,18 @@ unidustrialized_warfare = {
 
 		available = {
 			has_defensive_war = yes
-			afr_is_tribal = yes
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			afr_is_tribal = yes
+			oceania_is_tribal = yes
 			has_defensive_war = yes
 			NOT = { has_war_with = FROM }
 			any_enemy_country = {
@@ -1909,11 +1997,18 @@ unidustrialized_warfare = {
 		available = {
 			surrender_progress > 0.1
 			has_offensive_war = yes
-			afr_is_tribal = yes
 		}
-
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			afr_is_tribal = yes
+			oceania_is_tribal = yes
 			has_offensive_war = yes
 			NOT = { has_war_with = FROM }
 			any_enemy_country = {
@@ -1969,9 +2064,18 @@ unidustrialized_warfare = {
 			}
 			NOT={has_country_flag = Tribal_Army_Raised}
 		}
+		allowed = { 
+			OR = {
+				afr_is_tribal_allowed = yes
+				oceania_is_tribal_allowed = yes
+				is_first_nations_tribe_allowed = yes
+				is_south_american_tribe_allowed = yes
+			}
+		}
 		visible = {
 			OR = {
 				afr_is_tribal = yes
+				oceania_is_tribal = yes
 				is_first_nations_tribe = yes
 				is_south_american_tribe = yes
 			}
@@ -2020,7 +2124,7 @@ political_actions = {
 			}
 			tag = EGY
 		}
-
+		allowed = { tag = EGY }
 		visible = {
 			TAG = EGY
 			NOT = { has_war_with = FROM }
@@ -2077,29 +2181,45 @@ political_actions = {
 			has_idea = egy_vic_debt
 			check_variable = {ROOT.debt_level > 0}
 			NOT = { TAG = LIB }
-		}
-
-		modifier = {
-			#war_support_weekly = 0.01
-			consumer_goods_factor = 0.15
-			industrial_capacity_factory = -0.05
+			NOT = { has_country_flag = paying_debt }
 		}
 		
 		#fire_only_once = yes
 
 		cost = 25
-
-		remove_effect = {
+		complete_effect = {
 			custom_effect_tooltip = EGY_afr_decrease_debt_1
 			hidden_effect = {
-				subtract_from_variable = {var = debt_level value = 1}
+				if = {
+					limit = { NOT = { has_country_flag = paying_debt } }
+					set_country_flag = paying_debt
+					activate_mission = SPR_paying_debt_decision
+					country_event = { id = calc_spain_debt.1 days = 1 }
+					add_ideas = egy_vic_debt_payments
+				}
 			}
 		}
-		days_remove = 200
-		days_re_enable = 360
 
 		ai_will_do = {
 			base = 1
+			#modifier = {
+			#	factor = 0
+			#	NOT = { check_variable = {ROOT.debt_level > 8} }
+			#	num_of_civilian_factories < 2
+			#}
+		}
+	}
+	
+	eoanb_decision_debt_repayments_done = {
+		icon = generic_political_discourse
+		visible = { always = no }
+		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = { has_idea = egy_vic_debt_payments }
+					remove_ideas = egy_vic_debt_payments
+				}
+			}
 		}
 	}
 	
@@ -2190,7 +2310,12 @@ political_actions = {
 		days_re_enable = 360
 
 		ai_will_do = {
-			base = 1
+			base = 10
+			modifier = {
+				factor = 0
+				NOT = { check_variable = {ROOT.debt_level > 8} }
+				num_of_civilian_factories < 2
+			}
 		}
 	}
 }
@@ -2203,7 +2328,7 @@ foreign_politics={
 			has_country_flag = OFS_western_diplomacy
 			tag = OFS
 		}
-
+		allowed = { TAG = OFS }
 		visible = {
 			tag = OFS
 			has_completed_focus = ofs_vic_establish_diplomacy_with_the_west
@@ -2740,7 +2865,7 @@ afr_sa_unifaction = {
 			tag = SAF
 			always = yes
 		}
-
+		allowed = { TAG = SAF }
 		visible = {
 			tag = SAF
 		}
