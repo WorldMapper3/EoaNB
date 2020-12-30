@@ -1,5 +1,5 @@
 guiTypes = {
-	containerWindowType = {q
+	containerWindowType = {
 		name = "political_party_pop_container"
 		position = { x = 395 y = 255 }
 		size = { width=150 height=30 }
@@ -49,7 +49,7 @@ guiTypes = {
 			font = "hoi_24header"
 			text = "Political Party Popularities"
 			format = left
-			maxWidth = 200
+			maxWidth = 500
 			maxHeight = 24
 			fixedsize = yes
 		}
@@ -70,7 +70,7 @@ guiTypes = {
 			
 			#Replace placeholders with entries like below
 			
-			###ENTRY ONE - START###
+			###Centrism - first since most likely to have parties###
 			buttonType = {
 				name = "local_pol_pop_b_centrism" 
 				position = {x=30 y=0}
@@ -81,7 +81,7 @@ guiTypes = {
 			###Button icon, change "scale", "position" and "spriteType" values accordingly###
 			iconType = {
 				name = "local_pol_pop_b_icon"
-				spriteType = "GFX_centrism_group"
+				spriteType = "GFX_ideologycentrism_group"
 				position = { x = 35 y = 8 }
 				alwaystransparent = yes
 				scale = 1
