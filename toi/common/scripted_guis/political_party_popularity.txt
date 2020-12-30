@@ -9,7 +9,7 @@ scripted_gui = {
 		#}
   
 		 effects = {
-			pol_pop_bg_click = {	
+			pol_pop_button_click = {	
 				if = {
 					limit = {
 						check_variable = {
@@ -33,7 +33,7 @@ scripted_gui = {
 	}
  }
  scripted_gui = {
-	local_ingame_wiki = {
+	local_pol_pop = {
 		context_type = player_context
 		window_name = "local_pol_pop_container"
 		

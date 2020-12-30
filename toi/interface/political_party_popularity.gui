@@ -11,10 +11,9 @@ guiTypes = {
 			position = { x = 0 y = 0 }
 			buttonText = "POL_POP_BUTTON_LABEL"
 			buttonFont = "hoi_18mbs"
-		  
+			clicksound = click_ok
 			pdx_tooltip = POL_POP_BUTTON_TT
 		  }
-  
 
 	}
 	containerWindowType = {
