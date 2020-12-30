@@ -1,7 +1,7 @@
 guiTypes = {
-	containerWindowType = {
+	containerWindowType = {q
 		name = "political_party_pop_container"
-		position = { x = 395 y = 240 }
+		position = { x = 395 y = 255 }
 		size = { width=150 height=30 }
 		clipping = yes
 		
@@ -15,7 +15,7 @@ guiTypes = {
 			pdx_tooltip = POL_POP_BUTTON_TT
 		  }
   
-  
+
 	}
 	containerWindowType = {
 		name = "local_pol_pop_container"
