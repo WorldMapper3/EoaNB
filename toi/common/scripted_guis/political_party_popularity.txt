@@ -9,8 +9,20 @@ scripted_gui = {
 		#}
   
 		 effects = {
-			pol_pop_bg_click = {
-				set_country_flag = pol_pop_screen_open
+			pol_pop_bg_click = {	
+				if = {
+					limit = {
+						check_variable = {
+							var = show_local_pol_pop_screen
+							value = 0
+							compare = equals
+						}
+					}
+					set_variable = { show_local_pol_pop_screen = 1 }
+				}
+				else = {
+					set_variable = { show_local_pol_pop_screen = 0 }
+				}
 			 }
 		 }
 		 triggers = {
