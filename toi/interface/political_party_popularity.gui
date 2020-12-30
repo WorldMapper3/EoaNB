@@ -81,7 +81,7 @@ guiTypes = {
 			###Button icon, change "scale", "position" and "spriteType" values accordingly###
 			iconType = {
 				name = "local_pol_pop_b_icon"
-				spriteType = "GFX_ideologycentrism_group"
+				spriteType = "GFX_ideology_centrism_group"
 				position = { x = 35 y = 8 }
 				alwaystransparent = yes
 				scale = 1
