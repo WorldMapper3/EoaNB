@@ -82,7 +82,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_centrism_icon"
 				spriteType = "GFX_ideology_centrism_group"
-				position = { x = 34 y = 8 }
+				position = { x = 33 y = 8 }
 				alwaystransparent = yes
 				scale = 0.5
 			}
@@ -113,7 +113,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_conservatism_icon"
 				spriteType = "GFX_ideology_traditional_conservatism_group"
-				position = { x = 34 y = 58 }
+				position = { x = 33 y = 58 }
 				alwaystransparent = yes
 				scale = 0.5
 			}
@@ -144,7 +144,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_social_egalitarian_icon"
 				spriteType = "GFX_ideology_social_egalitarianism_group"
-				position = { x = 34 y = 110 }
+				position = { x = 33 y = 110 }
 				alwaystransparent = yes
 				scale = 0.5
 			}
@@ -175,7 +175,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_autocracy_icon"
 				spriteType = "GFX_ideology_autocracy_group"
-				position = { x = 34 y = 150 }
+				position = { x = 33 y = 160 }
 				alwaystransparent = yes
 				scale = 0.5
 				frame = 1
@@ -207,9 +207,9 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_collectivist_socialism_icon"
 				spriteType = "GFX_ideology_collectivist_socialism_group"
-				position = { x = 34 y = 210 }
+				position = { x = 33 y = 210 }
 				alwaystransparent = yes
-				scale = 1.5
+				scale = 0.5
 				frame = 0.5
 			}
 			
@@ -238,7 +238,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_vanguard_communism_icon"
 				spriteType = "GFX_ideology_vanguard_communism_group"
-				position = { x = 34 y = 260 }
+				position = { x = 33 y = 260 }
 				alwaystransparent = yes
 				scale = 0.5
 				frame = 1
@@ -270,7 +270,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_anarchism_icon"
 				spriteType = "GFX_ideology_anarchism_group"
-				position = { x = 34 y = 310 }
+				position = { x = 33 y = 310 }
 				alwaystransparent = yes
 				scale = 0.5
 				frame = 1
@@ -302,7 +302,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_radical_democracy_icon"
 				spriteType = "GFX_ideology_radical_democracy_group"
-				position = { x = 34 y = 360 }
+				position = { x = 33 y = 360 }
 				alwaystransparent = yes
 				scale = 0.5
 				frame = 1
@@ -334,7 +334,7 @@ guiTypes = {
 			iconType = {
 				name = "local_pol_pop_b_fundamentalism_icon"
 				spriteType = "GFX_ideology_fundamentalism_group"
-				position = { x = 34 y = 410 }
+				position = { x = 33 y = 410 }
 				alwaystransparent = yes
 				scale = 0.5
 				frame = 1
@@ -365,8 +365,8 @@ guiTypes = {
 			###Button icon, change "scale", "position" and "spriteType" values accordingly###
 			iconType = {
 				name = "local_pol_pop_b_chauvinism_icon"
-				spriteType = "GFX_ideology_chauvinist_nationalism_group"
-				position = { x = 34 y = 460 }
+				spriteType = "GFX_ideology_chauvinist_populism_group"
+				position = { x = 33 y = 460 }
 				alwaystransparent = yes
 				scale = 0.5
 				frame = 1

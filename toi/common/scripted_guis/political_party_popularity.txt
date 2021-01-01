@@ -74,8 +74,11 @@ scripted_gui = {
 			local_pol_pop_b_radical_democracy_click = {
 				set_variable = { local_pol_pop_index = 7 }
 			}
-			local_pol_pop_b_chauvinism_click = {
+			local_pol_pop_b_fundamentalism_click = {
 				set_variable = { local_pol_pop_index = 8 }
+			}
+			local_pol_pop_b_chauvinism_click = {
+				set_variable = { local_pol_pop_index = 9 }
 			}
 		}
 	}
