@@ -405,21 +405,21 @@ guiTypes = {
 			}
 		
 			instantTextBoxType = {
-				name = "local_ingame_wiki_text_title"
+				name = "local_pol_pop_text_title"
 				position = { x=0 y=8 }
 				font = "hoi_24header"
-				text = "[WIKI_TEXT_TITLE]"
+				text = "[POL_POP_TEXT_TITLE]"
 				format = left
 				maxWidth = 480
 				#maxHeight = 50
 				#fixedsize = yes
 			}
-			
+			###Will need redone when PIE CHARTS are in
 			instantTextBoxType = {
-				name = "local_ingame_wiki_text"
+				name = "local_pol_pop_text"
 				position = { x=0 y=50 }
 				font = "hoi_18mbs"
-				text = "[WIKI_TEXT]"
+				text = "[POL_POP_TEXT]"
 				format = left
 				maxWidth = 480
 				#maxHeight = 1000

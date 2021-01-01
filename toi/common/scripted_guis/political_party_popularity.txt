@@ -54,37 +54,28 @@ scripted_gui = {
 				set_variable = { local_pol_pop_index = 1 }
 		}
 			
-			local_ingame_wiki_b_col_click = {
+		local_pol_pop_b_social_egalitarian_click = {
 				set_variable = { local_pol_pop_index = 2 }
 			}
 			
-			local_ingame_wiki_b_eras_click = {
+			local_pol_pop_b_autocracy_click = {
 				set_variable = { local_pol_pop_index = 3 }
 			}
 			
-			local_ingame_wiki_b_mhc_click = {
+			local_pol_pop_b_collectivist_socialism_click = {
 				set_variable = { local_pol_pop_index = 4 }
 			}
-			local_ingame_wiki_b_mhc_click = {
+			local_pol_pop_b_vanguard_communism_click = {
 				set_variable = { local_pol_pop_index = 5 }
 			}
-			local_ingame_wiki_b_mhc_click = {
+			local_pol_pop_b_anarchism_click = {
 				set_variable = { local_pol_pop_index = 6 }
 			}
-			local_ingame_wiki_b_mhc_click = {
+			local_pol_pop_b_radical_democracy_click = {
 				set_variable = { local_pol_pop_index = 7 }
 			}
-			local_ingame_wiki_b_mhc_click = {
+			local_pol_pop_b_chauvinism_click = {
 				set_variable = { local_pol_pop_index = 8 }
-			}
-			local_ingame_wiki_b_mhc_click = {
-				set_variable = { local_pol_pop_index = 9 }
-			}
-			local_ingame_wiki_b_mhc_click = {
-				set_variable = { local_pol_pop_index = 10 }
-			}
-			local_ingame_wiki_b_mhc_click = {
-				set_variable = { local_pol_pop_index = 11 }
 			}
 		}
 	}
