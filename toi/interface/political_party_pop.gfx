@@ -1,0 +1,6 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_pol_pop_bg"
+		texturefile = "gfx/interface/political_party_popularity/pol_pop_bg.dds"
+	}
+}
