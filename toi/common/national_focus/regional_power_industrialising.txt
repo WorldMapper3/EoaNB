@@ -44,7 +44,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_has_company
@@ -53,26 +52,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -80,15 +68,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_no_company
@@ -116,12 +97,12 @@ focus_tree = {
 				}
 			}
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 9 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -135,17 +116,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 10 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_10_investment_debt_tooltip
 				add_to_variable = {
@@ -171,7 +148,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_has_company
@@ -180,26 +156,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -207,15 +172,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_no_company
@@ -233,12 +191,12 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { clr_country_flag = afr_prosperity_mechanic_dont_select_flag }
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 19 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -252,17 +210,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 20 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_20_investment_debt_tooltip
 				add_to_variable = {
@@ -318,7 +272,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_has_company
@@ -327,26 +280,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -354,15 +296,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_no_company
@@ -380,12 +315,12 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { clr_country_flag = afr_prosperity_mechanic_dont_select_flag }
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 19 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -399,17 +334,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 20 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_20_investment_debt_tooltip
 				add_to_variable = {
@@ -464,7 +395,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_has_company
@@ -473,26 +403,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -500,15 +419,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_20_no_company
@@ -526,12 +438,12 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { clr_country_flag = afr_prosperity_mechanic_dont_select_flag }
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 19 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -545,17 +457,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 20 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_20_investment_debt_tooltip
 				add_to_variable = {
@@ -880,7 +788,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_40_has_company
@@ -889,26 +796,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_40_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -916,15 +812,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_40_no_company
@@ -947,12 +836,12 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { clr_country_flag = afr_prosperity_mechanic_dont_select_flag }
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 39 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -966,17 +855,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 40 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_40_investment_debt_tooltip
 				add_to_variable = {
@@ -1125,7 +1010,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_has_company
@@ -1134,26 +1018,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -1161,15 +1034,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_no_company
@@ -1188,12 +1054,12 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { clr_country_flag = afr_prosperity_mechanic_dont_select_flag }
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 9 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -1207,17 +1073,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 10 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_10_investment_debt_tooltip
 				add_to_variable = {
@@ -1797,123 +1659,6 @@ focus_tree = {
 					naval_base > 0
 				}
 			}
-			if = {
-				limit = { all_owned_state = { naval_base < 1 } }
-				if = {
-					limit = { 
-						has_country_flag = afr_rrp_company_port
-						has_variable = has_afr_empire_mechanic_system
-					}
-					custom_trigger_tooltip = {
-						tooltip = afr_prosperity_mechanic_greater_than_50_has_company
-						has_country_flag = afr_rrp_company_port
-					}
-				}
-				if = {
-					limit = { 
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-							has_variable = has_afr_empire_mechanic_system
-						}
-						else_if = {
-							limit = { TAG = ZAN }	
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-							has_variable = has_afr_empire_mechanic_system
-						}
-						else = { always = no }
-					}
-					custom_trigger_tooltip = {
-						tooltip = afr_prosperity_mechanic_greater_than_50_has_oman
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = {
-							limit = { TAG = ZAN }	
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-					}
-				}
-				if = {
-					limit = { 
-						NOT = { has_country_flag = afr_rrp_company_port } 
-						has_variable = has_afr_empire_mechanic_system
-						if = {
-							limit = { TAG = MOM }
-							OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-						}
-						else_if = {
-							limit = { TAG = ZAN }	
-							OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-						}
-					}
-					custom_trigger_tooltip = {
-						tooltip = afr_prosperity_mechanic_greater_than_50_no_company
-						check_variable = {
-							afr_prosperity_mechanic_value > 49
-						}
-					}
-				}
-			}
-			else = {
-				if = {
-					limit = { 
-						has_country_flag = afr_rrp_company_port
-						has_variable = has_afr_empire_mechanic_system
-					}
-					custom_trigger_tooltip = {
-						tooltip = afr_prosperity_mechanic_greater_than_30_has_company
-						has_country_flag = afr_rrp_company_port
-					}
-				}
-				if = {
-					limit = { 
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-							has_variable = has_afr_empire_mechanic_system
-						}
-						else_if = {
-							limit = { TAG = ZAN }	
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-							has_variable = has_afr_empire_mechanic_system
-						}
-						else = { always = no }
-					}
-					custom_trigger_tooltip = {
-						tooltip = afr_prosperity_mechanic_greater_than_30_has_oman
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = {
-							limit = { TAG = ZAN }	
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-					}
-				}
-				if = {
-					limit = { 
-						NOT = { has_country_flag = afr_rrp_company_port } 
-						has_variable = has_afr_empire_mechanic_system
-						if = {
-							limit = { TAG = MOM }
-							OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-						}
-						else_if = {
-							limit = { TAG = ZAN }	
-							OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-						}
-					}
-					custom_trigger_tooltip = {
-						tooltip = afr_prosperity_mechanic_greater_than_30_no_company
-						check_variable = {
-							afr_prosperity_mechanic_value > 29
-						}
-					}
-				}
-			}
 		}
 		completion_reward={
 			if = {
@@ -1922,6 +1667,7 @@ focus_tree = {
 					all_owned_state = { NOT = { has_state_flag = afr_port_town } }
 					capital_scope = { is_coastal = no }
 				}
+				add_political_power = -250
 				random_owned_controlled_state = {
 					limit = {
 						Oceania_infrastructure_for_extra_building_slots_trigger = yes
@@ -1944,49 +1690,12 @@ focus_tree = {
 					}
 					add_manpower = 1853
 				}
-				if = {
-					limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-					debt_level_increase_by_2 = yes
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						OR = {
-							check_variable = { afr_prosperity_mechanic_value > 50 }
-							NOT = { has_country_flag = afr_rrp_company_port }
-						}
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						check_variable = { afr_prosperity_mechanic_value < 51 }
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = { 
-							limit = { TAG = ZAN }
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-						else = { has_country_flag = afr_rrp_company_port }
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_debt_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
 			}
 			else_if = {
 				limit = {
 					any_owned_state = { has_state_flag = afr_port_town }
 				}
+				add_political_power = -100
 				random_owned_controlled_state = {
 					limit = {
 						has_state_flag = afr_port_town
@@ -2002,50 +1711,13 @@ focus_tree = {
 					}
 					add_manpower = 1853
 				}
-				if = {
-					limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-					debt_level_increase_by_1 = yes
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						OR = {
-							check_variable = { afr_prosperity_mechanic_value > 30 }
-							NOT = { has_country_flag = afr_rrp_company_port }
-						}
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_30_investment_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						check_variable = { afr_prosperity_mechanic_value < 31 }
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = { 
-							limit = { TAG = ZAN }
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-						else = { has_country_flag = afr_rrp_company_port }
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_30_investment_debt_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -30
-					}
-				}
 			}
 			else_if = {
 				limit = {
 					all_owned_state = { NOT = { has_state_flag = afr_port_town } }
 					capital_scope = { is_coastal = yes naval_base < 1 }
 				}
+				add_political_power = -250
 				random_owned_state = {
 					limit = {
 						is_coastal = yes
@@ -2063,50 +1735,13 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-				if = {
-					limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-					debt_level_increase_by_2 = yes
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						OR = {
-							check_variable = { afr_prosperity_mechanic_value > 50 }
-							NOT = { has_country_flag = afr_rrp_company_port }
-						}
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						check_variable = { afr_prosperity_mechanic_value < 51 }
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = { 
-							limit = { TAG = ZAN }
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-						else = { has_country_flag = afr_rrp_company_port }
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_debt_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
 			}
 			else_if = {
 				limit = {
 					all_owned_state = { NOT = { has_state_flag = afr_port_town } }
 					capital_scope = { is_coastal = yes naval_base > 0 }
 				}
+				add_political_power = -100
 				random_owned_state = {
 					limit = {
 						is_coastal = yes
@@ -2119,46 +1754,9 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-				if = {
-					limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-					debt_level_increase_by_1 = yes
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						OR = {
-							check_variable = { afr_prosperity_mechanic_value > 30 }
-							NOT = { has_country_flag = afr_rrp_company_port }
-						}
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_30_investment_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						check_variable = { afr_prosperity_mechanic_value < 31 }
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = { 
-							limit = { TAG = ZAN }
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-						else = { has_country_flag = afr_rrp_company_port }
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_30_investment_debt_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -30
-					}
-				}
 			}
 			else = {
+				add_political_power = -100
 				random_owned_controlled_state = {
 					limit = {
 						naval_base > 0
@@ -2175,44 +1773,6 @@ focus_tree = {
 						add_core_of = ROOT
 					}
 					add_manpower = 1853
-				}
-				if = {
-					limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-					debt_level_increase_by_1 = yes
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						OR = {
-							check_variable = { afr_prosperity_mechanic_value > 30 }
-							NOT = { has_country_flag = afr_rrp_company_port }
-						}
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_30_investment_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -50
-					}
-				}
-				if = {
-					limit = { 
-						has_variable = has_afr_empire_mechanic_system 
-						check_variable = { afr_prosperity_mechanic_value < 31 }
-						if = {
-							limit = { TAG = MOM }
-							OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						}
-						else_if = { 
-							limit = { TAG = ZAN }
-							OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						}
-						else = { has_country_flag = afr_rrp_company_port }
-					}
-					custom_effect_tooltip = afr_prosperity_mechanic_minus_30_investment_debt_tooltip
-					add_to_variable = {
-						var = afr_prosperity_mechanic_value
-						value = -30
-					}
 				}
 			}
 			add_equipment_to_stockpile = { type = convoy_1 amount = 14 }
@@ -2245,166 +1805,23 @@ focus_tree = {
 			focus = afr_build_a_port
 		}
 		available = {
-			any_owned_state = {
-				custom_trigger_tooltip = {
-					tooltip = Ocenaia_has_infrastructure_to_support_new_buildings_on_coast
-					Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-				}
-				is_coastal = yes
-				free_building_slots = { 
-					building = dockyard
-					size > 0 
-					include_locked = yes 
-				}
-			}
-			if = {
-				limit = { 
-					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
-				}
-				custom_trigger_tooltip = {
-					tooltip = afr_prosperity_mechanic_greater_than_50_has_company
-					has_country_flag = afr_rrp_company_port
-				}
-			}
-			if = {
-				limit = { 
-					if = {
-						limit = { TAG = MOM }
-						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else = { always = no }
-				}
-				custom_trigger_tooltip = {
-					tooltip = afr_prosperity_mechanic_greater_than_50_has_oman
-					if = {
-						limit = { TAG = MOM }
-						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-					}
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = afr_prosperity_mechanic_greater_than_50_no_company
-					check_variable = {
-						afr_prosperity_mechanic_value > 49
-					}
-				}
-			}
+			any_owned_state = { is_coastal = yes }
 		}
 		completion_reward = {
-			if = {
+			random_owned_controlled_state = {
 				limit = {
-					any_owned_state = { 
-						Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-						has_state_flag = afr_port_town
-						is_coastal = yes
-						free_building_slots = { 
-							building = dockyard
-							size > 0 
-							include_locked = yes 
-						}
+					is_coastal = yes
+					free_building_slots = { 
+						building = dockyard
+						size > 0 
+						include_locked = yes 
 					}
 				}
-				random_owned_controlled_state = {
-					limit = {
-						Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-						has_state_flag = afr_port_town
-						is_coastal = yes
-						free_building_slots = { 
-							building = dockyard
-							size > 0 
-							include_locked = yes 
-						}
-					}
-					hidden_effect = { add_to_variable = { Oceania_extra_state_shared_building_slots = 1 } }
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			else = {
-				random_owned_controlled_state = {
-					limit = {
-						is_core_of = ROOT
-						Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-						is_coastal = yes
-						free_building_slots = { 
-							building = dockyard
-							size > 0 
-							include_locked = yes 
-						}
-					}
-					hidden_effect = { add_to_variable = { Oceania_extra_state_shared_building_slots = 1 } }
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-				debt_level_increase_by_2 = yes
-			}
-			if = {
-				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
-					OR = {
-						check_variable = { afr_prosperity_mechanic_value > 50 }
-						NOT = { has_country_flag = afr_rrp_company_port }
-					}
-				}
-				custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_tooltip
-				add_to_variable = {
-					var = afr_prosperity_mechanic_value
-					value = -50
-				}
-			}
-			if = {
-				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
-					check_variable = { afr_prosperity_mechanic_value < 51 }
-					if = {
-						limit = { TAG = MOM }
-						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
-						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-					}
-					else = { has_country_flag = afr_rrp_company_port }
-				}
-				custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_debt_tooltip
-				add_to_variable = {
-					var = afr_prosperity_mechanic_value
-					value = -50
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
 				}
 			}
 			custom_effect_tooltip = EDC_afr.3.t
@@ -2427,166 +1844,23 @@ focus_tree = {
 			focus = afr_reforming_regional_power_regional_industry_completed
 		}
 		available = {
-			any_owned_state = {
-				custom_trigger_tooltip = {
-					tooltip = Ocenaia_has_infrastructure_to_support_new_buildings_on_coast
-					Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-				}
-				is_coastal = yes
-				free_building_slots = { 
-					building = dockyard
-					size > 0 
-					include_locked = yes 
-				}
-			}
-			if = {
-				limit = { 
-					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
-				}
-				custom_trigger_tooltip = {
-					tooltip = afr_prosperity_mechanic_greater_than_50_has_company
-					has_country_flag = afr_rrp_company_port
-				}
-			}
-			if = {
-				limit = { 
-					if = {
-						limit = { TAG = MOM }
-						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else = { always = no }
-				}
-				custom_trigger_tooltip = {
-					tooltip = afr_prosperity_mechanic_greater_than_50_has_oman
-					if = {
-						limit = { TAG = MOM }
-						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-					}
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = afr_prosperity_mechanic_greater_than_50_no_company
-					check_variable = {
-						afr_prosperity_mechanic_value > 49
-					}
-				}
-			}
+			any_owned_state = { is_coastal = yes }
 		}
 		completion_reward = {
-			if = {
+			random_owned_controlled_state = {
 				limit = {
-					any_owned_state = { 
-						Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-						has_state_flag = afr_port_town
-						is_coastal = yes
-						free_building_slots = { 
-							building = dockyard
-							size > 0 
-							include_locked = yes 
-						}
+					is_coastal = yes
+					free_building_slots = { 
+						building = dockyard
+						size > 0 
+						include_locked = yes 
 					}
 				}
-				random_owned_controlled_state = {
-					limit = {
-						Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-						has_state_flag = afr_port_town
-						is_coastal = yes
-						free_building_slots = { 
-							building = dockyard
-							size > 0 
-							include_locked = yes 
-						}
-					}
-					hidden_effect = { add_to_variable = { Oceania_extra_state_shared_building_slots = 1 } }
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			else = {
-				random_owned_controlled_state = {
-					limit = {
-						is_core_of = ROOT
-						Oceania_one_extra_building_slots_supported_for_coast_not_core_trigger = yes
-						is_coastal = yes
-						free_building_slots = { 
-							building = dockyard
-							size > 0 
-							include_locked = yes 
-						}
-					}
-					hidden_effect = { add_to_variable = { Oceania_extra_state_shared_building_slots = 1 } }
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
-				debt_level_increase_by_2 = yes
-			}
-			if = {
-				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
-					OR = {
-						check_variable = { afr_prosperity_mechanic_value > 50 }
-						NOT = { has_country_flag = afr_rrp_company_port }
-					}
-				}
-				custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_tooltip
-				add_to_variable = {
-					var = afr_prosperity_mechanic_value
-					value = -50
-				}
-			}
-			if = {
-				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
-					check_variable = { afr_prosperity_mechanic_value < 51 }
-					if = {
-						limit = { TAG = MOM }
-						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
-						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-					}
-					else = { has_country_flag = afr_rrp_company_port }
-				}
-				custom_effect_tooltip = afr_prosperity_mechanic_minus_50_investment_debt_tooltip
-				add_to_variable = {
-					var = afr_prosperity_mechanic_value
-					value = -50
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
 				}
 			}
 			custom_effect_tooltip = EDC_afr.3.t
@@ -2614,24 +1888,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_buy_cannons_from_europeans_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -2639,26 +1904,14 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_buy_cannons_from_europeans_no_company
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 			}
 		}
@@ -2686,12 +1939,12 @@ focus_tree = {
 			#	country_event = { id = EDC_afr.10 hours = 16 } 
 			#}
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 9 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -2705,17 +1958,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 10 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_buy_cannons_from_europeans_debt_tooltip
 				add_to_variable = {
@@ -2835,7 +2084,6 @@ focus_tree = {
 			if = {
 				limit = { 
 					has_country_flag = afr_rrp_company_port
-					has_variable = has_afr_empire_mechanic_system
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_has_company
@@ -2844,26 +2092,15 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
-						has_variable = has_afr_empire_mechanic_system
 					}
-					else = { always = no }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_has_oman
-					if = {
-						limit = { TAG = MOM }
+					OR = {
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
 				}
@@ -2871,15 +2108,8 @@ focus_tree = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = afr_rrp_company_port } 
-					has_variable = has_afr_empire_mechanic_system
-					if = {
-						limit = { TAG = MOM }
-						OMA = { NOT = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
-					}
-					else_if = {
-						limit = { TAG = ZAN }	
-						OMA = { NOT = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
-					}
+					NOT = { OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag } }
+					NOT = { OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = afr_prosperity_mechanic_greater_than_10_no_company
@@ -2898,12 +2128,12 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { clr_country_flag = afr_prosperity_mechanic_dont_select_flag }
 			if = {
-				limit = { NOT = { has_variable = has_afr_empire_mechanic_system } }
+				limit = { afr_is_tribal = no }
 				debt_level_increase_by_1 = yes
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					OR = {
 						check_variable = { afr_prosperity_mechanic_value > 9 }
 						NOT = { has_country_flag = afr_rrp_company_port }
@@ -2917,17 +2147,13 @@ focus_tree = {
 			}
 			if = {
 				limit = { 
-					has_variable = has_afr_empire_mechanic_system 
+					afr_is_tribal = yes 
 					check_variable = { afr_prosperity_mechanic_value < 10 }
-					if = {
-						limit = { TAG = MOM }
+					OR = {
+						has_country_flag = afr_rrp_company_port
 						OMA = { has_country_flag = oma_vic_MOM_industrialisation_flag }
-					}
-					else_if = { 
-						limit = { TAG = ZAN }
 						OMA = { has_country_flag = oma_vic_ZAN_industrialisation_flag }
 					}
-					else = { has_country_flag = afr_rrp_company_port }
 				}
 				custom_effect_tooltip = afr_prosperity_mechanic_minus_10_investment_debt_tooltip
 				add_to_variable = {
