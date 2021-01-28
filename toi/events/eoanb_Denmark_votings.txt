@@ -57,7 +57,7 @@ country_event = { # Vote on the reform
 
   immediate = {
     hidden_effect = {
-      calculate_vote_result = yes
+      hold_vote = yes
     }
   }
 
@@ -193,7 +193,7 @@ country_event = { # Vote on the reform
 
   immediate = {
     hidden_effect = {
-      calculate_vote_result = yes
+      hold_vote = yes
     }
   }
 
@@ -331,7 +331,7 @@ country_event = { # Vote on the reform
 
   immediate = {
     hidden_effect = {
-      calculate_vote_result = yes
+      hold_vote = yes
     }
   }
 

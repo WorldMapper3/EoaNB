@@ -786,7 +786,7 @@ compute_voting_approval = {
 	}
 }
 
-calculate_vote_result = {
+hold_vote = {
 	set_variable = { yay_votes = 0 }
 	set_variable = { nay_votes = 0 }
 

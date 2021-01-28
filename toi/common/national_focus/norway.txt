@@ -282,6 +282,7 @@ focus_tree = {
 		y = 0
 		cost = 14
 		icon = GFX_goal_SWE_we_need_a_leader
+		mutually_exclusive = { focus = NOR_focus_vogt_resign }
 
 		available = {
 			custom_trigger_tooltip = {
@@ -314,7 +315,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 30
 			country_event = { id = norwegian_votes.0 days = 1 }
 		}
 	}
@@ -338,7 +338,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 50
+			add_political_power = 100
 		}
 	}
 
@@ -361,7 +361,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = -10
+			add_political_power = 100
 		}
 	}
 
@@ -375,6 +375,7 @@ focus_tree = {
 		prerequisite = { focus = NOR_focus_vogt_vote_success focus = NOR_focus_vogt_vote_fail }
 
 		completion_reward = {
+			add_political_power = 100
 		}
 	}
 
@@ -463,7 +464,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 50
-			hidden_effect = {
+			hidden_trigger = {
 				set_politics = {
 					election_frequency = 36
 					elections_allowed = yes
