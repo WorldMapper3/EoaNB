@@ -13,9 +13,6 @@ state={
 	history={
 		buildings = {
 		    infrastructure = 1 
-			7658 = {
-				naval_base = 1
-			}
 		}
 		owner = ACE
 		add_core_of = ACE

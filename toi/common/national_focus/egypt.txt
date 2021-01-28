@@ -206,7 +206,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -256,7 +259,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_3 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_3
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 3}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -604,7 +610,10 @@ focus_tree = {
 
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			ETH = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -674,7 +683,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			add_ideas = {
 				egy_vic_postal_service
 			}
@@ -746,7 +758,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_2 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_2
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 2}
+			}
 			add_tech_bonus = {
 				bonus = 0.25
 				uses = 10
@@ -771,7 +786,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			if={
 				limit={has_idea = privileged_education}
 				swap_ideas={
@@ -993,7 +1011,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			446 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -1500,7 +1521,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			447={
 				add_building_construction = {
 					type = infrastructure
@@ -1557,7 +1581,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			add_ideas = { AF_T_small_scale_railways }
 			446={
 				add_building_construction = {
@@ -1589,7 +1616,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_2 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_2
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 2}
+			}
 			swap_ideas = {
 				add_idea = AF_T_small_scale_railways_2
 				remove_idea = AF_T_small_scale_railways
@@ -1638,7 +1668,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_2 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_2
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 2}
+			}
 			swap_ideas = {
 				add_idea = AF_T_medium_scale_railways
 				remove_idea = AF_T_small_scale_railways_2
@@ -1673,7 +1706,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1716,7 +1752,10 @@ focus_tree = {
 			factor = 0
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1759,7 +1798,10 @@ focus_tree = {
 			factor = 0
 		}
 		completion_reward = {
-			debt_level_increase_by_5 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_5
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 5}
+			}
 			446 = {
 				add_building_construction = {
 					type = fabric_weavery
@@ -1788,7 +1830,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1835,7 +1880,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_2 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_2
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 2}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1912,7 +1960,10 @@ focus_tree = {
 			factor = 0
 		}
 		completion_reward = {
-			debt_level_increase_by_10 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_10
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 10}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -2040,7 +2091,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			if = {
 				limit = {
 					NOT = {has_tech = electrical_telegraph}
@@ -2067,7 +2121,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			swap_ideas = {
 				add_idea = afr_simple_telegraph_network_2
 				remove_idea = afr_simple_telegraph_network
@@ -2091,7 +2148,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			447={
 				add_extra_state_shared_building_slots = 2
 			}
@@ -2115,7 +2175,10 @@ focus_tree = {
 			has_global_flag = SUEZ_CANAL_BUILT
 		}
 		completion_reward = {
-			debt_level_increase_by_1 = yes
+			custom_effect_tooltip = EGY_afr_increase_debt_1
+			hidden_effect = {
+				add_to_variable = {var = debt_level value = 1}
+			}
 			749={
 				add_building_construction = {
 					type = naval_base

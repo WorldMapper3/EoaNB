@@ -11,14 +11,15 @@ state={
 		13767 13766 13768 12302 7463 1277 12168 10209 10225 12184
 	}
 	history={
-		owner = INS
+		owner = ACE
 		buildings = {
 			infrastructure = 1
 			12184 = {
 				naval_base = 1
 			}
 		}
-		add_claim_by = ACE
+		add_core_of = ACE
+		add_claim_by = INS
 		afr_state_setup_scripted_effect = yes
 	}
 }
