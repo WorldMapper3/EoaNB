@@ -5960,7 +5960,7 @@ country_event = { # First Legislative Election of the Republic
 			create_country_leader = {
 				name = "Jules Dufaure"
 				picture = ""
-				ideology = liberal_social
+				ideology = centrism
 			}
 			create_country_leader = {
 				name = "Léon Gambetta"
