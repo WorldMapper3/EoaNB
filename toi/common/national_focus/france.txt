@@ -2866,7 +2866,7 @@ focus_tree = {
 							country_exists = PAP
 						}
 					}
-					ITA_Division_of_italy_variable = yes
+					add_to_variable = { var = UCT.ITA_FRA_Divide_Italy_Variable value = 1 }
 				}
 				else = {
 				PAP = {
@@ -2941,7 +2941,7 @@ focus_tree = {
 						country_exists = NSC
 					}
 				}
-				ITA_Division_of_italy_variable = yes
+				add_to_variable = { var = UCT.ITA_FRA_Divide_Italy_Variable value = 1 }
 			}
 			if = {
 				limit = {
@@ -2949,7 +2949,7 @@ focus_tree = {
 						country_exists = MOD
 					}
 				}
-				ITA_Division_of_italy_variable = yes
+				add_to_variable = { var = UCT.ITA_FRA_Divide_Italy_Variable value = 1 }
 			}
 			if = {
 				limit = {
@@ -2957,7 +2957,7 @@ focus_tree = {
 						country_exists = PRM
 					}
 				}
-				ITA_Division_of_italy_variable = yes
+				add_to_variable = { var = UCT.ITA_FRA_Divide_Italy_Variable value = 1 }
 			}
 			if = {
 				limit = {
@@ -2965,7 +2965,7 @@ focus_tree = {
 						country_exists = TUS
 					}
 				}
-				ITA_Division_of_italy_variable = yes
+				add_to_variable = { var = UCT.ITA_FRA_Divide_Italy_Variable value = 1 }
 			}
 			if = {
 				limit = {
@@ -2973,7 +2973,7 @@ focus_tree = {
 						country_exists = PIE
 					}
 				}
-				ITA_Division_of_italy_variable = yes
+				add_to_variable = { var = UCT.ITA_FRA_Divide_Italy_Variable value = 1 }
 			}
 			
 
