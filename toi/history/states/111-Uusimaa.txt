@@ -7,7 +7,7 @@ state={
 	state_category = city
 
 	resources = {
-		wood = 21
+		wood = 31
 		chromium = 2
 		iron = 26
 		fabric = 2
