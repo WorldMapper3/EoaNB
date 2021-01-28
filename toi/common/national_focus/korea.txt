@@ -1720,9 +1720,8 @@ focus = {
 
 
 		completion_reward = {
-		##country_event = 
-		#event detailing relationship with the Eastern Nations
-		#non-agression with Qing
+		add_stability = 0.1
+		#west opinion -30
 		}
 	}
 	focus = {
@@ -1735,13 +1734,6 @@ focus = {
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GENERIC_Triggered_By_Event_tt
-				always = no 
-			}
-		}
-		
 
 	
 
@@ -1764,12 +1756,7 @@ focus = {
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GENERIC_Triggered_By_Event_tt
-				always = no 
-			}
-		}
+
 	
 
 
@@ -1835,12 +1822,6 @@ focus = {
 		available_if_capitulated = no
 		ai_will_do = {
 			factor = 1
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GENERIC_Triggered_By_Event_tt
-				always = no 
-			}
 		}
 
 		
@@ -2017,12 +1998,7 @@ focus = {
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GENERIC_Triggered_By_Event_tt
-				always = no 
-			}
-		}
+
 		
 
 		prerequisite = { focus = KOR_defendvalues }
@@ -2047,12 +2023,6 @@ focus = {
 		available_if_capitulated = no
 		ai_will_do = {
 			factor = 1
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GENERIC_Triggered_By_Event_tt
-				always = no 
-			}
 		}
 
 		prerequisite = { focus = KOR_unlikelyalliance }
