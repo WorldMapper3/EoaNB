@@ -249,7 +249,7 @@ focus = {
 
 	focus = {
 		id = KOR_deforestation
-		icon = GFX_focus_deforestation
+		icon = GFX_goal_focus_deforestation
 		x = 28
 		y = 2
 		cost = 70
@@ -747,7 +747,7 @@ focus = {
 
 		completion_reward = {
 		add_stability = .05
-		
+
 		}
 	}
 
@@ -790,9 +790,7 @@ focus = {
 		prerequisite = { focus = KOR_newfollowers }
 
 		completion_reward = {
-		country_event = {
-			id = korea.7
-		}
+		
 		#gain donghak popular movement
 		}
 	}
@@ -811,9 +809,7 @@ focus = {
 		prerequisite = { focus = KOR_spreaddong }
 
 		completion_reward = {
-		country_event = {
-			id = korea.8
-		}
+		add_political_power = -100
 		#gets event peasant demands
 		}
 	}
@@ -892,11 +888,11 @@ focus = {
 		prerequisite = { focus = KOR_traditionszhu }
 
 		completion_reward = {
-			custom_effect_tooltip = KOR_anger_the_andong_tt
-		add_to_variable = {
-			var = andong_kim_power
-			value = -5
-		}
+			add_to_variable = {
+				var = andong_kim_power
+				value = 5
+			}
+			custom_effect_tooltip = KOR_appease_the_andong_tt
 		}
 	}
 
@@ -914,8 +910,8 @@ focus = {
 		prerequisite = { focus = KOR_supportsilhak }
 
 		completion_reward = {
-		add_political_power = 75
-		add_stability = 0.05
+		add_political_power = -75
+		add_stability = -0.05
 		}
 	}
 
@@ -934,7 +930,11 @@ focus = {
 
 		completion_reward = {
 		add_political_power = 100
-		#country_evet
+		add_tech_bonus = {
+   		 bonus = 0.5
+    	 uses = 2
+    	 category = science_tech
+		}
 
 		}
 	}
@@ -964,7 +964,7 @@ focus = {
 
 	focus = {
 		id = KOR_practicallearning
-		icon = GFX_goal_generic_forceful_treaty
+		icon = GFX_focus_generic_industry_2
 		x = 9
 		y = 5
 		cost = 70
@@ -1030,7 +1030,7 @@ focus = {
 
 	focus = {
 		id = KOR_invitejesuit
-		icon = GFX_Focus_State_of_the_People
+		icon = GFX_goal_focus_christianity_state_religion
 		x = 12
 		y = 4
 		cost = 70
@@ -1046,8 +1046,12 @@ focus = {
 		prerequisite = { focus = KOR_asianenlightenment focus = KOR_metaphysicalstudies }
 
 		completion_reward = {
-		country_event = {
-			id = korea.9
+		add_political_power = -30
+		add_stability = -0.03
+		add_tech_bonus = {
+   		 bonus = 0.5
+    	 uses = 1
+    	 category = science_tech
 		}
 		}
 	}
@@ -1121,11 +1125,7 @@ focus = {
 		prerequisite = { focus = KOR_traditionszhu }
 
 		completion_reward = {
-			add_to_variable = {
-				var = andong_kim_power
-				value = 5
-			}
-			custom_effect_tooltip = KOR_appease_the_andong_tt
+		add_political_power = 100
 		#gains neo confucianism
 		}
 	}
@@ -1176,7 +1176,7 @@ focus = {
 	}
 	focus = {
 		id = KOR_antiwesternview
-		icon = GFX_Focus_anti_western
+		icon = GFX_focus_metaphysicalis_2
 		x = 14
 		y = 4
 		cost = 70
@@ -1189,7 +1189,11 @@ focus = {
 		completion_reward = {
 		add_political_power = 20
 		add_stability = 0.02
-		##country_event
+		add_tech_bonus = {
+   		 bonus = 0.5
+    	 uses = 1
+    	 category = philosophy_religion_tech
+		}
 		}
 	}
 
@@ -1591,7 +1595,7 @@ focus = {
 	}
 	focus = {
 		id = KOR_gangwhaincident
-		icon = GFX_Focus_Japanese_Attack
+		icon = GFX_focus_generic_support_the_left_right
 		x = 24
 		y = 12
 		cost = 70
@@ -1637,7 +1641,7 @@ focus = {
 
 	focus = {
 		id = KOR_defendvalues
-		icon = GFX_Focus_anti_western
+		icon = GFX_goal_focus_leave_continent_alone
 		x = 14
 		y = 11
 		cost = 70
