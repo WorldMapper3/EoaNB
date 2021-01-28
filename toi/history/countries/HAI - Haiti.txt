@@ -30,7 +30,7 @@
     segregation
     absolutism
 
-    limited_constitution
+    human_rights
     no_elections
 
     privileged_education
