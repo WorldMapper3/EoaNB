@@ -8,9 +8,6 @@ state={
 	history={
 		owner = SPR
 		victory_points = {
-			3918 1
-		}
-		victory_points = {
 			3725 1
 		}
 		victory_points = {
