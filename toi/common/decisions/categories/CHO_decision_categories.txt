@@ -1,11 +1,3 @@
-eoanb_category_choshu_economy_reform = {
-	icon = generic_construction
-
-	allowed = {
-		tag = CHO
-	}
-}
-
 eoanb_category_choshu_army_reforms = {
     allowed = { CHO }
 }
